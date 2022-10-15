@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d99d405b.css",
+    "main.js": "/static/js/main.a06a0f09.js",
+    "static/media/rahulFace.jpg": "/static/media/rahulFace.21adfa3b685c7034761e.jpg",
+    "static/media/cv.pdf": "/static/media/cv.f50d394794f3c4795793.pdf",
+    "index.html": "/index.html",
+    "main.d99d405b.css.map": "/static/css/main.d99d405b.css.map",
+    "main.a06a0f09.js.map": "/static/js/main.a06a0f09.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d99d405b.css",
+    "static/js/main.a06a0f09.js"
+  ]
+}
