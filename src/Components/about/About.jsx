@@ -6,7 +6,7 @@ import { FiUsers } from "react-icons/fi"
 import { VscFolderLibrary } from "react-icons/vsc"
 const About = () => {
   return (
-    <section id='about'>
+    <div id='about'>
       <h5>Get To Know</h5>
       <h2>About me</h2>
       <div className="container about_container">
@@ -37,7 +37,7 @@ const About = () => {
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 

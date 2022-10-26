@@ -2,6 +2,9 @@ header{
     height: 100vh;
     padding-top: 7rem;
     overflow: hidden;
+    /* width: auto; */
+    /* border: 1px solid green; */
+    /* height: 100vh; */
 }
 .header_container{
     text-align: center;
@@ -35,6 +38,8 @@ header{
 
 /* Me */
 .me{
+    /* border: 1px solid yellow; */
+    /* position: relative; */
     background:linear-gradient(var(--color-primary),transparent);
     width: 22rem;
     height: 30rem;
@@ -48,6 +53,13 @@ header{
     overflow: hidden;
     padding: 5rem 1.5rem 1.5rem 1.5rem;
 
+}
+.me img{
+    position: absolute;
+    top: -5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    /* width: 100%; */
 }
 
 /*    scroll down */
@@ -64,13 +76,17 @@ header{
 /* ===== media query for tabblet */
 @media screen and (max-width:1024px){
    header{
-        height: 68vh;
+    /* border: 1px solid purple; */
+        height: 60vh;
+        padding-top: 3rem;
     } 
 }
 /* ===== media query for mobile */
 @media screen and (max-width:600px){
     header{
          height: 100vh;
+         padding-top: 3rem;
+
      }
      .scroll_down,.header_socials{
         display: none;

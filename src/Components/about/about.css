@@ -1,33 +1,46 @@
-.about_container{
+#about {
+    padding-top: 7rem;
+}
+
+#about h2,
+#about h5 {
+    text-align: center;
+}
+
+.about_container {
     display: grid;
     grid-template-columns: 35% 50%;
     gap: 15%;
 }
-.about_me{
+
+.about_me {
     width: 100%;
     aspect-ratio: 1/1;
     border-radius: 2rem;
-    background: linear-gradient(45deg,transparent,var(--color-primary),transparent);
+    background: linear-gradient(45deg, transparent, var(--color-primary), transparent);
     display: grid;
     place-items: center;
 }
-.about_me-image{
+
+.about_me-image {
     border-radius: 2rem;
     overflow: hidden;
     transform: rotate(10deg);
     transition: var(--transition);
 }
-.about_me-image:hover{
+
+.about_me-image:hover {
     transform: rotate(0deg);
 }
 
-.about_cards{
+.about_cards {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 
 }
-.about_card{
+
+.about_card {
     background: var(--color-bg-variant);
     border: 1px solid transparent;
     padding: 2rem;
@@ -36,57 +49,76 @@
     transition: var(--transition);
     cursor: pointer;
 }
-.about_card:hover{
-background: transparent;
-border-bottom: var(--color-primary-variant);
+
+.about_card:hover {
+    background: transparent;
+    border-bottom: var(--color-primary-variant);
 
 }
-.about_icon{
+
+.about_icon {
     color: var(--color-primary);
     font-size: 1.4rem;
     margin-bottom: 1rem;
 }
-.about_card h5{
+
+.about_card h5 {
     font-size: .95rem;
 
 }
-.about_card small{
+
+.about_card small {
     font-size: .75rem;
     color: var(--color-light);
 }
-.about_content p{
+
+.about_content p {
     margin: 2rem 0 2.6rem;
     color: var(--color-light);
 }
 
 /* ===== media query for tabblet */
-@media screen and (max-width:1024px){
-  .about_container{
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .about_me{
-    width: 50%;
-    margin: 2rem auto 4rem;
-  }
-  .about_content p{
-    margin: 1rem 0 1.5rem;
-  }
- }
- /* ===== media query for mobile */
- @media screen and (max-width:600px){
-    .about_me{
+@media screen and (max-width:1024px) {
+    #about {
+        padding-top: 2rem;
+    }
+
+    .about_container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .about_me {
+        width: 50%;
+        margin: 2rem auto 4rem;
+    }
+
+    .about_content p {
+        margin: 1rem 0 1.5rem;
+    }
+}
+
+/* ===== media query for mobile */
+@media screen and (max-width:600px) {
+    #about {
+        padding-top: 2rem;
+    }
+
+    .about_me {
         width: 65%;
         margin: 0 auto 3rem;
     }
-    .about_cards{
+
+    .about_cards {
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
     }
-    .about_content{
+
+    .about_content {
         text-align: center;
     }
-    .about_content p{
-        margin: 1.5rem 0 ;
+
+    .about_content p {
+        margin: 1.5rem 0;
     }
- }
+}

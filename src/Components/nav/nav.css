@@ -1,4 +1,5 @@
 nav{
+    /* display: none; */
     background: rgba(0,0,0,.3);
     width: max-content;
     display: block;
@@ -12,6 +13,7 @@ nav{
     gap: 0.8rem;
     border-radius: 3rem;
     backdrop-filter: blur(15px);
+    visibility: hidden;
 
 }
 nav a{
@@ -31,7 +33,19 @@ nav a:hover{
 nav >a.active {
     background: var(--color-primary);
     color: var(--color-bg);
-    
 
-    /* background: var(); */
+}
+
+@media screen and (max-width:1024px){
+ 
+    nav{
+        visibility: visible;
+    }
+}
+
+/* ===== media queries for smaller divices */
+@media screen and (max-width:600px){
+    nav{
+        visibility: visible;
+    }
 }

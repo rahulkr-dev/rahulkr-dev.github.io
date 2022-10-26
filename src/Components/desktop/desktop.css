@@ -1,0 +1,61 @@
+.desktop{
+    background: rgba(0,0,0,.3);
+    width: 100vw;
+    display: block;
+    padding: .7rem 1.5rem;
+    z-index: 2;
+    position: fixed;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    /* bottom: 2rem; */
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+    /* border-radius: 3rem; */
+    backdrop-filter: blur(15px);
+    padding-right: 5rem;
+
+}
+.desktop a{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    background: transparent;
+    padding: .4rem .9rem;
+    border-radius: .4rem;
+    display: flex;
+    color: var(--color-light);
+    font-size: 1.1rem;
+    transition: var(--transition);
+    width: max-content;
+
+
+}
+.desktop a:hover{
+    background: rgba(0,0,0,.3);
+}
+
+.desktop >a.active {
+    /* width: max-content; */
+    /* display: inline-block; */
+    color: var(--color-primary);
+    /* padding: 0.75rem 1.2rem; */
+    border: 1px solid var(--color-primary);
+    transition: var(--transition);
+    /* border-radius: 0.4rem; */
+
+}
+
+
+@media screen and (max-width:1024px){
+    .desktop{
+        display: none;
+    }
+}
+
+/* ===== media queries for smaller divices */
+@media screen and (max-width:600px){
+    .desktop{
+        display: none;
+    }
+}
