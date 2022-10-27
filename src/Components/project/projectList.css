@@ -1,62 +1,85 @@
-.project-card{
+.project-card {
     display: grid;
     grid-template-columns: 55% 40%;
     gap: 1.5rem;
-    border: 1px solid var(--color-primary);
+    /* border: 1px solid var(--color-primary); */
     padding: 1rem;
     margin-bottom: 2.5rem;
+    background-color: #ebedeb;
+    box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
 }
-.project-img img{
+
+.project-img img {
     border: 1px solid black;
+    /* border-radius: 1rem; */
 }
-.project-desc-content{
+
+.project-desc-content {
     font-size: 13px;
 }
-.project-tech-stack{
+
+.project-tech-stack {
     padding: 1rem 0;
     display: flex;
     gap: 1rem;
 }
-.project-icon{
-    border: 2px solid green;
+
+.project-icon {
+    border: 1.5px solid black;
     padding: .5rem;
     font-size: 3.5rem;
+    border-radius: 2px;
+    transition: var(--transition);
+    cursor: pointer;
 }
-.project-desc-btn{
+.project-icon:hover{
+    color: #ebedeb;
+    border-color: #ebedeb;
+    background-color: black;
+}
+
+.project-desc-btn {
     display: flex;
     gap: 1rem;
     justify-content: center;
 }
-.project-desc-btn .btn{
+
+.project-desc-btn .btn {
     cursor: pointer;
-    
+
 }
-.project-desc-btn .btn:hover{
+
+.project-desc-btn .btn:hover {
     background-color: var(--color-primary);
 }
 
 
-@media screen and (max-width:1024px){
-  
-    .project-card{
+@media screen and (max-width:1024px) {
+
+    .project-card {
         grid-template-columns: 100%;
         padding: 0 .3rem;
     }
-    .project-img img{
-       width: 100%;
+
+    .project-img img {
+        width: 100%;
     }
 }
-   /* ===== media query for mobile */
-   @media screen and (max-width:600px){
- 
-    .project-card{
+
+/* ===== media query for mobile */
+@media screen and (max-width:600px) {
+
+    .project-card {
         padding: 0 .3rem;
         grid-template-columns: 100%;
 
         padding: 0;
     }
-    .project-img img{
+
+    .project-img img {
         width: 100%;
-     }
-    
+    }
+
 }

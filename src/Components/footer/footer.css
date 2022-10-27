@@ -3,8 +3,11 @@ footer{
     padding: 3rem 0;
     text-align: center;
     font-size: .9rem;
-    margin-top: 7rem;
+    margin-top: 5rem;
     box-sizing: border-box;
+    position: relative;
+    /* border: 2px solid red; */
+    /* background-color: transparent; */
 }
 footer a{
     color: var(--color-bg);
@@ -26,7 +29,7 @@ footer a{
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 .footer_socials a{
     background: var(--color-bg);
@@ -42,8 +45,16 @@ footer a{
     border-color: var(--color-bg);
 }
 .footer_copyright{
-    margin-bottom: 4rem;
-    color: var(--color-bg);
+    margin-bottom: 0;
+    /* color: var(--color-bg); */
+    color: black;
+}
+.arro{
+    position: absolute;
+    font-size: 3rem;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
  /* ===== media query for mobile */
@@ -54,5 +65,8 @@ footer a{
   }
   .footer_socials{
     margin-bottom: 2.6rem;
+  }
+  .arro{
+    display: none;
   }
  }

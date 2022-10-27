@@ -55,15 +55,31 @@ input,textarea{
 }
 
 @media screen and (max-width:1024px){
+    #contact{
+        height: max-content;
+    }
   .container.contact_container{
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  form input{
+    color: white;
+    font-weight: bold;
+  }
  }
  /* ===== media query for mobile */
  @media screen and (max-width:600px){
+    #contact{
+        height: max-content;
+        /* margin-bottom: 5rem; */
+        /* border: 1px solid blue; */
+    }
     .container.contact_container{
         width: var(--container-width-sm);
         /* padding: 1rem; */
+      }
+      form input{
+        color: white;
+        font-weight: bold;
       }
  }

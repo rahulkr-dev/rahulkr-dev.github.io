@@ -16,7 +16,7 @@ const About = () => {
           </div>
         </div>
         <div className="about_content">
-          <div className="about_cards">
+          {/* <div className="about_cards">
             <article className='about_card'>
               <FaAward className='about_icon' />
               <h5>Expereince</h5>
@@ -32,8 +32,8 @@ const About = () => {
               <h5>Project</h5>
               <small>88+ project completed</small>
             </article>
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut harum ullam deleniti incidunt ab excepturi, quasi quos obcaecati nostrum expedita quas atque neque soluta, eligendi voluptates amet possimus, voluptas nisi!</p>
+          </div> */}
+          <p>Full Stack Developer with a commitment to efficiency and a natural aptitude for addressing issues. capable of producing production-ready code using front-end and back-end technologies such as HTML, CSS, JavaScript, Redux, Node.js, Express, and MongoDB to create a single page application. I'm looking forward to working with Red Technologies to expand my skill set while making a delicate contribution to an organisation.</p>
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
         </div>
       </div>

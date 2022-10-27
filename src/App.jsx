@@ -1,4 +1,5 @@
 import React from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
 import Header from './Components/header/Header'
 import Nav from "./Components/nav/Nav"
 import About from "./Components/about/About"
@@ -11,15 +12,17 @@ import Desktop from './Components/desktop/NavbarForD'
 const App = () => {
   return (
     <>
-      <Desktop/>
-      <Header/>
-      <Nav/>
-      <About/>
-      <Skills/>
-      <Project/>
-      <Contact/>
-      <Footer/>
-      
+
+      <Desktop />
+      <Header />
+      <Nav />
+      <About />
+      <Skills />
+      <Project />
+      <Contact />
+      <Footer />
+
+
     </>
   )
 }

@@ -10,6 +10,7 @@ import { SiRedux } from "react-icons/si"
 import { DiMongodb } from "react-icons/di"
 import { SiRedis } from "react-icons/si"
 import "./skills.css"
+import { Progress } from '@chakra-ui/react'
 
   const skillsArr = [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb, SiRedis];
 
@@ -25,6 +26,7 @@ const Skills = () => {
       <div className="skill_container">
         <div className="skill-card">
           <AiFillHtml5 className='skill-icon'/>
+          <Progress colorScheme='green' size='sm' value={20} />
           <h5>HTML5</h5>
         </div>
         <div className="skill-card">

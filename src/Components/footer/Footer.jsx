@@ -3,16 +3,15 @@ import "./footer.css"
 import {RiFacebookFill} from "react-icons/ri"
 import {IoLogoInstagram} from "react-icons/io"
 import {RiTwitterFill} from "react-icons/ri"
+import {AiOutlineArrowUp} from "react-icons/ai"
 const Footer = () => {
   return (
     <footer>
-      <a href="#" className='footer'>RaHUL</a>
       <ul className='permalinks'>
         <li><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">Expericence</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#testimonials">testimonials</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#project">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div className="footer_socials">
@@ -22,6 +21,9 @@ const Footer = () => {
       </div>
       <div className="footer_copyright">
         <small>&copy; Rahul kumar . All right reserved</small>
+      </div>
+      <div className="arro">
+        <a href="#"><AiOutlineArrowUp/></a>
       </div>
     </footer>
   )
