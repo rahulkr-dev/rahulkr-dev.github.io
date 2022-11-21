@@ -1,20 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.ebde6372.css",
-    "main.js": "/static/js/main.d267ba3f.js",
+    "main.css": "/static/css/main.5821b626.css",
+    "main.js": "/static/js/main.8a87d8ac.js",
     "static/media/lifeStyleStore.gif": "/static/media/lifeStyleStore.f227ce6a33129e2060a7.gif",
-    "static/media/lifeStyleHomePage.png": "/static/media/lifeStyleHomePage.dc0cbbd5b9742afadefe.png",
-    "static/media/rahulFace2.jpg": "/static/media/rahulFace2.40784c634ed46493ddf5.jpg",
+    "static/media/vidfy.gif": "/static/media/vidfy.2be5f6cafaaddecf7d9f.gif",
+    "static/media/rahulFaceF.png": "/static/media/rahulFaceF.a1dbc15b2dca6908bae2.png",
     "static/media/bookingWeb.gif": "/static/media/bookingWeb.1bd13fa68dbaae6ecffc.gif",
     "static/media/cv.pdf": "/static/media/cv.f50d394794f3c4795793.pdf",
-    "static/media/lifeStyleBucket.png": "/static/media/lifeStyleBucket.6d88941ea0b805d78bed.png",
     "static/media/template.jpg": "/static/media/template.b5688b6464b2b85f4709.jpg",
     "index.html": "/index.html",
-    "main.ebde6372.css.map": "/static/css/main.ebde6372.css.map",
-    "main.d267ba3f.js.map": "/static/js/main.d267ba3f.js.map"
+    "main.5821b626.css.map": "/static/css/main.5821b626.css.map",
+    "main.8a87d8ac.js.map": "/static/js/main.8a87d8ac.js.map"
   },
   "entrypoints": [
-    "static/css/main.ebde6372.css",
-    "static/js/main.d267ba3f.js"
+    "static/css/main.5821b626.css",
+    "static/js/main.8a87d8ac.js"
   ]
 }
