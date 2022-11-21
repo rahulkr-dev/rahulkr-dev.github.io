@@ -4,6 +4,7 @@ import {RiFacebookFill} from "react-icons/ri"
 import {IoLogoInstagram} from "react-icons/io"
 import {RiTwitterFill} from "react-icons/ri"
 import {AiOutlineArrowUp} from "react-icons/ai"
+import {BsLinkedin} from "react-icons/bs"
 const Footer = () => {
   return (
     <footer>
@@ -15,6 +16,7 @@ const Footer = () => {
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div className="footer_socials">
+        <a href="htpps://fackbook.com"><BsLinkedin/></a>
         <a href="htpps://fackbook.com"><RiFacebookFill/></a>
         <a href="htpps://instagram.com"><IoLogoInstagram/></a>
         <a href="htpps://twitter.com"><RiTwitterFill/></a>

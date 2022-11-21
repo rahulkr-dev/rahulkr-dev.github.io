@@ -1,6 +1,7 @@
 #skills {
-    padding: 2rem;
+    padding: 9rem;
     padding-top: 5rem;
+    margin-bottom: 7rem;
 }
 
 #skills h1 {
@@ -46,6 +47,7 @@
 
 @media screen and (max-width:1024px) {
     #skills {
+        padding: 1rem;
         padding-top: 2rem;
 
     }
@@ -68,7 +70,7 @@
 /* ===== media query for mobile */
 @media screen and (max-width:600px) {
     #skills {
-        padding: 0;
+        padding: 1.4rem;
         padding-top: 2rem;
 
     }

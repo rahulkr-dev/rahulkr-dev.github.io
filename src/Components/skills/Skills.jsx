@@ -9,61 +9,118 @@ import { SiExpress } from "react-icons/si"
 import { SiRedux } from "react-icons/si"
 import { DiMongodb } from "react-icons/di"
 import { SiRedis } from "react-icons/si"
+import { SiTypescript } from "react-icons/si"
+import { AiFillGithub } from "react-icons/ai"
+import { SiPostman } from "react-icons/si"
 import "./skills.css"
-import { Progress } from '@chakra-ui/react'
+import { Heading, Progress, Text } from '@chakra-ui/react'
 
-  const skillsArr = [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb, SiRedis];
+const skillsArr = [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb, SiRedis];
 
-  const containerArr = skillsArr.map(item=>(
-    <div className="skill_card">
-      {<item/>}
-    </div>
-  ))
+const containerArr = skillsArr.map(item => (
+  <div className="skill_card">
+    {<item />}
+  </div>
+))
 const Skills = () => {
   return (
     <div id="skills">
-      <h1>Skills</h1>
+      <Heading pl="1rem" >Technical Skills</Heading>
+      <Heading pt="2rem" textAlign="center" pl="1rem" >FrontEnd</Heading>
       <div className="skill_container">
         <div className="skill-card">
-          <AiFillHtml5 className='skill-icon'/>
-          <Progress colorScheme='green' size='sm' value={20} />
-          <h5>HTML5</h5>
+          <AiFillHtml5 className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={60} />
+          <Text mt="4px">HTML5</Text>
         </div>
         <div className="skill-card">
-          <TbBrandCss3 className='skill-icon'/>
-          <h5>CSS3</h5>
+          <TbBrandCss3 className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={60} />
+
+          <Text mt="4px">CSS3</Text>
         </div>
         <div className="skill-card">
-          <TbBrandJavascript className='skill-icon'/>
-          <h5>JAVASCRIPT</h5>
+          <TbBrandJavascript className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={95} />
+
+          <Text mt="4px">JAVASCRIPT</Text>
         </div>
         <div className="skill-card">
-          <FaReact className='skill-icon'/>
-          <h5>REACTJS</h5>
+          <FaReact className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={80} />
+
+          <Text mt="4px">REACTJS</Text>
         </div>
         <div className="skill-card">
-          <SiChakraui className='skill-icon'/>
-          <h5>CHAKRAUI</h5>
+          <SiChakraui className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={70} />
+
+          <Text mt="4px">CHAKRAUI</Text>
         </div>
         <div className="skill-card">
-          <SiRedux className='skill-icon'/>
-          <h5>REDUX</h5>
+          <SiRedux className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={80} />
+
+          <Text mt="4px">REDUX</Text>
         </div>
         <div className="skill-card">
-          <DiNodejs className='skill-icon'/>
-          <h5>NODEJS</h5>
+          <SiTypescript className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={50} />
+
+          <Text mt="4px">TYPESCRIPT</Text>
+        </div>
+      </div>
+
+      {/* backend technology */}
+      <Heading mt="3rem" textAlign="center" pl="1rem" >BackEnd</Heading>
+      <div className="skill_container">
+        <div className="skill-card">
+          <SiTypescript className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={50} />
+
+          <Text mt="4px">TYPESCRIPT</Text>
         </div>
         <div className="skill-card">
-          <SiExpress className='skill-icon'/>
-          <h5>EXPRESSJS</h5>
+          <DiNodejs className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={70} />
+
+          <Text mt="4px">NODEJS</Text>
         </div>
         <div className="skill-card">
-          <DiMongodb className='skill-icon'/>
-          <h5>MONGODB</h5>
+          <SiExpress className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={65} />
+
+          <Text mt="4px">EXPRESSJS</Text>
         </div>
         <div className="skill-card">
-          <SiRedis className='skill-icon'/>
-          <h5>REDIS</h5>
+          <DiMongodb className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={75} />
+
+          <Text mt="4px">MONGODB</Text>
+        </div>
+        <div className="skill-card">
+          <SiRedis className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={60} />
+
+          <Text mt="4px">REDIS</Text>
+        </div>
+
+      </div>
+      {/* tools i used  */}
+
+      <Heading mt="3rem" textAlign="center" pl="1rem" >Tools</Heading>
+      <div className="skill_container">
+        <div className="skill-card">
+          <SiPostman className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={80} />
+
+          <Text mt="4px">POSTMAN</Text>
+        </div>
+        <div className="skill-card">
+          <AiFillGithub className='skill-icon' />
+          <Progress colorScheme='green' size='xs' value={80} />
+
+          <Text mt="4px">GITHUB</Text>
         </div>
       </div>
     </div>

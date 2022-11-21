@@ -1,7 +1,7 @@
 .project-card {
-    display: grid;
-    grid-template-columns: 55% 40%;
-    gap: 1.5rem;
+    /* display: grid; */
+    /* grid-template-columns: 55%; */
+    /* gap: 1.5rem; */
     /* border: 1px solid var(--color-primary); */
     padding: 1rem;
     margin-bottom: 2.5rem;
@@ -10,26 +10,49 @@
     -webkit-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
 }
+.project-img{
+    width: 100%;
+    /* border: 1px solid red; */
+}
 
 .project-img img {
-    border: 1px solid black;
+    /* border: 1px solid green; */
+    width: 100%
     /* border-radius: 1rem; */
 }
 
 .project-desc-content {
     font-size: 13px;
 }
+.project-desc-content h1{
+    font-size: 24px;
+}
+.tech-stack-heading{
+    margin-top: 1.5rem;
+    margin-block-end: -0.7rem;
+}
 
 .project-tech-stack {
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
+    /* align-items: center; */
+}
+.individual-tech-stack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.individual-tech-stack h4{
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .project-icon {
     border: 1.5px solid black;
     padding: .5rem;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     border-radius: 2px;
     transition: var(--transition);
     cursor: pointer;
@@ -44,6 +67,7 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
+    margin: 1rem 0 ;
 }
 
 .project-desc-btn .btn {
@@ -73,13 +97,30 @@
 
     .project-card {
         padding: 0 .3rem;
-        grid-template-columns: 100%;
+        /* grid-template-columns: 100%; */
 
         padding: 0;
     }
 
     .project-img img {
         width: 100%;
+    }
+    .project-desc-content {
+        /* font-size: 13px; */
+        padding: 10px;
+    }
+    .individual-tech-stack h4{
+        /* text-transform: capitalize; */
+        display: none;
+        /* border: 1px solid green; */
+    }
+    .tech-stack-heading{
+        text-align: center;
+    }
+    .project-tech-stack{
+        width: fit-content;
+        margin: auto;
+        /* border: 1px solid orange; */
     }
 
 }

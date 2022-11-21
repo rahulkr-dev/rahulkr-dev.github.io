@@ -44,14 +44,21 @@ form{
     flex-direction: column;
     gap: 1.2rem;
 }
-input,textarea{
+.input,.textarea{
     width: 100%;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 0.5rem;
     background: transparent;
     border: 2px solid var(--color-primary-variant);
     resize: none;
     color: var(--color-white);
+}
+.project-card{
+    transition: all .5s ease-in-out;
+}
+.project-card:hover{
+    /* cursor: pointer; */
+    transform: scale(1.1);
 }
 
 @media screen and (max-width:1024px){
@@ -81,5 +88,8 @@ input,textarea{
       form input{
         color: white;
         font-weight: bold;
+      }
+      .send-button{
+        margin: auto;
       }
  }

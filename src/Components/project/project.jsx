@@ -1,54 +1,22 @@
+import { Heading, Box } from '@chakra-ui/react';
 import React from 'react'
 import "./project.css";
-import { Booking, Booking2, LifeStyleStore, LifeStyleStore2 } from './ProjectList';
+import { Booking, LifeStyleStore2, Zee5 } from './ProjectList';
 
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 // import 'swiper/css/scrollbar';
 const Project = () => {
   return (
-    <div id="project">
-      <h1>Projects</h1>
-      <div className="project-container">
-        <Swiper
-          // install Swiper modules
-          modules={[Pagination]}
-          spaceBetween={50}
-          slidesPerView={1}
-          // navigation
-          pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log('slide change')}
-        >
-      
-            <SwiperSlide>
-              <LifeStyleStore />
-            </SwiperSlide>
+    <Box p="1rem" id="project">
+      <Heading p={['1rem', '1rem', '1rem 3rem']} color="black">Projects</Heading>
+      <Box p={['1rem', '1rem', '0 4rem']} className='project-container'>
+        <Zee5 />
+        <LifeStyleStore2 />
+        <Booking />
+      </Box>
 
-            <SwiperSlide>
-              <LifeStyleStore2 />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <Booking />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <Booking2 />
-            </SwiperSlide>
-     
-        </Swiper>
-      </div>
-
-    </div>
+    </Box>
   )
 }
 

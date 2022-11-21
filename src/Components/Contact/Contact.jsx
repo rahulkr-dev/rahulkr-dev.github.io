@@ -3,11 +3,12 @@ import "./contact.css"
 import {MdOutlineMail} from "react-icons/md"
 import {RiMessengerLine} from "react-icons/ri"
 import {AiOutlineWhatsApp} from "react-icons/ai"
+import { Text } from '@chakra-ui/react'
 const Contact = () => {
   return (
     <section id='contact'>
       <h5>Get in Touch</h5>
-      <h2>Contact Me</h2>
+      <Text fontSize="1.7rem" mb="1rem" textAlign="center" color="#4db5ff">Contact Me</Text>
       <div className="container contact_container">
         <div className="contact_options">
           <article className="contact_option">
@@ -31,10 +32,10 @@ const Contact = () => {
           {/* END of  contact options */}
         </div>
           <form action="">
-            <input type="text" name='name' placeholder='Your Full Name' required />
-            <input type="email" name='email' placeholder='Your Email'  required />
-            <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
-            <button type='submit' className='btn btn-primary'>Send Message</button>
+            <input className='input' type="text" name='name' placeholder='Your Full Name' required />
+            <input className='input' type="email" name='email' placeholder='Your Email'  required />
+            <textarea className='textarea' name="message" rows="7" placeholder='Your Message' required></textarea>
+            <button type='submit' className='btn btn-primary send-button'>Send Message</button>
           </form>
       </div>
     </section>

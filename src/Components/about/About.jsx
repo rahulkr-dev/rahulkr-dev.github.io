@@ -4,11 +4,12 @@ import ME from "../../assects/template.jpg";
 import { FaAward } from "react-icons/fa"
 import { FiUsers } from "react-icons/fi"
 import { VscFolderLibrary } from "react-icons/vsc"
+import { Heading } from '@chakra-ui/react';
 const About = () => {
   return (
     <div id='about'>
       <h5>Get To Know</h5>
-      <h2>About me</h2>
+      <Heading color="white">About me</Heading>
       <div className="container about_container">
         <div className="about_me">
           <div className="about_me-image">
