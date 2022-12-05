@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.5821b626.css",
-    "main.js": "/static/js/main.8a87d8ac.js",
+    "main.css": "/static/css/main.912fbcd4.css",
+    "main.js": "/static/js/main.46aeda3d.js",
+    "static/media/rahulFace3.jpg": "/static/media/rahulFace3.ddd746e3868239e8d237.jpg",
     "static/media/lifeStyleStore.gif": "/static/media/lifeStyleStore.f227ce6a33129e2060a7.gif",
     "static/media/vidfy.gif": "/static/media/vidfy.2be5f6cafaaddecf7d9f.gif",
-    "static/media/rahulFaceF.png": "/static/media/rahulFaceF.a1dbc15b2dca6908bae2.png",
     "static/media/bookingWeb.gif": "/static/media/bookingWeb.1bd13fa68dbaae6ecffc.gif",
     "static/media/cv.pdf": "/static/media/cv.f50d394794f3c4795793.pdf",
     "static/media/template.jpg": "/static/media/template.b5688b6464b2b85f4709.jpg",
     "index.html": "/index.html",
-    "main.5821b626.css.map": "/static/css/main.5821b626.css.map",
-    "main.8a87d8ac.js.map": "/static/js/main.8a87d8ac.js.map"
+    "main.912fbcd4.css.map": "/static/css/main.912fbcd4.css.map",
+    "main.46aeda3d.js.map": "/static/js/main.46aeda3d.js.map"
   },
   "entrypoints": [
-    "static/css/main.5821b626.css",
-    "static/js/main.8a87d8ac.js"
+    "static/css/main.912fbcd4.css",
+    "static/js/main.46aeda3d.js"
   ]
 }
