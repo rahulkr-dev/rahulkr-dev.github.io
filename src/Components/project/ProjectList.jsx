@@ -54,8 +54,8 @@ export const LifeStyleStore2 = () => {
           <h5>it is a collaborative project</h5>
         </div>
         <div className="project-desc-btn">
-          <button className='btn' ><a href="https://luxury-fenglisu-f82f7e.netlify.app/">Live</a></button>
-          <button className='btn' ><a href="https://github.com/Sandeeprawat313/UNIT--2-group-project-">Github</a></button>
+          <button className='btn' ><a href="https://luxury-fenglisu-f82f7e.netlify.app/" target="_blank">Live</a></button>
+          <button className='btn' ><a href="https://github.com/Sandeeprawat313/UNIT--2-group-project-" target="_blank">Github</a></button>
         </div>
       </div>
     </div>
@@ -107,8 +107,8 @@ export const Zee5 = () => {
           <h5>it is a collaborative project</h5>
         </div>
         <div className="project-desc-btn">
-          <button className='btn' ><a href="https://luxury-fenglisu-f82f7e.netlify.app/">Live</a></button>
-          <button className='btn' ><a href="https://github.com/Pradyumancoder/elastic-punishment-3534/tree/master/clientside/zee5">Github</a></button>
+          <button className='btn' ><a href="https://luxury-fenglisu-f82f7e.netlify.app/" target="_blank">Live</a></button>
+          <button className='btn' ><a href="https://github.com/Pradyumancoder/elastic-punishment-3534/tree/master/clientside/zee5" target="_blank">Github</a></button>
         </div>
       </div>
     </div>

@@ -1,9 +1,11 @@
+import { Box, Heading } from "@chakra-ui/react";
 import React from "react";
 // import "../App.css";
 const GithubStats = () => {
   return (
     // streak 
-    <div>
+    <Box mb="6rem">
+      
       <div style={{ 
         width: "60%", 
         margin: "auto",
@@ -19,11 +21,11 @@ const GithubStats = () => {
  
       <div
         style={{
-          width: "80%",
-          height: "300px",
+          width: "60%",
+          height: "200px",
           display: "flex",
           margin: "auto",
-          border:"1px solid green"
+          // border:"1px solid green"
         }}
       >
         <a href="https://github.com/fw190480">  
@@ -39,7 +41,7 @@ const GithubStats = () => {
           />
         </a>
       </div>
-    </div>
+    </Box>
   );
 };
 

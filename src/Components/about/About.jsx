@@ -4,10 +4,10 @@ import ME from "../../assects/template.jpg";
 import { FaAward } from "react-icons/fa"
 import { FiUsers } from "react-icons/fi"
 import { VscFolderLibrary } from "react-icons/vsc"
-import { Heading } from '@chakra-ui/react';
+import { Box,Heading } from '@chakra-ui/react';
 const About = () => {
   return (
-    <div id='about'>
+    <Box id='about'>
       <h5>Get To Know</h5>
       <Heading color="white">About me</Heading>
       <div className="container about_container">
@@ -38,7 +38,7 @@ const About = () => {
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
         </div>
       </div>
-    </div>
+    </Box>
   )
 }
 

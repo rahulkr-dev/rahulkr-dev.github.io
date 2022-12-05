@@ -8,7 +8,7 @@ import Footer from "./Components/footer/Footer"
 import Skills from "./Components/skills/Skills"
 import Project from "./Components/project/project"
 import Desktop from './Components/desktop/NavbarForD'
-import GitHubCalendar from 'react-github-calendar'
+import GitHubCalendar from './Components/github_calendar/GithubCalendar'
 import GithubStats from './Components/github_stats/GithubStats'
 const App = () => {
   return (

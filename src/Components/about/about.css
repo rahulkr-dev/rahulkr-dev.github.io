@@ -80,7 +80,7 @@
 /* ===== media query for tabblet */
 @media screen and (max-width:1024px) {
     #about {
-        padding-top: 2rem;
+        padding-top: 0;
     }
 
     .about_container {
@@ -101,7 +101,8 @@
 /* ===== media query for mobile */
 @media screen and (max-width:600px) {
     #about {
-        padding-top: 2rem;
+        padding-top: 0;
+        margin: -5rem;
     }
 
     .about_me {

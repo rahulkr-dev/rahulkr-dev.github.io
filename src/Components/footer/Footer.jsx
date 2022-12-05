@@ -5,6 +5,9 @@ import {IoLogoInstagram} from "react-icons/io"
 import {RiTwitterFill} from "react-icons/ri"
 import {AiOutlineArrowUp} from "react-icons/ai"
 import {BsLinkedin} from "react-icons/bs"
+import {FaGithub} from "react-icons/fa"
+
+
 const Footer = () => {
   return (
     <footer>
@@ -16,10 +19,10 @@ const Footer = () => {
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div className="footer_socials">
-        <a href="htpps://fackbook.com"><BsLinkedin/></a>
-        <a href="htpps://fackbook.com"><RiFacebookFill/></a>
-        <a href="htpps://instagram.com"><IoLogoInstagram/></a>
-        <a href="htpps://twitter.com"><RiTwitterFill/></a>
+        <a href="https://www.linkedin.com/in/rahul-kumar-850b39232/" target="_blank"><BsLinkedin/></a>
+        <a href="htpps://fackbook.com" target="_blank"><RiFacebookFill/></a>
+        <a href="https://github.com/fw190480" target="_blank"><FaGithub/></a>
+        <a href="htpps://twitter.com" target="_blank"><RiTwitterFill/></a>
       </div>
       <div className="footer_copyright">
         <small>&copy; Rahul kumar . All right reserved</small>

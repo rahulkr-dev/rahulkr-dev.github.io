@@ -13,7 +13,8 @@ import { SiTypescript } from "react-icons/si"
 import { AiFillGithub } from "react-icons/ai"
 import { SiPostman } from "react-icons/si"
 import "./skills.css"
-import { Heading, Progress, Text } from '@chakra-ui/react'
+import { Box, Heading, Progress, Text } from '@chakra-ui/react'
+import GitHubCalendar from '../github_calendar/GithubCalendar'
 
 const skillsArr = [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb, SiRedis];
 
