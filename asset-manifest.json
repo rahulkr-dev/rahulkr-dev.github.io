@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.912fbcd4.css",
-    "main.js": "/static/js/main.e85596f8.js",
-    "static/media/rahulFace3.jpg": "/static/media/rahulFace3.ddd746e3868239e8d237.jpg",
+    "main.js": "/static/js/main.cb2d0ab9.js",
     "static/media/lifeStyleStore.gif": "/static/media/lifeStyleStore.f227ce6a33129e2060a7.gif",
     "static/media/vidfy.gif": "/static/media/vidfy.2be5f6cafaaddecf7d9f.gif",
     "static/media/bookingWeb.gif": "/static/media/bookingWeb.1bd13fa68dbaae6ecffc.gif",
     "static/media/cv.pdf": "/static/media/cv.f50d394794f3c4795793.pdf",
+    "static/media/rahulFace3.jpg": "/static/media/rahulFace3.ea38d47d039958ca04ab.jpg",
     "static/media/template.jpg": "/static/media/template.b5688b6464b2b85f4709.jpg",
     "index.html": "/index.html",
     "main.912fbcd4.css.map": "/static/css/main.912fbcd4.css.map",
-    "main.e85596f8.js.map": "/static/js/main.e85596f8.js.map"
+    "main.cb2d0ab9.js.map": "/static/js/main.cb2d0ab9.js.map"
   },
   "entrypoints": [
     "static/css/main.912fbcd4.css",
-    "static/js/main.e85596f8.js"
+    "static/js/main.cb2d0ab9.js"
   ]
 }
