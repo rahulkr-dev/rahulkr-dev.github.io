@@ -1,47 +1,43 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading,Grid } from "@chakra-ui/react";
 import React from "react";
 // import "../App.css";
 const GithubStats = () => {
   return (
     // streak 
-    <Box mb="6rem">
+    <Grid m="auto" pt="1rem" placeItems="center" templateColumns={{lg:'repeat(3, 1fr)'}} gap={6} mb="6rem" w={{lg:"80%"}}>
       
-      <div style={{ 
-        width: "60%", 
-        margin: "auto",
-
-         }}>
-        <a href="https://github.com/fw190480">
+      <Box
+     h={{lg:"full"}}
+      >
+        <a href="https://github.com/rahulkr-dev">
           <img
             align="left"
-            src="https://github-readme-streak-stats.herokuapp.com/?user=fw190480"
+            src="https://github-readme-streak-stats.herokuapp.com/?user=rahulkr-dev"
           />
         </a>
-      </div>
+      </Box>
  
-      <div
-        style={{
-          width: "60%",
-          height: "200px",
-          display: "flex",
-          margin: "auto",
-          // border:"1px solid green"
-        }}
+      <Box
       >
-        <a href="https://github.com/fw190480">  
+        <a href="https://github.com/rahulkr-dev">  
           <img
             align="center"
-            src="https://github-readme-stats.vercel.app/api/top-langs/?username=fw190480"  //launguages
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=rahulkr-dev"  //launguages
           />
         </a>
-        <a href="https://github.com/fw190480">
+     
+      </Box>
+      <Box
+      h={{lg:"full"}}>
+      <a href="https://github.com/rahulkr-dev">
           <img
             align="left"
-            src="https://github-readme-stats.vercel.app/api?username=fw190480&count_private=true&show_icons=true" //stats
+            src="https://github-readme-stats.vercel.app/api?username=rahulkr-dev&count_private=true&show_icons=true" //stats
           />
         </a>
-      </div>
-    </Box>
+      </Box>
+  
+    </Grid>
   );
 };
 

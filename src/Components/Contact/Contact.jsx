@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <section id='contact'>
       <h5>Get in Touch</h5>
-      <Text fontSize="1.7rem" mb="1rem" textAlign="center" color="#4db5ff">Contact Me</Text>
+      <Text fontSize="1.7rem" mb="1rem" textAlign="center" color="yellow">Contact Me</Text>
       <div className="container contact_container">
         <div className="contact_options">
           <article className="contact_option">
@@ -16,12 +16,6 @@ const Contact = () => {
             <h4>Email</h4>
             <h5>rkrahul8181@gmail.com</h5>
             <a href="mailto:rkrahul8181@gmail.com" target="_blank">Send a message</a>
-          </article>
-          <article className="contact_option">
-            <RiMessengerLine className='contact_option-icon'/>
-            <h4>Messenger</h4>
-            <h5>rahul kumar</h5>
-            <a href="https://m.me/profile.php?id=100009435788306" target="_blank">Send a message</a>
           </article>
           <article className="contact_option">
             <AiOutlineWhatsApp className='contact_option-icon'/>

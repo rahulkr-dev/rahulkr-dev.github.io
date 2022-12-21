@@ -1,5 +1,7 @@
 #about {
     padding-top: 7rem;
+    /* border: 2px solid yellow; */
+    max-width: 100vw;
 }
 
 #about h2,
@@ -9,7 +11,7 @@
 
 .about_container {
     display: grid;
-    grid-template-columns: 35% 50%;
+    /* grid-template-columns: 35% 50%; */
     gap: 15%;
 }
 
@@ -102,7 +104,8 @@
 @media screen and (max-width:600px) {
     #about {
         padding-top: 0;
-        margin: -5rem;
+        padding-bottom: 2rem;
+        /* margin: -5rem; */
     }
 
     .about_me {

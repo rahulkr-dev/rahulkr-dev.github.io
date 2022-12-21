@@ -5,7 +5,8 @@
     /* border: 1px solid var(--color-primary); */
     padding: 1rem;
     margin-bottom: 2.5rem;
-    background-color: #ebedeb;
+    /* background-color: #ebedeb; */
+    background-color: #4DB5FF;
     box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
@@ -50,7 +51,7 @@
 }
 
 .project-icon {
-    border: 1.5px solid black;
+    /* border: 1.5px solid black; */
     padding: .5rem;
     font-size: 2.5rem;
     border-radius: 2px;

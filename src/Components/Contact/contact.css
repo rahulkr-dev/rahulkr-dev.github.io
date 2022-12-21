@@ -11,12 +11,14 @@
 
 }
 .contact_option{
-    background: var(--color-bg-variant);
+    /* background: var(--color-bg-variant); */
+    background: var(--color-primary-variant);
     padding: 1.2rem;
     border-radius: 1.2rem;
     text-align: center;
-    border: 1px solid transparent;
+    /* border: 1px solid yellow; */
     transition: var(--transition);
+    color: #fff;
 
 }
 .contact_option:hover{
@@ -50,6 +52,7 @@ form{
     border-radius: 0.5rem;
     background: transparent;
     border: 2px solid var(--color-primary-variant);
+    /* border: 2px solid yellow; */
     resize: none;
     color: var(--color-white);
 }

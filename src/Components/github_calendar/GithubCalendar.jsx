@@ -20,11 +20,11 @@ const Calender = () => {
     });
   };
   return (
-    <Box>
+    <Box bg="#4DB5FF" p="1rem">
       <Heading mb="2rem" textAlign="center" color="white" >Days I Code</Heading>
       <GitHubCalendar
         style={{width:"100%", margin: "auto" ,marginBottom:"5%", }}
-        username="fw190480"
+        username="rahulkr-dev"
         transformData={selectLastHalfYear}
         blockSize={20}
         fontSize={16}

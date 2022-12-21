@@ -60,6 +60,9 @@
     .skill-card {
         padding: 1rem;
     }
+    .skill-card p{
+        color: #fff;
+    }
 
     .skill-icon {
         font-size: 3rem;

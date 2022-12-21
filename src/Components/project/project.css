@@ -6,8 +6,9 @@
     color: black;
 }
 .project-container{
+    /* padding: 1rem; */
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 3rem;
 }
 
@@ -29,7 +30,7 @@
    @media screen and (max-width:600px){
     #project{
         padding: 0;
-        /* padding-top: 2rem; */
+        padding-top: 2rem;
 
     }
     #project h1{

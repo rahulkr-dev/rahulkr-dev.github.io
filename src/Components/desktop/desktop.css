@@ -38,11 +38,23 @@
 .desktop >a.active {
     /* width: max-content; */
     /* display: inline-block; */
-    color: var(--color-primary);
+    /* color: var(--color-primary); */
+    color: yellow;
     /* padding: 0.75rem 1.2rem; */
-    border: 1px solid var(--color-primary);
+    /* border: 1px solid var(--color-primary); */
+    border: 1px solid yellow;
     transition: var(--transition);
     /* border-radius: 0.4rem; */
+
+}
+.hamburger{
+    display: none;
+}
+.hamburger a{
+cursor: pointer;
+display: flex;
+gap: 10px;
+background: yellow;
 
 }
 
@@ -51,6 +63,9 @@
     .desktop{
         display: none;
     }
+    .hamburger{
+        display: block;
+    }
 }
 
 /* ===== media queries for smaller divices */
@@ -58,4 +73,14 @@
     .desktop{
         display: none;
     }
+    .hamburger{
+        display: block;
+    }
+    .hamburger a{
+        cursor: pointer;
+        display: flex;
+        gap: 10px;
+        background: yellow;
+        
+        }
 }

@@ -32,43 +32,43 @@ const Skills = () => {
         <div className="skill-card">
           <AiFillHtml5 className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={60} />
-          <Text mt="4px">HTML5</Text>
+          <Text color="white"  mt="4px">HTML5</Text>
         </div>
         <div className="skill-card">
           <TbBrandCss3 className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={60} />
 
-          <Text mt="4px">CSS3</Text>
+          <Text color="white" mt="4px">CSS3</Text>
         </div>
         <div className="skill-card">
           <TbBrandJavascript className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={95} />
 
-          <Text mt="4px">JAVASCRIPT</Text>
+          <Text color="white" mt="4px">JAVASCRIPT</Text>
         </div>
         <div className="skill-card">
           <FaReact className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={80} />
 
-          <Text mt="4px">REACTJS</Text>
+          <Text color="white" mt="4px">REACTJS</Text>
         </div>
         <div className="skill-card">
           <SiChakraui className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={70} />
 
-          <Text mt="4px">CHAKRAUI</Text>
+          <Text color="white" mt="4px">CHAKRAUI</Text>
         </div>
         <div className="skill-card">
           <SiRedux className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={80} />
 
-          <Text mt="4px">REDUX</Text>
+          <Text color="white" mt="4px">REDUX</Text>
         </div>
         <div className="skill-card">
           <SiTypescript className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={50} />
 
-          <Text mt="4px">TYPESCRIPT</Text>
+          <Text color="white" mt="4px">TYPESCRIPT</Text>
         </div>
       </div>
 
@@ -79,31 +79,31 @@ const Skills = () => {
           <SiTypescript className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={50} />
 
-          <Text mt="4px">TYPESCRIPT</Text>
+          <Text color="white" mt="4px">TYPESCRIPT</Text>
         </div>
         <div className="skill-card">
           <DiNodejs className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={70} />
 
-          <Text mt="4px">NODEJS</Text>
+          <Text color="white" mt="4px">NODEJS</Text>
         </div>
         <div className="skill-card">
           <SiExpress className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={65} />
 
-          <Text mt="4px">EXPRESSJS</Text>
+          <Text color="white" mt="4px">EXPRESSJS</Text>
         </div>
         <div className="skill-card">
           <DiMongodb className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={75} />
 
-          <Text mt="4px">MONGODB</Text>
+          <Text color="white" mt="4px">MONGODB</Text>
         </div>
         <div className="skill-card">
           <SiRedis className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={60} />
 
-          <Text mt="4px">REDIS</Text>
+          <Text color="white" mt="4px">REDIS</Text>
         </div>
 
       </div>
@@ -115,13 +115,13 @@ const Skills = () => {
           <SiPostman className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={80} />
 
-          <Text mt="4px">POSTMAN</Text>
+          <Text color="white" mt="4px">POSTMAN</Text>
         </div>
         <div className="skill-card">
           <AiFillGithub className='skill-icon' />
           <Progress colorScheme='green' size='xs' value={80} />
 
-          <Text mt="4px">GITHUB</Text>
+          <Text color="white" mt="4px">GITHUB</Text>
         </div>
       </div>
     </div>

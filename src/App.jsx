@@ -10,14 +10,14 @@ import Project from "./Components/project/project"
 import Desktop from './Components/desktop/NavbarForD'
 import GitHubCalendar from './Components/github_calendar/GithubCalendar'
 import GithubStats from './Components/github_stats/GithubStats'
+import { Box } from '@chakra-ui/react'
 const App = () => {
   return (
-    <>
+    <Box bg="gray.800">
 
       <Desktop />
       <Header />
       <Nav />
-      <About />
       <Skills />
       <GitHubCalendar/>
       <GithubStats/>
@@ -26,7 +26,7 @@ const App = () => {
       <Footer />
 
 
-    </>
+    </Box>
   )
 }
 
