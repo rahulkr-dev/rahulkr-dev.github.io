@@ -13,7 +13,9 @@ import GithubStats from './Components/github_stats/GithubStats'
 import { Box } from '@chakra-ui/react'
 const App = () => {
   return (
-    <Box bg="gray.800">
+    <Box 
+    bg={"linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%)"}
+    >
 
       <Desktop />
       <Header />

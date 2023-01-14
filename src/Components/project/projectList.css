@@ -1,15 +1,16 @@
 .project-card {
-    /* display: grid; */
-    /* grid-template-columns: 55%; */
-    /* gap: 1.5rem; */
-    /* border: 1px solid var(--color-primary); */
+
     padding: 1rem;
     margin-bottom: 2.5rem;
     /* background-color: #ebedeb; */
-    background-color: #4DB5FF;
+    /* background-color: #4DB5FF; */
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
     box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 1rem;
+    font-family: monospace;
+    color: #fff;
 }
 .project-img{
     width: 100%;

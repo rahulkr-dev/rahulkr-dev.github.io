@@ -119,7 +119,7 @@ export const Booking = () => {
       </Box>
       <Box className="project-desc-btn">
           <Button className='btn' ><a href="https://stupendous-pastelito-f25570.netlify.app/register" target="__blank">Live</a></Button>
-          <Button className='btn' ><a href="https://github.com/fw190480/dynamic_fork_8477" target="__blank">Github</a></Button>
+          <Button className='btn' ><a href="https://github.com/rahulkr-dev/dynamic_fork_8477" target="__blank">Github</a></Button>
         </Box>
       <Grid>
         <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color="black">TECH STACK</Text>
@@ -158,7 +158,7 @@ export const TripVilla = () => {
       </Box>
       <Box className="project-desc-btn">
         <Button className='btn' ><a href="https://cozytrip.vercel.app/" target="_blank">Live</a></Button>
-        <Button className='btn' ><a href="https://github.com/fw190480/scenic-shock-7677" target="_blank">Github</a></Button>
+        <Button className='btn' ><a href="https://github.com/rahulke-dev/scenic-shock-7677" target="_blank">Github</a></Button>
       </Box>
       <Grid>
         <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color="black">TECH STACK</Text>

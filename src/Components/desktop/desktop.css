@@ -39,10 +39,10 @@
     /* width: max-content; */
     /* display: inline-block; */
     /* color: var(--color-primary); */
-    color: yellow;
+    color: #ffeb3b;
     /* padding: 0.75rem 1.2rem; */
     /* border: 1px solid var(--color-primary); */
-    border: 1px solid yellow;
+    border: 1px solid #ffeb3b;
     transition: var(--transition);
     /* border-radius: 0.4rem; */
 
@@ -54,7 +54,7 @@
 cursor: pointer;
 display: flex;
 gap: 10px;
-background: yellow;
+background: #ffeb3b;
 
 }
 
@@ -80,7 +80,7 @@ background: yellow;
         cursor: pointer;
         display: flex;
         gap: 10px;
-        background: yellow;
+        background: #ffeb3b;
         
         }
 }

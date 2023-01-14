@@ -3,12 +3,12 @@ import "./contact.css"
 import {MdOutlineMail} from "react-icons/md"
 import {RiMessengerLine} from "react-icons/ri"
 import {AiOutlineWhatsApp} from "react-icons/ai"
-import { Text } from '@chakra-ui/react'
+import { Text,Heading } from '@chakra-ui/react'
 const Contact = () => {
   return (
     <section id='contact'>
       <h5>Get in Touch</h5>
-      <Text fontSize="1.7rem" mb="1rem" textAlign="center" color="yellow">Contact Me</Text>
+      <Heading fontSize="1.7rem" mb="1rem" textAlign="center">Contact Me</Heading>
       <div className="container contact_container">
         <div className="contact_options">
           <article className="contact_option">
