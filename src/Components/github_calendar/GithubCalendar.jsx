@@ -20,7 +20,9 @@ const Calender = () => {
     });
   };
   return (
-    <Box border={"1px solid black"} boxSizing="border-box" maxW={"100vw"} bg="#4DB5FF" p="1rem">
+    <Box  boxSizing="border-box" maxW={"100vw"} p="1rem"
+    bg={"linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%)"}
+    >
       <Heading mb="2rem" textAlign="center" color="white" >Days I Code</Heading>
       <GitHubCalendar
         // style={{width:"100%", margin: "auto" ,marginBottom:"5%" }}

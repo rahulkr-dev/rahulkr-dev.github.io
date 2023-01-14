@@ -91,7 +91,7 @@ export const Zee5 = () => {
 
         </Flex>
       </Grid>
-  
+
       <Box className="project-desc">
         <Box className='project-desc-content'>
           <Text fontSize="15px" fontWeight="bold" >Vidfy</Text>
@@ -118,9 +118,9 @@ export const Booking = () => {
         <Image src={booking} alt="" />
       </Box>
       <Box className="project-desc-btn">
-          <Button className='btn' ><a href="https://stupendous-pastelito-f25570.netlify.app/register" target="__blank">Live</a></Button>
-          <Button className='btn' ><a href="https://github.com/rahulkr-dev/dynamic_fork_8477" target="__blank">Github</a></Button>
-        </Box>
+        <Button className='btn' ><a href="https://stupendous-pastelito-f25570.netlify.app/register" target="__blank">Live</a></Button>
+        <Button className='btn' ><a href="https://github.com/rahulkr-dev/dynamic_fork_8477" target="__blank">Github</a></Button>
+      </Box>
       <Grid>
         <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color="black">TECH STACK</Text>
         <Flex pb="6px" wrap="wrap">
@@ -128,7 +128,7 @@ export const Booking = () => {
           <Badge colorScheme='red'>CSS</Badge>
           <Badge colorScheme='purple'>JavaScript</Badge>
           <Badge>ReactJs</Badge>
-  
+
 
         </Flex>
       </Grid>
@@ -137,7 +137,7 @@ export const Booking = () => {
           <Text fontSize="15px" fontWeight="bold" >Booking</Text>
           <Text fontSize="13px" fontWeight="bold"  >It is an online plateform where you can book you hotels , flight ticket , taxi and more</Text>
         </Box>
-    
+
       </Box>
       <Flex m="10px 0 10px 0" wrap="wrap" gap="3px" >
         <AiFillHtml5 size="1.6rem" />

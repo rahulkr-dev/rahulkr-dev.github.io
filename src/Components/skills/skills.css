@@ -26,11 +26,14 @@
     border-radius: 1rem;
     transition: var(--transition);
     cursor: pointer;
+    transition: all 2s ease-in-out;
 }
 
 .skill-card:hover {
-    background: transparent;
+    /* background: transparent; */
+    background: radial-gradient(circle at 4.8% 4.8%, rgb(17, 23, 58) 20%, rgb(58, 85, 148) 80%);
     border-bottom: var(--color-primary-variant);
+    /* color: yellow; */
 
 }
 

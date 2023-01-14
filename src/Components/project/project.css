@@ -1,12 +1,9 @@
 #project{
     padding: 1rem;
     padding-top: 5rem;
-    /* border: 1px solid red; */
-    /* background: var(--color-white); */
-    /* color: black; */
+
 }
 .project-container{
-    /* padding: 1rem; */
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 3rem;
@@ -40,7 +37,5 @@
         grid-template-columns: repeat(1,1fr);
         padding: 8px;
     
-
-        /* padding: 2rem 0.5rem; */
     }
 }

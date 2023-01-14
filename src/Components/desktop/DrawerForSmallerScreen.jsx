@@ -36,9 +36,9 @@ export default function DrawerExample() {
   }
 
   return (
-    <Box className="hamburger" >
+    <Box  className="hamburger" >
       <Box pl="1rem" w="max-content" onClick={onOpen}>
-        <GiHamburgerMenu size="1.5rem" />
+        <GiHamburgerMenu color={"white"} size="1.5rem" />
       </Box>
       <Drawer
         isOpen={isOpen}
@@ -48,10 +48,10 @@ export default function DrawerExample() {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Rahul kumar</DrawerHeader>
+          <DrawerCloseButton color={"white"} />
+          <DrawerHeader color={"white"} bg={"radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%)"}>Rahul kumar</DrawerHeader>
 
-          <DrawerBody>
+          <DrawerBody color={"white"} bg={"radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%)"} >
             <Grid gap="1rem">
               <a style={style} href="#" onClick={onClose} ><AiOutlineHome /><span>Home</span></a>
               <a style={style} href="#about" onClick={onClose} ><AiOutlineUser /><span>About</span></a>
