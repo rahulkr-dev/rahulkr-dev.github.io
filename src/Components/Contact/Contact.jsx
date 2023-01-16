@@ -1,38 +1,38 @@
 import React from 'react'
-import "./contact.css"
-import {MdOutlineMail} from "react-icons/md"
-import {RiMessengerLine} from "react-icons/ri"
-import {AiOutlineWhatsApp} from "react-icons/ai"
-import { Text,Heading } from '@chakra-ui/react'
+// import "./contact.css"
+import { MdOutlineMail } from "react-icons/md"
+import { RiMessengerLine } from "react-icons/ri"
+import { AiOutlineWhatsApp } from "react-icons/ai"
+import { Text, Heading, Box, Textarea,FormControl,Input,Button,Grid, Flex } from '@chakra-ui/react'
 const Contact = () => {
   return (
-    <section id='contact'>
-      <h5>Get in Touch</h5>
-      <Heading fontSize="1.7rem" mb="1rem" textAlign="center">Contact Me</Heading>
-      <div className="container contact_container">
-        <div className="contact_options">
-          <article className="contact_option">
-            <MdOutlineMail className='contact_option-icon'/>
-            <h4>Email</h4>
-            <h5>rkrahul8181@gmail.com</h5>
+    <Box m="auto">
+      <Text textAlign={"center"} >Get in Touch</Text>
+      <Heading color={"rgba(255,255,255,0.6)"} fontSize="1.7rem" mb="1rem" textAlign="center">Contact Me</Heading>
+      <Grid justifyContent={"center"} templateColumns={["80%","25% 50%","25% 50%"]} gap="1rem" >
+        <Grid gap={"1rem"} justifyContent="center" >
+          <Box w="14rem" p="1rem" className='btn-primary' color="white" >
+            <MdOutlineMail  />
+            <Text>Email</Text>
+            <Text>rkrahul8181@gmail.com</Text>
             <a href="mailto:rkrahul8181@gmail.com" target="_blank">Send a message</a>
-          </article>
-          <article className="contact_option">
-            <AiOutlineWhatsApp className='contact_option-icon'/>
-            <h4>WhatsApp</h4>
-            <h5>+91 8745983389</h5>
+          </Box>
+          <Box w="14rem" p="1rem" className='btn-primary' color="white" >
+            <AiOutlineWhatsApp  />
+            <Text>WhatsApp</Text>
+            <Text>+91 8745983389</Text>
             <a href="https://api.whatsapp.com/send?phone=+918745983389" target="_blank">Send a message</a>
-          </article>
+          </Box>
           {/* END of  contact options */}
-        </div>
-          <form action="">
-            <input className='input' type="text" name='name' placeholder='Your Full Name' required />
-            <input className='input' type="email" name='email' placeholder='Your Email'  required />
-            <textarea className='textarea' name="message" rows="7" placeholder='Your Message' required></textarea>
-            <button type='submit' className='btn btn-primary send-button'>Send Message</button>
-          </form>
-      </div>
-    </section>
+        </Grid>
+        <FormControl action="" display={"grid"} gap="1rem">
+          <Input   type="text" name='name' placeholder='Your Full Name' required />
+          <Input  type="email" name='email' placeholder='Your Email' required />
+          <Textarea className='textarea' name="message" rows="7" placeholder='Your Message' required></Textarea>
+          <Box  className='btn btn-primary'>Send Message</Box>
+        </FormControl>
+      </Grid>
+    </Box>
   )
 }
 

@@ -32,7 +32,7 @@ export const LifeStyleStore2 = () => {
         <Button className='btn' ><a href="https://github.com/Sandeeprawat313/UNIT--2-group-project-" target="_blank">Github</a></Button>
       </Box>
       <Grid>
-        <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color="black">TECH STACK</Text>
+        <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color={"rgba(255,255,255,0.6)"}>TECH STACK</Text>
         <Flex pb="6px" wrap="wrap">
           <Badge colorScheme='green'>HTML</Badge>
           <Badge colorScheme='red'>CSS</Badge>
@@ -78,7 +78,7 @@ export const Zee5 = () => {
         <Button className='btn' ><a href="https://github.com/Pradyumancoder/elastic-punishment-3534/tree/master/clientside/zee5" target="_blank">Github</a></Button>
       </Box>
       <Grid>
-        <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color="black">TECH STACK</Text>
+        <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color={"rgba(255,255,255,0.6)"}>TECH STACK</Text>
         <Flex pb="6px" wrap="wrap">
           <Badge colorScheme='green'>HTML</Badge>
           <Badge colorScheme='red'>CSS</Badge>
@@ -122,7 +122,7 @@ export const Booking = () => {
         <Button className='btn' ><a href="https://github.com/rahulkr-dev/dynamic_fork_8477" target="__blank">Github</a></Button>
       </Box>
       <Grid>
-        <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color="black">TECH STACK</Text>
+        <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color={"rgba(255,255,255,0.6)"}>TECH STACK</Text>
         <Flex pb="6px" wrap="wrap">
           <Badge colorScheme='green'>HTML</Badge>
           <Badge colorScheme='red'>CSS</Badge>
@@ -161,7 +161,7 @@ export const TripVilla = () => {
         <Button className='btn' ><a href="https://github.com/rahulke-dev/scenic-shock-7677" target="_blank">Github</a></Button>
       </Box>
       <Grid>
-        <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color="black">TECH STACK</Text>
+        <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color={"rgba(255,255,255,0.6)"}>TECH STACK</Text>
         <Flex pb="6px" wrap="wrap">
           <Badge colorScheme='green'>HTML</Badge>
           <Badge colorScheme='red'>CSS</Badge>
@@ -205,8 +205,8 @@ export const Porfolio = () => {
         <Image src={portfolio} alt="" />
       </Box>
       <Box className="project-desc-btn">
-        <Button className='btn' ><a href="https://fw190480.github.io/" target="_blank">Live</a></Button>
-        <Button className='btn' ><a href="https://github.com/fw190480/fw190480.github.io" target="_blank">Github</a></Button>
+        <Button className='btn' ><a href="https://rahulkr-dev.github.io/" target="_blank">Live</a></Button>
+        <Button className='btn' ><a href="https://github.com/rahulkr-dev/rahulkr-dev.github.io" target="_blank">Github</a></Button>
       </Box>
       <Grid>
         <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color="black">TECH STACK</Text>

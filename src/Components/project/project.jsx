@@ -9,7 +9,7 @@ import { Booking, LifeStyleStore2, Zee5,Porfolio,TripVilla } from './ProjectList
 const Project = () => {
   return (
     <Box p="1rem" id="project">
-      <Heading p={['1rem', '1rem', '1rem 3rem']}>Projects</Heading>
+      <Heading color={"rgba(255,255,255,0.6)"} p={['1rem', '1rem', '1rem 3rem']}>Projects</Heading>
       <Box p={['10px', '10px', '0 4rem']} className='project-container'>
         <Zee5 />
         <LifeStyleStore2 />

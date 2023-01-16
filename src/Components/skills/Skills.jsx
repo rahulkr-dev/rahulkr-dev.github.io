@@ -26,8 +26,8 @@ const containerArr = skillsArr.map(item => (
 const Skills = () => {
   return (
     <div id="skills">
-      <Heading pl="1rem" >Technical Skills</Heading>
-      <Heading pt="2rem" textAlign="center" pl="1rem" >FrontEnd</Heading>
+      <Heading color={"rgba(255,255,255,0.6)"} pl="1rem" >Technical Skills</Heading>
+      <Heading color={"rgba(255,255,255,0.6)"} pt="2rem" textAlign="center" pl="1rem" >FrontEnd</Heading>
       <div className="skill_container">
         <div className="skill-card">
           <AiFillHtml5 className='skill-icon' />
@@ -73,7 +73,7 @@ const Skills = () => {
       </div>
 
       {/* backend technology */}
-      <Heading mt="3rem" textAlign="center" pl="1rem" >BackEnd</Heading>
+      <Heading color={"rgba(255,255,255,0.6)"} mt="3rem" textAlign="center" pl="1rem" >BackEnd</Heading>
       <div className="skill_container">
         <div className="skill-card">
           <SiTypescript className='skill-icon' />
@@ -109,7 +109,7 @@ const Skills = () => {
       </div>
       {/* tools i used  */}
 
-      <Heading mt="3rem" textAlign="center" pl="1rem" >Tools</Heading>
+      <Heading color={"rgba(255,255,255,0.6)"} mt="3rem" textAlign="center" pl="1rem" >Tools</Heading>
       <div className="skill_container">
         <div className="skill-card">
           <SiPostman className='skill-icon' />

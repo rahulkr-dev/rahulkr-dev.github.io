@@ -1,26 +1,20 @@
 import React from 'react'
-import "./about.css"
 import ME from "../../assects/template.jpg";
 import { FaAward } from "react-icons/fa"
 import { FiUsers } from "react-icons/fi"
 import { VscFolderLibrary } from "react-icons/vsc"
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading,VStack,Text } from '@chakra-ui/react';
+import {about_content_heading,about_content_middle,about_content_bottom} from "./aboutContent"
 const About = () => {
   return (
-    <Box id='about'>
-      <h5>Get To Know</h5>
-     
-      <div className="container about_container">
-        {/* <div className="about_me">
-          <div className="about_me-image">
-            <img src={ME} alt="another image" />
-          </div>
-        </div> */}
-        <div className="about_content">
-          <p>Full Stack Developer with a commitment to efficiency and a natural aptitude for addressing issues. capable of producing production-ready code using front-end and back-end technologies such as HTML, CSS, JavaScript, Redux, Node.js, Express, and MongoDB to create a single page application.</p>
-          <a href="#contact" className='btn btn-primary'>Let's Talk</a>
-        </div>
-      </div>
+    <Box m="auto" mb="3rem" w={["90%","90%","75%"]} id='about' color={'#fff'} >
+      <Heading color={"rgba(255,255,255,0.6)"} pb="1rem">About Me</Heading>
+      <VStack  textAlign={"justify"} >
+        <Text fontSize={"1.1rem"} fontFamily={"body"} >{about_content_heading}</Text>
+        <Text fontSize={"1.1rem"} fontFamily={"body"} >{about_content_middle}</Text>
+        <Text fontSize={"1.1rem"} fontFamily={"body"}>{about_content_bottom}</Text>
+        {/* <Text textAlign={"left"} >Thank you for visiting my portfolio, I hope you enjoy exploring my work.</Text> */}
+      </VStack>
     </Box>
   )
 }

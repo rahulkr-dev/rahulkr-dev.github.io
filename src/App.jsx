@@ -20,6 +20,7 @@ const App = () => {
       <Desktop />
       <Header />
       <Nav />
+      <About />
       <Skills />
       <GitHubCalendar/>
       <GithubStats/>
