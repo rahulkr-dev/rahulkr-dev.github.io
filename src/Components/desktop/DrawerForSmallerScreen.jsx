@@ -37,9 +37,9 @@ export default function DrawerExample() {
 
   return (
     <Box  className="hamburger" >
-      <Box pl="1rem" w="max-content" onClick={onOpen}>
+      <Flex p="1rem" alignItems={"center"} pl="1rem" w="full" onClick={onOpen} borderBottomWidth="2px" boxShadow={"dark-lg"}>
         <GiHamburgerMenu color={"white"} size="1.5rem" />
-      </Box>
+      </Flex>
       <Drawer
         isOpen={isOpen}
         placement='left'

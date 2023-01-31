@@ -75,9 +75,12 @@ img{
     width: 100%;
     object-fit: cover;
 }
-
-::placeholder{
+#inputName::placeholder{
     color: white;
+}
+
+#t1ffff048-2e71-46a9-9edd-591fdbba77a8{
+    background-color: green;
 }
 /* ======= media queries for MEDIUM devices */
 

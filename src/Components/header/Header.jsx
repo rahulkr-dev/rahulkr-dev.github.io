@@ -28,7 +28,7 @@ const Header = () => {
               <Text textAlign={["center","center","left"]} fontSize="1.2rem" fontWeight="bold" >Hi, I'm</Text>
               <Heading textAlign={["center","center","left"]} fontSize="2.5rem" color="white">Rahul kumar</Heading>
             </Box>
-            <Text textAlign={"justify"} fontFamily={"body"} fontSize={"1.1rem"} pr={{lg:"4rem"}} >
+            <Text textAlign={"justify"} fontFamily={"body"} fontSize={"1.1rem"} pr={{lg:"4rem"}} pb="10px" >
               Highly motivated and results-driven full stack developer with a proven track record of success in building web-applications using the MERN stack (JavaScript, React, Node.js, and MongoDB).
             </Text>
             <a href="#contact" className='btn btn-primary'>Let's Talk</a>

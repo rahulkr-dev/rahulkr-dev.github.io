@@ -20,20 +20,22 @@ const Calender = () => {
     });
   };
   return (
-    <Box  boxSizing="border-box" maxW={"100vw"} p="1rem"
-    bg={"linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%)"}
-    >
+    <Box w="max-content" m="auto" color={"white"} maxW="100vw" overflow={"scroll"}>
       <Heading mb="2rem" textAlign="center" color="white" >Days I Code</Heading>
       <GitHubCalendar
-        // style={{width:"100%", margin: "auto" ,marginBottom:"5%" }}
         username="rahulkr-dev"
-        transformData={selectLastHalfYear}
-        blockSize={20}
-        fontSize={16}
+        blockSize={18}
+        fontSize={18}
+        // transformData={selectLastHalfYear}
+        
       >
-         <ReactTooltip delayShow={18} html /> 
-      </GitHubCalendar>
+        <ReactTooltip delayShow={18} html />
+      </GitHubCalendar >
+
     </Box>
+
+
+
   );
 };
 

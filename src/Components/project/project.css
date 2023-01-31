@@ -15,12 +15,14 @@
 
 @media screen and (max-width:1024px){
     #project{
+        /* padding: 0; */
         padding-top: 2rem;
     }
     .project-container{
         grid-template-columns: repeat(2,1fr);
 
-        padding: 2rem 1rem;
+        padding: 2rem 0;
+        gap:1rem
     }
 }
    /* ===== media query for mobile */
