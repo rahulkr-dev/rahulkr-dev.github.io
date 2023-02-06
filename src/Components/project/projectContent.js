@@ -3,6 +3,7 @@ import booking from "../../assects/project/bookingWeb.gif"
 import ls from "../../assects/project/lifeStyleStore.gif"
 import vidfy from "../../assects/project/vidfy.gif"
 import cozytrip from "../../assects/project/tripVilla/homePage.png"
+import gearhub_navbar from "../../assects/project/gearhub/Navbar.png"
 import portfolio from "../../assects/project/portfolio/portfolio.png"
 
 import { AiFillHtml5 } from "react-icons/ai"
@@ -31,8 +32,8 @@ export const lifeStyle = {
 }
 
 export const zee5 = {
-    github: "",
-    live: "",
+    github: "https://github.com/rahulkr-dev/ZEE5-CLONE",
+    live: "https://vid5.vercel.app/",
     techStackName: [
         { name: "HTML", color: "green" }, { name: "css", color: "red" },
         { name: "javascript", color: "purple" }, { name: "reactjs", color: "green" }, { name: "nodejs", color: "orange" },
@@ -46,7 +47,7 @@ export const zee5 = {
 }
 
 export const tripvilla = {
-    github: "https://github.com/rahulke-dev/scenic-shock-7677",
+    github: "https://github.com/rahulkr-dev/tripVilla_Clone",
     live: "https://cozytrip.vercel.app/",
     techStackName: [
         { name: "HTML", color: "green" }, { name: "css", color: "red" },
@@ -76,8 +77,8 @@ export const bookingWeb = {
 }
 
 export const gearHub = {
-    github: "",
-    live: "",
+    github: "https://github.com/rahulkr-dev/GearHub-e-commerce",
+    live: "https://frontend-flax-five.vercel.app/",
     techStackName: [
         { name: "HTML", color: "green" }, { name: "css", color: "red" },
         { name: "javascript", color: "purple" }, { name: "reactjs", color: "green" }, { name: "nodejs", color: "orange" },
@@ -86,6 +87,6 @@ export const gearHub = {
     name: "GearHub",
     desc: "Get ready to score big with our online sports store! Shop from a wide selection of top-quality sports equipment and gear, including footwear, apparel, and accessories. Whether you're a seasoned athlete or just starting out, we've got you covered. Find everything you need to up your game, at unbeatable prices.",
     techStack: [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb],
-    image: ls
+    image: gearhub_navbar
 
 }

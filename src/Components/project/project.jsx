@@ -13,10 +13,10 @@ const Project = () => {
       <Heading color={"rgba(255,255,255,0.6)"} p={['1rem', '1rem', '1rem 3rem']}>Projects</Heading>
       <Box p={['10px', '10px',"1rem", '0 4rem']} className='project-container'>
 
+        <ProjectCardItem project={gearHub} />
         <ProjectCardItem project={zee5} />
         <ProjectCardItem project={tripvilla} />
         <ProjectCardItem project={bookingWeb} />
-        <ProjectCardItem project={gearHub} />
         <ProjectCardItem project={lifeStyle} />
     
       </Box>
