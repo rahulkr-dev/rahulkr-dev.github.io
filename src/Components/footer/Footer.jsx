@@ -25,10 +25,10 @@ const Footer = () => {
         <a href="htpps://twitter.com" target="_blank"><RiTwitterFill/></a>
       </div>
       <Box color={"#fff"} className="footer_copyright" >
-        <small>&copy; Rahul kumar . All right reserved</small>
+        <small style={{color:"white"}}>&copy; Rahul kumar . All right reserved</small>
       </Box>
-      <div className="arro">
-        <a href="#"><AiOutlineArrowUp/></a>
+      <div className="arro btn-primary">
+        <a href="#"><AiOutlineArrowUp size="1.5rem"/></a>
       </div>
     </footer>
   )

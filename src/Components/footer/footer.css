@@ -9,7 +9,11 @@
 
 }
 #footer a{
-    color: var(--color-bg);
+    color: var(--color-white);
+}
+#footer a:hover{
+    color: var(--orange);
+
 }
 .footer_logo{
     font-size: 2rem;
@@ -23,13 +27,6 @@
     justify-content: center;
     gap: 2rem;
     margin: 0 auto 3rem;
-}
-.permalinks li a{
-    /* color: var(--color-varient); */
-    color: #4db5ff;
-}
-.permalinks li a:hover{
-    color: var(--color-light);
 }
 .footer_socials{
     display: flex;

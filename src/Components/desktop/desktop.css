@@ -5,17 +5,15 @@
     padding: .7rem 1.5rem;
     z-index: 2;
     position: fixed;
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
-    /* bottom: 2rem; */
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
-    /* border-radius: 3rem; */
+    align-items: "center";
     backdrop-filter: blur(15px);
     padding-right: 5rem;
 
 }
+
 .desktop a{
     display: flex;
     align-items: center;
