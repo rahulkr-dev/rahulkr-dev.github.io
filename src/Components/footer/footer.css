@@ -1,4 +1,4 @@
-footer{
+#footer{
     background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
     padding: 3rem 0;
     text-align: center;
@@ -8,7 +8,7 @@ footer{
     position: relative;
 
 }
-footer a{
+#footer a{
     color: var(--color-bg);
 }
 .footer_logo{

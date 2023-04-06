@@ -4,7 +4,6 @@ import ls from "../../assects/project/lifeStyleStore.gif"
 import vidfy from "../../assects/project/vidfy.gif"
 import cozytrip from "../../assects/project/tripVilla/homePage.png"
 import gearhub_navbar from "../../assects/project/gearhub/Navbar.png"
-import portfolio from "../../assects/project/portfolio/portfolio.png"
 
 import { AiFillHtml5 } from "react-icons/ai"
 import { TbBrandCss3 } from "react-icons/tb"
@@ -27,7 +26,8 @@ export const lifeStyle = {
     name: "lifestylestore",
     desc: "This e-commerce website offers a platform for customers to buy products and services online. It has a user-friendly interface and secure payment system. Offers a variety of products across categories. Makes it easy to buy and receive purchases with just a few clicks.",
     techStack: [AiFillHtml5, TbBrandCss3, TbBrandJavascript],
-    image: ls
+    image: ls,
+    type:"javascript"
 
 }
 
@@ -42,7 +42,8 @@ export const zee5 = {
     name: "VidFy",
     desc: "This video-streaming website offers a vast library of videos and TV shows, accessible from any device with internet. Features user-friendly interface, simple search function. Committed to providing high-quality video content for entertainment on-the-go.",
     techStack: [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb],
-    image: vidfy
+    image: vidfy,
+    type:"react"
 
 }
 
@@ -57,7 +58,8 @@ export const tripvilla = {
     name: "CozyTrip",
     desc: "CozyTrip is an online travel platform offering a vast selection of vacation homes, apartments, and villas as an affordable alternative to hotels. User-friendly interface for easy search, compare and book accommodation.Ideal for family vacations, romantic getaways, and solo trips.",
     techStack: [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb],
-    image: cozytrip
+    image: cozytrip,
+    type:"mern"
 
 }
 
@@ -72,7 +74,8 @@ export const bookingWeb = {
     name: "Booking",
     desc: "Booking is a leading online booking platform offering a wide range of accommodation options, from hotels to apartments and vacation homes. With an easy-to-use interface.",
     techStack: [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb],
-    image: booking
+    image: booking,
+    type:"react"
 
 }
 
@@ -87,6 +90,14 @@ export const gearHub = {
     name: "GearHub",
     desc: "Get ready to score big with our online sports store! Shop from a wide selection of top-quality sports equipment and gear, including footwear, apparel, and accessories. Whether you're a seasoned athlete or just starting out, we've got you covered. Find everything you need to up your game, at unbeatable prices.",
     techStack: [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb],
-    image: gearhub_navbar
+    image: gearhub_navbar,
+    type:"mern"
 
-}
+};
+
+const projectArray = [
+    gearHub,zee5,tripvilla,lifeStyle,bookingWeb
+];
+
+
+export default projectArray;

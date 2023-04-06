@@ -2,8 +2,8 @@ import React from 'react'
 import "./footer.css"
 import {RiFacebookFill} from "react-icons/ri"
 import {IoLogoInstagram} from "react-icons/io"
-import {RiTwitterFill} from "react-icons/ri"
 import {AiOutlineArrowUp} from "react-icons/ai"
+import {RiTwitterFill} from "react-icons/ri"
 import {BsLinkedin} from "react-icons/bs"
 import {FaGithub} from "react-icons/fa"
 import { Box } from '@chakra-ui/react'
@@ -11,7 +11,7 @@ import { Box } from '@chakra-ui/react'
 
 const Footer = () => {
   return (
-    <footer>
+    <footer id="footer">
       <ul className='permalinks'>
         <li><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>

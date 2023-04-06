@@ -10,12 +10,17 @@
     font-family: monospace;
     color: #fff;
     transition: all .5s ease-in-out;
-
+    box-shadow: inset 0px -1px 3px 2px white,0px 5px 7px -1px rgba(0,0,0,0.1);
+    cursor: grab;
+    
 }
 
 .project-card:hover{
     /* cursor: pointer; */
-    transform: scale(1.05);
+    transition: all .5s ease;
+    transform: scale(1.02);
+    /* box-shadow: 0px 5px 8px 2px var(--orange); */
+    box-shadow: 27px -5px 28px -31px white,0px 3px 6px 2px orange;
 }
 .project-img{
     width: 100%;
@@ -69,11 +74,16 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
-    margin: 1rem 0 ;
+    margin-top: 15px;
+    margin-bottom: -6px;
+    text-transform: uppercase;
+    
 }
 
 .project-desc-btn .btn {
+    height: max-content;
     cursor: pointer;
+    padding: 4px 8px;
 
 }
 

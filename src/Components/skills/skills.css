@@ -26,15 +26,21 @@
     border-radius: 1rem;
     transition: var(--transition);
     cursor: pointer;
+    box-shadow: inset 0px -1px 3px 2px white,0px 5px 7px -1px rgba(0,0,0,0.1);
     transition: all 2s ease-in-out;
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
 
 .skill-card:hover {
-    /* background: transparent; */
+
     background: radial-gradient(circle at 4.8% 4.8%, rgb(17, 23, 58) 20%, rgb(58, 85, 148) 80%);
     border-bottom: var(--color-primary-variant);
-    /* color: yellow; */
 
+    box-shadow: inset 0px -2px 6px 5px white,inset 0px 10px 15px 6px orange;
+    box-shadow: inset 0px -2px 6px 5px white,inset 0px -8px 19px 6px orange;
+    box-shadow: inset 0px -5px 25px -7px white,inset 0px 1px 6px 2px orange;
 }
 
 .skill-icon {

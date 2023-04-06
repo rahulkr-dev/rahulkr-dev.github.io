@@ -1,24 +1,7 @@
-import "./projectList.css"
-import booking from "../../assects/project/bookingWeb.gif"
-import ls from "../../assects/project/lifeStyleStore.gif"
-import vidfy from "../../assects/project/vidfy.gif"
-import cozytrip from "../../assects/project/tripVilla/homePage.png"
-import portfolio from "../../assects/project/portfolio/portfolio.png"
-
-// importing tech-stack components form react-icons
-import { AiFillHtml5 } from "react-icons/ai"
-import { TbBrandCss3 } from "react-icons/tb"
-import { TbBrandJavascript } from "react-icons/tb"
-import { FaReact } from "react-icons/fa"
-import { SiChakraui } from "react-icons/si"
-import { DiNodejs } from "react-icons/di"
-import { SiExpress } from "react-icons/si"
-import { SiRedux } from "react-icons/si"
-import { DiMongodb } from "react-icons/di"
-import { SiRedis } from "react-icons/si"
-
 import React from 'react'
-import { Text, Heading, UnorderedList, ListItem, Box, Flex, Badge, Grid, Button, Image } from "@chakra-ui/react"
+import "./projectList.css"
+import { Text,Box, Flex, Badge, Grid, Button, Image } from "@chakra-ui/react";
+import { style } from '../../utils/styles';
 
 
 
@@ -44,11 +27,11 @@ export const ProjectCardItem = ({project}) => {
 
       <Box fontFamily={"heading"} className="project-desc">
         <Box mt="6px" className='project-desc-content' >
-          <Text color="gray.400" fontSize="17px" fontWeight="bold" >{name}</Text>
+          <Text textTransform={"uppercase"} color="gray.400" fontSize="17px" fontWeight="bold" >{name}</Text>
           <Text color="gray.200" fontFamily={"heading"} fontSize="14px"  >{desc}</Text>
         </Box>
       </Box>
-      <Flex color="#4db5ff" m="10px 0 10px 0" wrap="wrap" gap="5px" >
+      <Flex color={style.orange_color} m="10px 0 10px 0" wrap="wrap" gap="2px" >
         {techStack.map((Item,i)=>(
           <Item key={i} size="1.6rem" />
         ))}

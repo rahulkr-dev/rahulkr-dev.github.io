@@ -1,5 +1,5 @@
 import React from 'react'
-import CV from "../../assects/cv.pdf"
+import CV from "../../assects/rahul-kumar_resume.pdf"
 import {FiDownload} from "react-icons/fi"
 import { Box, Flex } from '@chakra-ui/react'
 

@@ -13,116 +13,57 @@ import { SiTypescript } from "react-icons/si"
 import { AiFillGithub } from "react-icons/ai"
 import { SiPostman } from "react-icons/si"
 import "./skills.css"
-import { Box, Heading, Progress, Text } from '@chakra-ui/react'
-import GitHubCalendar from '../github_calendar/GithubCalendar'
+import {Heading } from '@chakra-ui/react'
+import SkillCard from './SkillCard'
 
-const skillsArr = [AiFillHtml5, TbBrandCss3, TbBrandJavascript, FaReact, SiChakraui, DiNodejs, SiExpress, SiRedux, DiMongodb, SiRedis];
 
-const containerArr = skillsArr.map(item => (
-  <div className="skill_card">
-    {<item />}
-  </div>
-))
 const Skills = () => {
+  const frontend = [
+    {ReactIcon:AiFillHtml5,value:70,text:"HTML5"},
+    {ReactIcon:TbBrandCss3,value:70,text:"CSS3"},
+    {ReactIcon:TbBrandJavascript,value:95,text:"JAVASCRIPT"},
+    {ReactIcon:FaReact,value:85,text:"REACTJS"},
+    {ReactIcon:SiChakraui,value:60,text:"CHAKRAUI"},
+    {ReactIcon:SiRedux,value:80,text:"REDUX"},
+    {ReactIcon:SiTypescript,value:60,text:"TYPESCRIPT"},
+  ]
+  const backend = [
+    {ReactIcon:SiTypescript,value:60,text:"TYPESCRIPT"},
+    {ReactIcon:DiNodejs,value:70,text:"NODEJS"},
+    {ReactIcon:SiExpress,value:70,text:"EXPRESS"},
+    {ReactIcon:DiMongodb,value:95,text:"MONGODB"},
+    {ReactIcon:SiRedis,value:85,text:"REDIS"}
+  ]
+  const tools = [
+    {ReactIcon:SiPostman,value:70,text:"POSTMAN"},
+    {ReactIcon:AiFillGithub,value:75,text:"GITHUB"}
+    ]
   return (
     <div id="skills">
       <Heading color={"rgba(255,255,255,0.6)"} pl="1rem" >Technical Skills</Heading>
       <Heading color={"rgba(255,255,255,0.6)"} pt="2rem" textAlign="center" pl="1rem" >FrontEnd</Heading>
       <div className="skill_container">
-        <div className="skill-card">
-          <AiFillHtml5 className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={60} />
-          <Text color="white"  mt="4px">HTML5</Text>
-        </div>
-        <div className="skill-card">
-          <TbBrandCss3 className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={60} />
-
-          <Text color="white" mt="4px">CSS3</Text>
-        </div>
-        <div className="skill-card">
-          <TbBrandJavascript className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={95} />
-
-          <Text color="white" mt="4px">JAVASCRIPT</Text>
-        </div>
-        <div className="skill-card">
-          <FaReact className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={80} />
-
-          <Text color="white" mt="4px">REACTJS</Text>
-        </div>
-        <div className="skill-card">
-          <SiChakraui className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={70} />
-
-          <Text color="white" mt="4px">CHAKRAUI</Text>
-        </div>
-        <div className="skill-card">
-          <SiRedux className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={80} />
-
-          <Text color="white" mt="4px">REDUX</Text>
-        </div>
-        <div className="skill-card">
-          <SiTypescript className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={50} />
-
-          <Text color="white" mt="4px">TYPESCRIPT</Text>
-        </div>
+          {frontend.map(({ReactIcon,value,text},index)=>(
+            // FRONTEND
+            <SkillCard key={index} ReactIcon={ReactIcon} value={value} text={text} />
+          ))}
       </div>
 
-      {/* backend technology */}
+      {/* BACKEND */}
       <Heading color={"rgba(255,255,255,0.6)"} mt="3rem" textAlign="center" pl="1rem" >BackEnd</Heading>
       <div className="skill_container">
-        <div className="skill-card">
-          <SiTypescript className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={50} />
-
-          <Text color="white" mt="4px">TYPESCRIPT</Text>
-        </div>
-        <div className="skill-card">
-          <DiNodejs className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={70} />
-
-          <Text color="white" mt="4px">NODEJS</Text>
-        </div>
-        <div className="skill-card">
-          <SiExpress className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={65} />
-
-          <Text color="white" mt="4px">EXPRESSJS</Text>
-        </div>
-        <div className="skill-card">
-          <DiMongodb className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={75} />
-
-          <Text color="white" mt="4px">MONGODB</Text>
-        </div>
-        <div className="skill-card">
-          <SiRedis className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={60} />
-
-          <Text color="white" mt="4px">REDIS</Text>
-        </div>
+      {backend.map(({ReactIcon,value,text},index)=>(
+            <SkillCard key={index} ReactIcon={ReactIcon} value={value} text={text} />
+          ))}
 
       </div>
-      {/* tools i used  */}
+      {/* TOOLS  */}
 
       <Heading color={"rgba(255,255,255,0.6)"} mt="3rem" textAlign="center" pl="1rem" >Tools</Heading>
       <div className="skill_container">
-        <div className="skill-card">
-          <SiPostman className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={80} />
-
-          <Text color="white" mt="4px">POSTMAN</Text>
-        </div>
-        <div className="skill-card">
-          <AiFillGithub className='skill-icon' />
-          <Progress colorScheme='green' size='xs' value={80} />
-
-          <Text color="white" mt="4px">GITHUB</Text>
-        </div>
+      {tools.map(({ReactIcon,value,text},index)=>(
+            <SkillCard key={index} ReactIcon={ReactIcon} value={value} text={text} />
+          ))}
       </div>
     </div>
   )

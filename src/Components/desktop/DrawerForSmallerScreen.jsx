@@ -58,7 +58,7 @@ export default function DrawerExample() {
               <a style={style} href="#skills" onClick={onClose}><BiBook /><span>Skills</span></a>
               <a style={style} href="#project" onClick={onClose}><VscProject /><span>Project</span></a>
               <a style={style} href="#contact" onClick={onClose}><BiMessageSquareError /><span>Contact</span></a>
-              <a style={style} href="https://drive.google.com/file/d/1Flsb1Bkkpvqjc5gozAlxrSqSbUzoxAml/view?usp=sharing" target="_blank" >Resume</a>
+              <a style={style} href="https://drive.google.com/drive/folders/15OJ-hD2D2zGTPuPBEwB84OWx9k7-fg0R?usp=sharing" target="_blank" >Resume</a>
             </Grid>
           </DrawerBody>
         </DrawerContent>
