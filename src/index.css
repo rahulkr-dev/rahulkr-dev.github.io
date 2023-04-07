@@ -132,6 +132,9 @@ img {
     color: white;
 }
 
+.typed-content>span>span{
+    font-size: 2rem;
+}
 
 /* ======= media queries for MEDIUM devices */
 

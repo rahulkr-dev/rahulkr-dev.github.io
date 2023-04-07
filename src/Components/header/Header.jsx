@@ -1,11 +1,14 @@
 import React from 'react'
-import CTA from "./CVA"
-// import ME from "../../assects/rahulFace3.png"
+import Typed from "react-typed"
 import ME from "../../assects/square_img.png"
+
+// Chakra Components
 import { Box, Center, Flex, Grid, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react'
+// Icons
 import { RiTwitterFill } from "react-icons/ri"
 import { BsLinkedin } from "react-icons/bs"
 import { FaGithub } from "react-icons/fa"
+
 import Hamburger from "../desktop/DrawerForSmallerScreen"
 import { style } from '../../utils/styles'
 const Header = () => {
@@ -18,8 +21,8 @@ const Header = () => {
       <Hamburger />
       <Box >
 
-        <Grid mt={["2rem","2rem","4rem","5rem"]}  templateColumns={["repeat(1,1fr)", "repeat(1,1fr)", "repeat(2,1fr)", "repeat(2,1fr)"]} >
-          <Box m="auto" mt={{lg:"3rem"}}>
+        <Grid mt={["2rem", "2rem", "4rem", "5rem"]} templateColumns={["repeat(1,1fr)", "repeat(1,1fr)", "repeat(2,1fr)", "repeat(2,1fr)"]} >
+          <Box m="auto" mt={{ lg: "3rem" }}>
             <Center
               borderRadius={"full"}
               w="max-content"
@@ -45,10 +48,12 @@ const Header = () => {
             {/* <CTA /> */}
           </Box>
 
-          <Grid m={["3rem 0 2rem 0"]} justifyContent="center" alignItems="center" color="#fff" boxShadow={style.boxShadowRight} w={{lg:"80%"}} p={{lg:"0 2rem 2rem 0"}} >
+          <Grid m={["3rem 0 2rem 0"]} justifyContent="center" alignItems="center" color="#fff" boxShadow={style.boxShadowRight} w={{ lg: "80%" }} p={{ lg: "0 2rem 2rem 0" }} >
             <Box mt={["1rem", "1rem", "1rem"]} textAlign="left" >
-              <Text textAlign={["center", "center", "left","left"]} fontSize="1.2rem" fontWeight="bold" >Hi, I'm</Text>
-              <Heading textAlign={["center", "center", "left","left"]} fontSize="2.5rem" color="white">Rahul kumar</Heading>
+              <Text textAlign={["center", "center", "left", "left"]} fontSize="1.2rem" fontWeight="bold" >Hi,😎 I'm Rahul kumar</Text>
+              <Heading className="typed-content" textAlign={["center", "center", "left", "left"]} color="orange">
+                <Typed strings={["Full-Stack Web-Developer", "Fast Learner","Problem Solver","React Enthusiastic"]} typeSpeed={100} backSpeed={50} loop></Typed>
+              </Heading>
             </Box>
             <Text textAlign={"justify"} fontFamily={"body"} fontSize={"1.1rem"} pr={{ lg: "4rem" }} pb="10px" >
               Highly motivated and results-driven full stack developer with a proven track record of success in building web-applications using the MERN stack with JavaScript, React, Node.js, and MongoDB.
