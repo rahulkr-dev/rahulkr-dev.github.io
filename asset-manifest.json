@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9d296169.css",
-    "main.js": "/static/js/main.d6046e63.js",
+    "main.css": "/static/css/main.bd84963c.css",
+    "main.js": "/static/js/main.d0992877.js",
     "static/media/lifeStyleStore.gif": "/static/media/lifeStyleStore.f227ce6a33129e2060a7.gif",
     "static/media/vidfy.gif": "/static/media/vidfy.2be5f6cafaaddecf7d9f.gif",
     "static/media/homePage.png": "/static/media/homePage.aa2bc328fb2dd56f022c.png",
@@ -9,13 +9,12 @@
     "static/media/bookingWeb.gif": "/static/media/bookingWeb.1bd13fa68dbaae6ecffc.gif",
     "static/media/square_img.png": "/static/media/square_img.de2c0b997b09fd9e7231.png",
     "static/media/rahul-kumar_resume.pdf": "/static/media/rahul-kumar_resume.d1f991ca06a38fc3ea06.pdf",
-    "static/media/template.jpg": "/static/media/template.b5688b6464b2b85f4709.jpg",
     "index.html": "/index.html",
-    "main.9d296169.css.map": "/static/css/main.9d296169.css.map",
-    "main.d6046e63.js.map": "/static/js/main.d6046e63.js.map"
+    "main.bd84963c.css.map": "/static/css/main.bd84963c.css.map",
+    "main.d0992877.js.map": "/static/js/main.d0992877.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d296169.css",
-    "static/js/main.d6046e63.js"
+    "static/css/main.bd84963c.css",
+    "static/js/main.d0992877.js"
   ]
 }
