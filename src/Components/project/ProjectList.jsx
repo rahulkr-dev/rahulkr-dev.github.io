@@ -8,7 +8,7 @@ import { style } from '../../utils/styles';
 export const ProjectCardItem = ({project}) => {
   const {github,live,techStackName,name,desc,techStack,image} = project
   return (
-    <Box w="350px" className='project-card' m="auto">
+    <Box w="350px" className='project-card' m="auto" p={{base:"10px",md:"auto"}}>
       <Box className="project-img">
         <Image src={image} alt="" />
       </Box>
