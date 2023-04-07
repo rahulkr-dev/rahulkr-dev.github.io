@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Typed from "react-typed"
 import ME from "../../assects/square_img.png"
 
@@ -14,6 +14,8 @@ import { style } from '../../utils/styles'
 const Header = () => {
 
   const boxShadow = "rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px"
+
+  
   return (
     <Box h={{ lg: "105vh" }}
       //  bg="#2596be"

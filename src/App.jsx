@@ -11,10 +11,11 @@ import Desktop from './Components/desktop/NavbarForD'
 import GitHubCalendar from './Components/github_calendar/GithubCalendar'
 import GithubStats from './Components/github_stats/GithubStats'
 import { Box } from '@chakra-ui/react'
+import { style } from './utils/styles'
 const App = () => {
   return (
     <Box 
-    bg={"linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%)"}
+    bg={style.app_bg_gradient}
     >
 
       <Desktop />

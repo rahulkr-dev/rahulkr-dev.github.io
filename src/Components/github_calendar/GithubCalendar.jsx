@@ -27,10 +27,10 @@ const Calender = () => {
     
     w="max-content" m="auto" color={"white"} maxW="100vw" overflow={"scroll"} 
     // border={"2px solid orange"} 
-    p={{lg:"1rem 2rem 3rem 2rem"}}
+    p={{lg:"1rem 2rem 3rem 3rem"}}
     boxShadow={style.boxShadowLeft}
     >
-      <Heading mb="2rem" textAlign="center" color="white" >GITHUB CONTRIBUTION CALENDER</Heading>
+      <Heading mb="3rem" textAlign="center" color={style.orange_color} >GITHUB CONTRIBUTION CALENDER</Heading>
       <GitHubCalendar
         username="rahulkr-dev"
         blockSize={18}

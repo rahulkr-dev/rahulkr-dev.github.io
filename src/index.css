@@ -135,7 +135,20 @@ img {
 .typed-content>span>span{
     font-size: 2rem;
 }
-
+/* .clip-star{
+    animation: rotate 10s reverse infinite;
+} */
+@keyframes rotate {
+    from {
+        width: 20%;
+        /* height: 0; */
+      /* transform: rotate(0deg); */
+    }
+    to {
+        width: 100%;
+      /* transform: rotate(360deg); */
+    }
+  }
 /* ======= media queries for MEDIUM devices */
 
 @media screen and (max-width:1024px) {

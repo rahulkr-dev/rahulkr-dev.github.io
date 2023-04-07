@@ -1,4 +1,8 @@
 import React from 'react'
+import "./skills.css"
+import { Box } from '@chakra-ui/react'
+
+import {style} from "../../utils/styles"
 import { AiFillHtml5 } from "react-icons/ai"
 import { TbBrandCss3 } from "react-icons/tb"
 import { TbBrandJavascript } from "react-icons/tb"
@@ -12,7 +16,8 @@ import { SiRedis } from "react-icons/si"
 import { SiTypescript } from "react-icons/si"
 import { AiFillGithub } from "react-icons/ai"
 import { SiPostman } from "react-icons/si"
-import "./skills.css"
+import { FaLinux } from "react-icons/fa"
+
 import {Heading } from '@chakra-ui/react'
 import SkillCard from './SkillCard'
 
@@ -36,35 +41,36 @@ const Skills = () => {
   ]
   const tools = [
     {ReactIcon:SiPostman,value:70,text:"POSTMAN"},
-    {ReactIcon:AiFillGithub,value:75,text:"GITHUB"}
+    {ReactIcon:AiFillGithub,value:85,text:"GITHUB"},
+    {ReactIcon:FaLinux,value:50,text:"LINUX"}
     ]
   return (
     <div id="skills">
-      <Heading color={"rgba(255,255,255,0.6)"} pl="1rem" >Technical Skills</Heading>
-      <Heading color={"rgba(255,255,255,0.6)"} pt="2rem" textAlign="center" pl="1rem" >FrontEnd</Heading>
-      <div className="skill_container">
+      <Heading textAlign={"left"} textTransform={"uppercase"} color={style.orange_color} pl="2rem" >Technical Skills</Heading>
+      <Heading color={style.heading_1} pt="2rem" textAlign="center" pl="1rem" >FRONTEND</Heading>
+      <Box className="skill_container" mt="1rem">
           {frontend.map(({ReactIcon,value,text},index)=>(
             // FRONTEND
             <SkillCard key={index} ReactIcon={ReactIcon} value={value} text={text} />
           ))}
-      </div>
+      </Box>
 
       {/* BACKEND */}
-      <Heading color={"rgba(255,255,255,0.6)"} mt="3rem" textAlign="center" pl="1rem" >BackEnd</Heading>
-      <div className="skill_container">
+      <Heading color={style.heading_1} mt="3rem" textAlign="center" pl="1rem" >BACKEND</Heading>
+      <Box className="skill_container" mt="1rem">
       {backend.map(({ReactIcon,value,text},index)=>(
             <SkillCard key={index} ReactIcon={ReactIcon} value={value} text={text} />
           ))}
 
-      </div>
+      </Box>
       {/* TOOLS  */}
 
-      <Heading color={"rgba(255,255,255,0.6)"} mt="3rem" textAlign="center" pl="1rem" >Tools</Heading>
-      <div className="skill_container">
+      <Heading color={style.heading_1} mt="3rem" textAlign="center" pl="1rem" >TOOLS</Heading>
+      <Box className="skill_container" mt="1rem">
       {tools.map(({ReactIcon,value,text},index)=>(
             <SkillCard key={index} ReactIcon={ReactIcon} value={value} text={text} />
           ))}
-      </div>
+      </Box>
     </div>
   )
 }
