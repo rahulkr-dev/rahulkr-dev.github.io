@@ -39,7 +39,7 @@ const Header = () => {
 
               >
                 <Image
-                id="home-img"
+                className="home-img"
                   boxSize={"300px"}
                   borderRadius={"full"}
                   border={'2px solid black'}

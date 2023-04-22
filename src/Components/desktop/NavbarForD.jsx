@@ -33,8 +33,8 @@ const Desktop = () => {
         <a href="#projects" onClick={() => setNavActive("#services")} className={navActive == '#services' ? "active nav-link projects" : "nav-link projects"}><VscProject /><span>Project</span></a>
         <a href="#contact" onClick={() => setNavActive("#contact")} className={navActive == '#contact' ? "active nav-link contact" : "nav-link contact"}><BiMessageSquareError /><span>Contact</span></a>
         <Flex>
-          <a className='nav-link resume resume-link-1' href="https://drive.google.com/file/d/1Flsb1Bkkpvqjc5gozAlxrSqSbUzoxAml/view?usp=sharing" target="_blank" >Resume</a>
-          <a className='resume-link-2' href={RESUME} download>
+          <a className='nav-link resume resume-button-1' href="https://drive.google.com/file/d/1Flsb1Bkkpvqjc5gozAlxrSqSbUzoxAml/view?usp=sharing" target="_blank" >Resume</a>
+          <a className='resume-button-2' href={RESUME} download>
             <FiDownload size="1.5rem" />
           </a>
         </Flex>
