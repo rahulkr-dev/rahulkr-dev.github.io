@@ -1,4 +1,4 @@
-#project{
+#projects{
     padding: 1rem;
     padding-top: 5rem;
 
@@ -14,7 +14,7 @@
 
 
 @media screen and (max-width:1024px){
-    #project{
+    #projects{
         /* padding: 0; */
         padding-top: 2rem;
     }
@@ -27,7 +27,7 @@
 }
    /* ===== media query for mobile */
    @media screen and (max-width:600px){
-    #project{
+    #projects{
         padding: 0;
         padding-top: 2rem;
 

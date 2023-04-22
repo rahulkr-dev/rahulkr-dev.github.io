@@ -21,7 +21,7 @@ const GithubStats = () => {
         _hover={{ transform: "scale(1.2)" }}
       >
         <a href="https://github.com/rahulkr-dev" target="_blank">
-          <Image src="https://github-readme-stats.vercel.app/api/top-langs?username=rahulkr-dev&show_icons=truecount_private=true&locale=en&layout=compact" alt="rahulkr-dev" />
+          <Image className="github-top-langs" src="https://github-readme-stats.vercel.app/api/top-langs?username=rahulkr-dev&show_icons=truecount_private=true&locale=en&layout=compact" alt="rahulkr-dev" />
 
         </a>
       </Box>
@@ -34,7 +34,7 @@ const GithubStats = () => {
         _hover={{ transform: "scale(1.2)" }}
       >
         <a href="https://github.com/rahulkr-dev" target="_blank">
-          <Image src="https://github-readme-streak-stats.herokuapp.com/?user=rahulkr-dev&" alt="rahulkr-dev" />
+          <Image className="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com/?user=rahulkr-dev&" alt="rahulkr-dev" />
         </a>
 
       </Box>
@@ -46,7 +46,7 @@ const GithubStats = () => {
         _hover={{ transform: "scale(1.2)" }}
       >
         <a href="https://github.com/rahulkr-dev" target="_blank">
-          <Image src="https://github-readme-stats.vercel.app/api?username=rahulkr-dev&show_icons=true&count_private=true&hide_border=true" />
+          <Image className="github-stats-card" src="https://github-readme-stats.vercel.app/api?username=rahulkr-dev&show_icons=true&count_private=true&hide_border=true" />
         </a>
       </Box>
 

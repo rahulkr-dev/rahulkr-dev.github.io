@@ -29,7 +29,7 @@ const Project = () => {
 
 
   return (
-    <Box mb="4rem" p="1rem" id="project">
+    <Box mb="4rem" p="1rem" id="projects">
       <Heading color={style.orange_color} p={['1rem', '1rem', '1rem 3rem',"1rem 6rem"]}>My PROJECTS</Heading>
       <Flex mb={["2em","3rem","3rem","4rem"]} fontFamily={"cursive"} justifyContent={"center"} alignItems={"center"} gap="1rem" flexWrap={"wrap"}>
         <Text onClick={()=>setActive("all")} className={`btn ${active=="all"?"btn-active-project":""}`}>ALL</Text>

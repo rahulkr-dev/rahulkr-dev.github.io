@@ -20,8 +20,8 @@ const Footer = () => {
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div className="footer_socials">
-        <a href="https://www.linkedin.com/in/rahul-kumar-850b39232/" target="_blank"><BsLinkedin/></a>
-        <a href="https://github.com/rahulkr-dev" target="_blank"><FaGithub/></a>
+        <a id="contact-linkedin" href="https://www.linkedin.com/in/rahul-kumar-850b39232/" target="_blank"><BsLinkedin/></a>
+        <a id="contact-github" href="https://github.com/rahulkr-dev" target="_blank"><FaGithub/></a>
         <a href="htpps://twitter.com" target="_blank"><RiTwitterFill/></a>
       </div>
       <Box color={"#fff"} className="footer_copyright" >

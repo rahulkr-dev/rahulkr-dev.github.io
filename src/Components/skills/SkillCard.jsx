@@ -6,9 +6,9 @@ import { Progress, Text } from '@chakra-ui/react'
 const SkillCard = ({ReactIcon,value,text}) => {
     return (
         <div className="skill-card">
-            <ReactIcon className='skill-icon' />
+            <ReactIcon className='skill-icon skills-card-img' />
             <Progress colorScheme='orange' size='xs' value={value} />
-            <Text color="white" mt="4px">{text}</Text>
+            <Text className='skills-card-name' color="white" mt="4px">{text}</Text>
         </div>
     )
 }

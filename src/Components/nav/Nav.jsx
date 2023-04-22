@@ -10,11 +10,11 @@ const Nav = () => {
   let [navActice,setNavActive] = useState('#')
   // console.log(navActice)
   return (
-    <nav>
+    <nav id="nav-menu">
       <a href="#" onClick={()=>setNavActive("#")} className={navActice=='#'?"active":""} ><AiOutlineHome/></a>
       <a href="#about" onClick={()=>setNavActive("#about")} className={navActice=='#about'?"active":""}><AiOutlineUser/></a>
       <a href="#skills" onClick={()=>setNavActive("#experience")} className={navActice=='#experience'?"active":""}><BiBook/></a>
-      <a href="#project" onClick={()=>setNavActive("#services")} className={navActice=='#services'?"active":""}><VscProject/></a>
+      <a href="#projects" onClick={()=>setNavActive("#services")} className={navActice=='#services'?"active":""}><VscProject/></a>
       <a href="#contact" onClick={()=>setNavActive("#contact")} className={navActice=='#contact'?"active":""}><BiMessageSquareError/></a>
     </nav>
   )

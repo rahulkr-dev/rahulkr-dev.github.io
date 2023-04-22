@@ -13,10 +13,10 @@ export const ProjectCardItem = ({project}) => {
         <Image src={image} alt="" />
       </Box>
       <Box className="project-desc-btn">
-        <Button className='btn' ><a href={live} target="_blank">Live</a></Button>
-        <Button className='btn' ><a href={github} target="_blank">Github</a></Button>
+        <Button className='btn project-github-link' ><a href={live} target="_blank">Live</a></Button>
+        <Button className='btn project-deployed-link' ><a href={github} target="_blank">Github</a></Button>
       </Box>
-      <Grid>
+      <Grid className='project-tech-stack'>
         <Text fontWeight="bold" m="1rem 7px 0 0 " fontSize="1rem" color={"rgba(255,255,255,0.6)"}>TECH STACK</Text>
         <Flex gap="4px" pb="6px" wrap="wrap">
         {techStackName.map((item,i)=>(
@@ -27,11 +27,11 @@ export const ProjectCardItem = ({project}) => {
 
       <Box fontFamily={"heading"} className="project-desc">
         <Box mt="6px" className='project-desc-content' >
-          <Text textTransform={"uppercase"} color="gray.400" fontSize="17px" fontWeight="bold" >{name}</Text>
-          <Text color="gray.200" fontFamily={"heading"} fontSize="14px"  >{desc}</Text>
+          <Text className='project-title' textTransform={"uppercase"} color="gray.400" fontSize="17px" fontWeight="bold" >{name}</Text>
+          <Text className='project-description' color="gray.200" fontFamily={"heading"} fontSize="14px"  >{desc}</Text>
         </Box>
       </Box>
-      <Flex color={style.orange_color} m="10px 0 10px 0" wrap="wrap" gap="2px" >
+      <Flex  color={style.orange_color} m="10px 0 10px 0" wrap="wrap" gap="2px" >
         {techStack.map((Item,i)=>(
           <Item key={i} size="1.6rem" />
         ))}
