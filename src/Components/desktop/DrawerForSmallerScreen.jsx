@@ -36,7 +36,7 @@ export default function DrawerExample() {
   }
 
   return (
-    <Box  className="hamburger" >
+    <Box className="hamburger" >
       <Flex p="1rem" alignItems={"center"} pl="1rem" w="full" onClick={onOpen} borderBottomWidth="2px" boxShadow={"dark-lg"}>
         <GiHamburgerMenu color={"white"} size="1.5rem" />
       </Flex>
@@ -53,12 +53,12 @@ export default function DrawerExample() {
 
           <DrawerBody color={"white"} bg={"radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%)"} >
             <Grid gap="1rem">
-              <a style={style} href="#" onClick={onClose} ><AiOutlineHome /><span>Home</span></a>
-              <a style={style} href="#about" onClick={onClose} ><AiOutlineUser /><span>About</span></a>
-              <a style={style} href="#skills" onClick={onClose}><BiBook /><span>Skills</span></a>
-              <a style={style} href="#project" onClick={onClose}><VscProject /><span>Project</span></a>
-              <a style={style} href="#contact" onClick={onClose}><BiMessageSquareError /><span>Contact</span></a>
-              <a style={style} href="https://drive.google.com/drive/folders/15OJ-hD2D2zGTPuPBEwB84OWx9k7-fg0R?usp=sharing" target="_blank" >Resume</a>
+              <a className='nav-link home' style={style} href="#" onClick={onClose} ><AiOutlineHome /><span>Home</span></a>
+              <a className='nav-link about' style={style} href="#about" onClick={onClose} ><AiOutlineUser /><span>About</span></a>
+              <a className="nav-link skills" style={style} href="#skills" onClick={onClose}><BiBook /><span>Skills</span></a>
+              <a className='nav-link projects' style={style} href="#projects" onClick={onClose}><VscProject /><span>Project</span></a>
+              <a className='nav-link contact' style={style} href="#contact" onClick={onClose}><BiMessageSquareError /><span>Contact</span></a>
+              <a className='nav-link resume' style={style} href="https://drive.google.com/drive/folders/15OJ-hD2D2zGTPuPBEwB84OWx9k7-fg0R?usp=sharing" target="_blank" >Resume</a>
             </Grid>
           </DrawerBody>
         </DrawerContent>

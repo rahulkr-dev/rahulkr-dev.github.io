@@ -22,7 +22,7 @@ const Desktop = () => {
   return (
     <>
 
-      <div id="nav-menu" className='desktop'>
+      <div className='desktop'>
         <Text flexGrow={"1"}  pl="4rem" fontSize={"1.6rem"} className='logo' fontWeight={"bold"} color={"white"} alignSelf={"left"}>
         <Typed strings={["—(••÷[ Řαｈ𝐔𝐋 ]÷••)—"]} typeSpeed={50} backSpeed={50} loop></Typed>
 

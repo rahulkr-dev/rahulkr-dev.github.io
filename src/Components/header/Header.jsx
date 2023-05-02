@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import Typed from "react-typed"
 import ME from "../../assects/square_img.png"
+import RESUME from "../../assects/rahul-kumar_resume.pdf"
 
 // Chakra Components
 import { Box, Center, Flex, Grid, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react'
@@ -8,6 +9,8 @@ import { Box, Center, Flex, Grid, Heading, Image, SimpleGrid, Text } from '@chak
 import { RiTwitterFill } from "react-icons/ri"
 import { BsLinkedin } from "react-icons/bs"
 import { FaGithub } from "react-icons/fa"
+import { FiDownload } from "react-icons/fi"
+
 
 import Hamburger from "../desktop/DrawerForSmallerScreen"
 import { style } from '../../utils/styles'
@@ -70,7 +73,7 @@ const Header = () => {
                 <a href="https://github.com/rahulkr-dev" target="_blank"><FaGithub /></a>
               </Center>
               <Center className='btn-primary'>
-                <a href="htpps://twitter.com" target="_blank"><RiTwitterFill /></a>
+                <a id="resume-link-1" href="https://drive.google.com/file/d/1Flsb1Bkkpvqjc5gozAlxrSqSbUzoxAml/view?usp=sharing" download={RESUME} target="_blank"><FiDownload /></a>
               </Center>
             </Flex>
           </Grid>

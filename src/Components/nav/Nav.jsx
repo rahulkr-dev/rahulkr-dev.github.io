@@ -10,12 +10,12 @@ const Nav = () => {
   let [navActice,setNavActive] = useState('#')
   // console.log(navActice)
   return (
-    <nav id="nav-menu">
-      <a href="#" onClick={()=>setNavActive("#")} className={navActice=='#'?"active":""} ><AiOutlineHome/></a>
-      <a href="#about" onClick={()=>setNavActive("#about")} className={navActice=='#about'?"active":""}><AiOutlineUser/></a>
-      <a href="#skills" onClick={()=>setNavActive("#experience")} className={navActice=='#experience'?"active":""}><BiBook/></a>
-      <a href="#projects" onClick={()=>setNavActive("#services")} className={navActice=='#services'?"active":""}><VscProject/></a>
-      <a href="#contact" onClick={()=>setNavActive("#contact")} className={navActice=='#contact'?"active":""}><BiMessageSquareError/></a>
+    <nav>
+      <a  href="#" onClick={()=>setNavActive("#")} className={navActice=='#'?"active nav-link home":"nav-link home"} ><AiOutlineHome/></a>
+      <a  href="#about" onClick={()=>setNavActive("#about")} className={navActice=='#about'?"active nav-link about":"nav-link about"}><AiOutlineUser/></a>
+      <a  href="#skills" onClick={()=>setNavActive("#experience")} className={navActice=='#experience'?"active nav-link skills":"nav-link skills"}><BiBook/></a>
+      <a  href="#projects" onClick={()=>setNavActive("#services")} className={navActice=='#services'?"active nav-link projects":"nav-link projects"}><VscProject/></a>
+      <a  href="#contact" onClick={()=>setNavActive("#contact")} className={navActice=='#contact'?"active nav-link contact":"nav-link contact"}><BiMessageSquareError/></a>
     </nav>
   )
 }

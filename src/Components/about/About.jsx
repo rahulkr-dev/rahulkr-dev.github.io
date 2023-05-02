@@ -8,7 +8,7 @@ const About = () => {
     id="about" className="about section"
     m="auto" mb="3.3rem" w={["90%","90%","75%"]} color={'#fff'} boxShadow={{md:style.boxShadowLeft}} p={["10px","1rem","2rem","2rem"]} >
       <Heading color={style.orange_color} pb="1rem">About Me</Heading>
-      <VStack  textAlign={"justify"} >
+      <VStack  textAlign={"justify"} id="user-detail-intro" >
         <Text fontSize={"1.1rem"} fontFamily={"body"} >{about_content_heading}</Text>
         <Text fontSize={"1.1rem"} fontFamily={"body"} >{about_content_middle}</Text>
         <Text fontSize={"1.1rem"} fontFamily={"body"}>{about_content_bottom}</Text>

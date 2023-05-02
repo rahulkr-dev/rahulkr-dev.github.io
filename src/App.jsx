@@ -14,17 +14,18 @@ import { Box } from '@chakra-ui/react'
 import { style } from './utils/styles'
 const App = () => {
   return (
-    <Box 
-    bg={style.app_bg_gradient}
+    <Box
+      bg={style.app_bg_gradient}
     >
-
-      <Desktop />
-      <Header />
-      <Nav />
+      <div id="nav-menu">
+        <Desktop />
+        <Header />
+        <Nav />
+      </div>
       <About />
       <Skills />
-      <GitHubCalendar/>
-      <GithubStats/>
+      <GitHubCalendar />
+      <GithubStats />
       <Project />
       <Contact />
       <Footer />
