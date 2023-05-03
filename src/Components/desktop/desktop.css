@@ -59,7 +59,10 @@ background: var(--orange);
 
 @media screen and (max-width:1024px){
     .desktop{
-        display: none;
+        /* display: none; */
+        /* visibility: hidden; */
+        opacity: 0;
+        overflow-x: hidden;
     }
     .hamburger{
         display: block;
@@ -69,7 +72,10 @@ background: var(--orange);
 /* ===== media queries for smaller divices */
 @media screen and (max-width:600px){
     .desktop{
-        display: none;
+        /* display: none; */
+        /* visibility: hidden; */
+        opacity: 0;
+        overflow-x: hidden;
     }
     .hamburger{
         display: block;

@@ -17,11 +17,9 @@ const App = () => {
     <Box
       bg={style.app_bg_gradient}
     >
-      <div id="nav-menu">
-        <Desktop />
-        <Header />
-        <Nav />
-      </div>
+      <Desktop />
+      <Header />
+      <Nav />
       <About />
       <Skills />
       <GitHubCalendar />

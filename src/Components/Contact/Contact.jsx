@@ -45,7 +45,7 @@ const Contact = () => {
       });
   };
   return (
-    <Box id="contact" pt={["2rem", "3rem", "5rem", "10rem"]} bg={style.app_bg_gradient} boxShadow={style.box_shadow_blur_form}>
+    <Box pt={["2rem", "3rem", "5rem", "10rem"]} bg={style.app_bg_gradient} boxShadow={style.box_shadow_blur_form}>
       <Box boxShadow={{ lg: style.boxShadowDiffCol }} id='contact' m="auto" pb="4rem"
 
         w={{ lg: "60vw" }}

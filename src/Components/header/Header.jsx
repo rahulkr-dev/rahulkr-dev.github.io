@@ -14,10 +14,13 @@ import { FiDownload } from "react-icons/fi"
 
 import Hamburger from "../desktop/DrawerForSmallerScreen"
 import { style } from '../../utils/styles'
+const driveLink = "https://drive.google.com/file/d/1Flsb1Bkkpvqjc5gozAlxrSqSbUzoxAml/view?usp=sharing"
 const Header = () => {
 
   const boxShadow = "rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px"
-
+  const downloadResume = ()=>{
+    window.open(driveLink,"_blank")
+  }
   
   return (
     <Box id="home" h={{ lg: "105vh" }}
@@ -61,7 +64,7 @@ const Header = () => {
                 <Typed strings={["Full-Stack Web-Developer", "Fast Learner","Problem Solver","React Enthusiastic"]} typeSpeed={100} backSpeed={50} loop></Typed>
               </Heading>
             </Box>
-            <Text id="user-detail-intro" textAlign={"justify"} fontFamily={"body"} fontSize={"1.1rem"} pr={{ lg: "4rem" }} pb="10px">
+            <Text textAlign={"justify"} fontFamily={"body"} fontSize={"1.1rem"} pr={{ lg: "4rem" }} pb="10px">
               Highly motivated and results-driven full stack developer with a proven track record of success in building web-applications using the MERN stack with JavaScript, React, Node.js, and MongoDB.
             </Text>
             {/* <a href="#contact" className='btn btn-primary'>Let's Talk</a> */}
@@ -73,7 +76,7 @@ const Header = () => {
                 <a href="https://github.com/rahulkr-dev" target="_blank"><FaGithub /></a>
               </Center>
               <Center className='btn-primary'>
-                <a id="resume-link-1" href="https://drive.google.com/file/d/1Flsb1Bkkpvqjc5gozAlxrSqSbUzoxAml/view?usp=sharing" download={RESUME} target="_blank"><FiDownload /></a>
+                <a onClick={downloadResume} id="resume-button-2" href={RESUME} download><FiDownload /></a>
               </Center>
             </Flex>
           </Grid>
