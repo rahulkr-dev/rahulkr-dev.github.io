@@ -75,8 +75,10 @@ const Header = () => {
               <Center className='btn-primary'>
                 <a href="https://github.com/rahulkr-dev" target="_blank"><FaGithub /></a>
               </Center>
-              <Center className='btn-primary'>
-                <a onClick={downloadResume} id="resume-button-2" href={RESUME} download><FiDownload /></a>
+
+              {/* DOWNLOAD RESUME BUTTON */}
+              <Center className='btn-primary' id="resume-button-2">
+                <a id="resume-link-2" onClick={downloadResume}  href={RESUME} download><FiDownload /></a>
               </Center>
             </Flex>
           </Grid>
