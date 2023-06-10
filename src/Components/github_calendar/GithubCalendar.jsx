@@ -38,11 +38,11 @@ console.log(smallerScreen)
     
     w="max-content" m="auto" color={"white"} maxW="100vw" overflow={"scroll"} 
     // border={"2px solid orange"} 
-    p={{lg:"1rem 2rem 3rem 3rem"}}
+    p={{base:"10px",lg:"1rem 2rem 3rem 3rem"}}
     boxShadow={{md:style.boxShadowLeft}}
     >
       <Heading mb="3rem" textAlign="center" color={style.orange_color} >GITHUB CONTRIBUTION CALENDER</Heading>
-      <Flex justifyContent="center" fontSize={[".5rem",".8rem","1rem","1rem"]}>
+      <Flex justifyContent="center" fontSize={[".5rem",".8rem","1rem","1rem"]} >
       <GitHubCalendar
         username="rahulkr-dev"
         blockSize={18}

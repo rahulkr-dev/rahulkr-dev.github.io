@@ -57,7 +57,7 @@ export const tripvilla = {
     techStackName: [
         { name: "HTML", color: "green" }, { name: "css", color: "red" },
         { name: "javascript", color: "purple" }, { name: "reactjs", color: "green" }, { name: "nodejs", color: "orange" },
-        { name: "expressjs", color: "blue" }, { name: "mongodb", color: "red" }, { name: "redis", color: "purple" },
+        { name: "expressjs", color: "blue" }, { name: "mongodb", color: "red" },
     ],
     name: "CozyTrip",
     desc: "CozyTrip is an online travel platform offering a vast selection of vacation homes, apartments, and villas as an affordable alternative to hotels. User-friendly interface for easy search, compare and book accommodation.Ideal for family vacations, romantic getaways, and solo trips.",
@@ -73,7 +73,7 @@ export const bookingWeb = {
     techStackName: [
         { name: "HTML", color: "green" }, { name: "css", color: "red" },
         { name: "javascript", color: "purple" }, { name: "reactjs", color: "green" }, { name: "nodejs", color: "orange" },
-        { name: "expressjs", color: "blue" }, { name: "mongodb", color: "red" }, { name: "redis", color: "purple" },
+        { name: "expressjs", color: "blue" }, { name: "mongodb", color: "red" },
     ],
     name: "Booking",
     desc: "Booking is a leading online booking platform offering a wide range of accommodation options, from hotels to apartments and vacation homes. With an easy-to-use interface.",
@@ -104,7 +104,7 @@ export const gearHub = {
     techStackName: [
         { name: "HTML", color: "green" }, { name: "css", color: "red" },
         { name: "javascript", color: "purple" }, { name: "reactjs", color: "green" }, { name: "nodejs", color: "orange" },
-        { name: "expressjs", color: "blue" }, { name: "mongodb", color: "red" }, { name: "redis", color: "purple" },
+        { name: "expressjs", color: "blue" }, { name: "mongodb", color: "red" },
     ],
     name: "GearHub",
     desc: "Get ready to score big with our online sports store! Shop from a wide selection of top-quality sports equipment and gear, including footwear, apparel, and accessories. Whether you're a seasoned athlete or just starting out, we've got you covered. Find everything you need to up your game, at unbeatable prices.",
