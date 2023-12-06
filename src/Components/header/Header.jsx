@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Typed from "react-typed"
-import ME from "../../assects/square_img.png"
+import ME from "../../assects/squareItsMe.jpg"
 import RESUME from "../../assects/rahul-kumar_resume.pdf"
 
 // Chakra Components
