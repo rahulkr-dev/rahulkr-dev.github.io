@@ -116,7 +116,7 @@ export function Skills() {
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {skillGroups.map(({ title, icon: Icon, skills }) => (
-            <div key={title} className="rounded-lg border bg-background p-6">
+            <div key={title} className="premium-card rounded-lg bg-background p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
@@ -136,7 +136,7 @@ export function Skills() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {coreStrengths.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="rounded-lg border bg-background p-5">
+            <div key={title} className="premium-card rounded-lg bg-background p-5">
               <Icon className="h-5 w-5 text-primary" />
               <h3 className="mt-3 font-semibold">{title}</h3>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">

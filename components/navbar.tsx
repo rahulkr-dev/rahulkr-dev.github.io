@@ -70,8 +70,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0">
-              <span className="text-xl font-bold text-primary sm:text-2xl">
+            <Link
+              href="/"
+              className="group flex flex-shrink-0 items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              aria-label="Rahul Kumar home"
+            >
+              <span className="wordmark-chip inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary/10 font-mono text-sm font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                RK
+              </span>
+              <span className="hidden text-lg font-bold tracking-tight text-foreground sm:inline">
                 Rahul Kumar
               </span>
             </Link>

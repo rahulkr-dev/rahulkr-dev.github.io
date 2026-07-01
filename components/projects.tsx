@@ -113,7 +113,7 @@ export function Projects() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="overflow-hidden rounded-lg border bg-card"
+              className="premium-card overflow-hidden rounded-lg bg-card"
             >
               <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
                 <ProjectVisual project={project} />
@@ -205,13 +205,13 @@ function ProjectVisual({ project }: { project: Project }) {
 
   return (
     <div className="flex min-h-72 items-center bg-accent p-6 sm:p-8">
-      <div className="w-full rounded-lg border bg-background p-5 shadow-sm">
+      <div className="premium-card w-full rounded-lg bg-background p-5 shadow-sm">
         <div className="grid gap-3">
           {["Channel intake", "Type-safe API", "Workflow engine", "Tenant data"].map(
             (item, index) => (
               <div
                 key={item}
-                className="flex items-center justify-between rounded-md border p-3"
+                className="flex items-center justify-between rounded-md border p-3 transition-colors hover:border-primary/60"
               >
                 <span className="text-sm font-medium">{item}</span>
                 <span className="font-mono text-xs text-muted-foreground">

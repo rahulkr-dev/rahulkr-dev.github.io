@@ -54,7 +54,7 @@ export function Footer() {
               href={RESUME_DRIVE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="mt-7 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow transition duration-300 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <FileText className="h-4 w-4" />
               View resume
@@ -106,7 +106,7 @@ function FooterContactLink({
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       className={cn(
-        "rounded-lg border bg-background p-5 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        "premium-card rounded-lg bg-background p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       )}
     >
       <div className="flex items-center gap-3 text-primary">

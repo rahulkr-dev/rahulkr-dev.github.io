@@ -81,7 +81,7 @@ export function GitHubContributionCalendar({ username }: { username: string }) {
             href={`https://github.com/${username}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-fit items-center gap-2 rounded-md border bg-card px-4 py-2 text-sm font-semibold transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex w-fit items-center gap-2 rounded-md border bg-card px-4 py-2 text-sm font-semibold transition duration-300 hover:-translate-y-0.5 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <Github className="h-4 w-4" />
             {username}
@@ -89,7 +89,7 @@ export function GitHubContributionCalendar({ username }: { username: string }) {
           </a>
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-lg border bg-card shadow-sm">
+        <div className="premium-card mt-10 overflow-hidden rounded-lg bg-card shadow-sm">
           <div className="grid lg:grid-cols-[18rem_minmax(0,1fr)]">
             <aside className="border-b bg-accent/60 p-5 sm:p-6 lg:border-b-0 lg:border-r">
               <div className="flex items-center justify-between gap-3">
@@ -213,7 +213,7 @@ function StatTile({
   value: string | null;
 }) {
   return (
-    <div className="rounded-md border bg-background p-4">
+    <div className="rounded-md border bg-background p-4 transition-colors hover:border-primary/50">
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <Icon className="h-4 w-4 text-primary" />
         <span>{label}</span>

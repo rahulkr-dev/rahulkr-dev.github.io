@@ -90,7 +90,7 @@ export function About() {
               and clean React interfaces. My strongest work is in products that
               need reliability behind the UI.
             </p>
-            <div className="mt-8 flex items-center gap-5 rounded-lg border bg-accent p-5">
+            <div className="premium-card mt-8 flex items-center gap-5 rounded-lg bg-accent p-5">
               <Image
                 className="h-20 w-20 rounded-full object-cover"
                 src={profileImage}
@@ -114,7 +114,7 @@ export function About() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             {focusAreas.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="rounded-lg border p-5">
+              <div key={title} className="premium-card rounded-lg p-5">
                 <Icon className="h-6 w-6 text-primary" />
                 <h3 className="mt-4 text-lg font-semibold">{title}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -125,7 +125,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="mt-16 rounded-lg border bg-accent p-6 sm:p-8">
+        <div className="premium-card mt-16 rounded-lg bg-accent p-6 sm:p-8">
           <h3 className="text-2xl font-bold">Selected impact</h3>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {highlights.map((item) => (
@@ -143,7 +143,7 @@ export function About() {
           <h3 className="text-2xl font-bold">Experience</h3>
           <div className="mt-6 space-y-6">
             {experience.map((item) => (
-              <article key={item.company} className="rounded-lg border p-6">
+              <article key={item.company} className="premium-card rounded-lg p-6">
                 <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                   <div>
                     <div className="flex items-center gap-2">
@@ -181,7 +181,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="mt-16 rounded-lg border p-6">
+        <div className="premium-card mt-16 rounded-lg p-6">
           <h3 className="text-2xl font-bold">Education</h3>
           <p className="mt-3 font-medium text-muted-foreground">
             Full Stack Web Development - Masai School
