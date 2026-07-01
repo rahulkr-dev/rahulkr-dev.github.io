@@ -1,114 +1,201 @@
 import Image from "next/image";
-import { Calendar, MapPin, Briefcase } from "lucide-react";
-import profileImage from "@/public/profile-image.jpeg";
+import {
+  Bot,
+  Briefcase,
+  Calendar,
+  CheckCircle2,
+  Cloud,
+  Database,
+  MapPin,
+  ShieldCheck,
+} from "lucide-react";
+import profileImage from "@/public/profile-image.png";
+
+const highlights = [
+  "Architected multi-tenant CRM modules with RBAC-enforced security.",
+  "Built BullMQ and SQS messaging pipelines processing 50k+ daily broadcasts.",
+  "Integrated OpenAI, Anthropic Claude, and Gemini for autonomous query triage.",
+  "Optimized APIs with Redis caching and PostgreSQL indexing under load.",
+];
+
+const experience = [
+  {
+    role: "Full Stack Developer",
+    company: "Brainvibs Technologies Pvt Ltd (Veblika)",
+    period: "Aug 2023 - Feb 2026",
+    summary:
+      "Owned product architecture, backend services, cloud delivery, and automation workflows for production SaaS systems.",
+    bullets: [
+      "Architected a modular multi-tenant CRM platform with secure role-based access control.",
+      "Engineered a bulk broadcasting system using BullMQ and AWS SQS with 99.9% delivery reliability.",
+      "Shipped LLM-powered chatbot workflows using OpenAI, Anthropic, and Gemini APIs.",
+      "Managed AWS, Docker, Cloudflare, and GitHub Actions deployments for reliable releases.",
+    ],
+    stack: "TypeScript, React, Next.js, Node.js, PostgreSQL, Redis, AWS, Docker, Cloudflare",
+  },
+  {
+    role: "Full Stack Developer",
+    company: "CNS Web Tech",
+    period: "Mar 2023 - Aug 2023",
+    summary:
+      "Built REST APIs and reusable frontend systems for client-facing applications in a fast-paced engineering team.",
+    bullets: [
+      "Developed Node.js and Express APIs for authentication, data modeling, and application workflows.",
+      "Created React and Tailwind component patterns that reduced duplicate UI code.",
+      "Collaborated through sprint planning, code review, documentation, and production handoffs.",
+    ],
+    stack: "React, Tailwind CSS, Node.js, Express, MongoDB, REST APIs",
+  },
+];
+
+const focusAreas = [
+  {
+    icon: ShieldCheck,
+    title: "SaaS Architecture",
+    text: "Multi-tenant modules, RBAC, workflow builders, and product-ready backend boundaries.",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Delivery",
+    text: "AWS, Docker, Cloudflare, GitHub Actions, static exports, and reliable deployment pipelines.",
+  },
+  {
+    icon: Database,
+    title: "Data & Queues",
+    text: "PostgreSQL, MongoDB, Redis, BullMQ, SQS, indexing, caching, and async processing.",
+  },
+  {
+    icon: Bot,
+    title: "AI Integrations",
+    text: "OpenAI, Anthropic Claude, and Gemini workflows for support automation and query triage.",
+  },
+];
 
 export function About() {
   return (
-    <div id="about" className="py-12">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold sm:text-4xl">About Me</h2>
-        <div className="mt-6 space-y-8">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            <div className="flex-shrink-0">
+    <section id="about" className="bg-background py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+              About
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+              Backend-heavy full-stack engineering for SaaS, automation, and
+              support systems.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-muted-foreground">
+              I am Rahul Kumar, a full-stack engineer in Delhi focused on
+              production systems: APIs, queues, databases, cloud deployments,
+              and clean React interfaces. My strongest work is in products that
+              need reliability behind the UI.
+            </p>
+            <div className="mt-8 flex items-center gap-5 rounded-lg border bg-accent p-5">
               <Image
-                className="h-48 w-48 rounded-full object-cover"
+                className="h-20 w-20 rounded-full object-cover"
                 src={profileImage}
-                alt="Profile picture"
-                width={192}
-                height={192}
+                alt="Rahul Kumar"
+                width={80}
+                height={80}
+                sizes="80px"
               />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold">Rahul kumar</h3>
-              <p className="mt-1 text-lg text-foreground/60">
-                Full Stack Developer
-              </p>
-              <div className="mt-3 flex items-center text-foreground/60">
-                <MapPin className="flex-shrink-0 mr-1.5 h-5 w-5" />
-                <span>Delhi , India</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="prose dark:prose-invert max-w-none">
-            <p>
-              {` I'm a passionate full stack developer with over 2 years of experience in creating robust and scalable web applications. My journey in tech started with a curiosity about how things work on the internet, which led me to dive deep into both front-end and back-end technologies.`}
-            </p>
-            <p>
-              I thrive in collaborative environments where I can contribute my
-              skills to solve complex problems and create user-centric
-              solutions. My approach to development is rooted in clean code
-              practices, test-driven development, and continuous learning.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold ">Experience</h3>
-            <div className="mt-4 space-y-4">
-              <div className="flex">
-                <Briefcase className="flex-shrink-0 mt-1 mr-3 h-5 w-5 text-foreground/60" />
-                <div className="text-foreground/60">
-                  <h4 className="text-lg font-medium text-foreground">
-                    Full Stack Developer
-                  </h4>
-                  <p className="">Veblika · Full-time</p>
-                  <div className="flex items-center text-sm ">
-                    <Calendar className="flex-shrink-0 mr-1.5 h-4 w-4" />
-                    <span>Aug 2023 - Present · 1 yr 5 mos</span>
-                  </div>
-                  <p>
-                    I work on building automation tools to optimize workflows
-                    and improve efficiency. My role involves developing scalable
-                    applications using Node.js, Next.js, and TypeScript,
-                    deploying containerized solutions with Docker, and managing
-                    infrastructure on AWS.
-                  </p>
-                  <p>Skills: TypeScript, React.js, AWS, Docker, Node.js</p>
-                </div>
-              </div>
-
-              <div className="flex text-foreground/60">
-                <Briefcase className="flex-shrink-0 mt-1 mr-3 h-5 w-5 " />
-                <div>
-                  <h4 className="text-lg font-medium text-foreground ">MERN Stack Developer</h4>
-                  <p>CNS Web Technologies Pvt Ltd · Full-time</p>
-                  <div className="flex items-center text-sm ">
-                    <Calendar className="flex-shrink-0 mr-1.5 h-4 w-4" />
-                    <span>Jan 2023 - Aug 2023 · 8 mos</span>
-                  </div>
-                  <p>
-                    I developed and maintained web applications using the MERN
-                    stack, focusing on REST APIs and UI development with
-                    React.js. I collaborated with cross-functional teams to
-                    ensure smooth deployment and integration of features.
-                  </p>
-                  <p>Skills: React.js, Node.js, Express, MongoDB, REST APIs</p>
+              <div>
+                <h3 className="text-xl font-bold">Rahul Kumar</h3>
+                <p className="mt-1 text-muted-foreground">
+                  Full-Stack Engineer
+                </p>
+                <div className="mt-2 flex items-center text-sm text-muted-foreground">
+                  <MapPin className="mr-1.5 h-4 w-4" />
+                  <span>Delhi, India</span>
                 </div>
               </div>
             </div>
           </div>
-          <div>
-            <h3 className="text-xl font-bold mt-8">Certificates</h3>
-            <div className="mt-4 flex">
-              <Briefcase className="flex-shrink-0 mt-1 mr-3 h-5 w-5 text-foreground/60" />
-              <div className="text-foreground/60">
-                <h4 className="text-lg font-medium text-foreground">
-                  Full Stack Development
-                </h4>
-                <p>Masai School</p>
-                <div className="flex items-center text-sm">
-                  <Calendar className="flex-shrink-0 mr-1.5 h-4 w-4" />
-                  <span>April 2022 - June 2023</span>
-                </div>
-                <p>
-                  Completed intensive full stack development program covering MERN stack, 
-                  data structures, algorithms, and web development best practices.
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {focusAreas.map(({ icon: Icon, title, text }) => (
+              <div key={title} className="rounded-lg border p-5">
+                <Icon className="h-6 w-6 text-primary" />
+                <h3 className="mt-4 text-lg font-semibold">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  {text}
                 </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
+
+        <div className="mt-16 rounded-lg border bg-accent p-6 sm:p-8">
+          <h3 className="text-2xl font-bold">Selected impact</h3>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {highlights.map((item) => (
+              <div key={item} className="flex gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                <p className="text-sm leading-6 text-muted-foreground">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold">Experience</h3>
+          <div className="mt-6 space-y-6">
+            {experience.map((item) => (
+              <article key={item.company} className="rounded-lg border p-6">
+                <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <Briefcase className="h-5 w-5 text-primary" />
+                      <h4 className="text-xl font-semibold">{item.role}</h4>
+                    </div>
+                    <p className="mt-2 font-medium text-muted-foreground">
+                      {item.company}
+                    </p>
+                  </div>
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <Calendar className="mr-1.5 h-4 w-4" />
+                    <span>{item.period}</span>
+                  </div>
+                </div>
+                <p className="mt-4 leading-7 text-muted-foreground">
+                  {item.summary}
+                </p>
+                <ul className="mt-4 space-y-2">
+                  {item.bullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex gap-3 text-sm leading-6 text-muted-foreground"
+                    >
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-sm font-medium text-foreground">
+                  Stack: {item.stack}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16 rounded-lg border p-6">
+          <h3 className="text-2xl font-bold">Education</h3>
+          <p className="mt-3 font-medium text-muted-foreground">
+            Full Stack Web Development - Masai School
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Feb 2022 - Mar 2023
+          </p>
+          <p className="mt-4 leading-7 text-muted-foreground">
+            Intensive program covering data structures and algorithms,
+            JavaScript, React, Node.js, MongoDB, system design, and
+            collaborative engineering practices.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -56,8 +56,6 @@ export default function Navbar() {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null;
-
   const navLinks = [
     { href: "/", icon: Home, label: "Home" },
     { href: "#about", icon: User, label: "About" },
@@ -67,19 +65,21 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-background shadow-sm">
+    <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
-              <span className="text-2xl font-bold text-primary">Portfolio</span>
+              <span className="text-xl font-bold text-primary sm:text-2xl">
+                Rahul Kumar
+              </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden lg:block">
+            <div className="ml-10 flex items-baseline gap-1">
               {navLinks.map((link) => (
                 <NavLink key={link.href} href={link.href} icon={link.icon}>
                   {link.label}
@@ -98,7 +98,7 @@ export default function Navbar() {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
+              {mounted && theme === "dark" ? (
                 <Sun className="w-5 h-5" />
               ) : (
                 <Moon className="w-5 h-5" />
@@ -107,8 +107,8 @@ export default function Navbar() {
 
             {/* Mobile Menu Sheet */}
             <Sheet>
-              <SheetTrigger asChild className="md:hidden">
-                <Button variant="outline" size="icon">
+              <SheetTrigger asChild className="lg:hidden">
+                <Button variant="outline" size="icon" aria-label="Open menu">
                   <Menu className="w-5 h-5" />
                 </Button>
               </SheetTrigger>
