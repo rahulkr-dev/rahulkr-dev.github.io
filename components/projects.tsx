@@ -1,4 +1,5 @@
-import { ExternalLink, Github, Mail } from "lucide-react";
+import { ExternalLink, Mail } from "lucide-react";
+import { GithubIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GITHUB_URL } from "@/lib/constant";
@@ -152,7 +153,7 @@ export function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Github className="h-4 w-4" />
+                          <GithubIcon className="h-4 w-4" />
                           GitHub
                         </a>
                       </Button>

@@ -1,14 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import GitHubCalendar, { type Activity } from "react-github-calendar";
+import { GitHubCalendar, type Activity } from "react-github-calendar";
 import {
   Activity as ActivityIcon,
   CalendarDays,
   ExternalLink,
   Flame,
-  Github,
 } from "lucide-react";
+import { GithubIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -83,7 +83,7 @@ export function GitHubContributionCalendar({ username }: { username: string }) {
             rel="noopener noreferrer"
             className="inline-flex w-fit items-center gap-2 rounded-md border bg-card px-4 py-2 text-sm font-semibold transition duration-300 hover:-translate-y-0.5 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <Github className="h-4 w-4" />
+            <GithubIcon className="h-4 w-4" />
             {username}
             <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
           </a>
@@ -107,7 +107,7 @@ export function GitHubContributionCalendar({ username }: { username: string }) {
 
               <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                 <StatTile
-                  icon={Github}
+                  icon={GithubIcon}
                   label="Contributions"
                   value={stats ? formatNumber(stats.total) : null}
                 />
@@ -148,8 +148,8 @@ export function GitHubContributionCalendar({ username }: { username: string }) {
                 ) : (
                   <GitHubCalendar
                     username={username}
-                    hideColorLegend
-                    hideTotalCount
+                    showColorLegend={false}
+                    showTotalCount={false}
                     showWeekdayLabels={["mon", "wed", "fri"]}
                     transformData={transformContributionData}
                     blockMargin={4}

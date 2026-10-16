@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FileText, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { FileText, Mail, Phone } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { GITHUB_URL, LINKEDIN_URL, RESUME_DRIVE_URL } from "@/lib/constant";
 import { cn } from "@/lib/utils";
 
@@ -20,14 +21,14 @@ const contactLinks = [
     href: LINKEDIN_URL,
     label: "LinkedIn",
     value: "linkedin.com/in/rahul-kumar-850b39232",
-    icon: Linkedin,
+    icon: LinkedinIcon,
     external: true,
   },
   {
     href: GITHUB_URL,
     label: "GitHub",
     value: "github.com/rahulkr-dev",
-    icon: Github,
+    icon: GithubIcon,
     external: true,
   },
 ];

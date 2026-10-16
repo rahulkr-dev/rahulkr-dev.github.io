@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowDown, FileText, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, FileText, Mail } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { HeroVisual } from "@/components/hero-visual";
 import { GITHUB_URL, LINKEDIN_URL, RESUME_DRIVE_URL } from "@/lib/constant";
 import { cn } from "@/lib/utils";
@@ -69,10 +70,10 @@ export function Home() {
           </div>
           <div className="motion-enter motion-delay-3 mt-7 flex justify-center gap-4 lg:justify-start">
             <SocialLink href={LINKEDIN_URL} label="LinkedIn">
-              <Linkedin className="h-5 w-5" />
+              <LinkedinIcon className="h-5 w-5" />
             </SocialLink>
             <SocialLink href={GITHUB_URL} label="GitHub">
-              <Github className="h-5 w-5" />
+              <GithubIcon className="h-5 w-5" />
             </SocialLink>
           </div>
         </div>
