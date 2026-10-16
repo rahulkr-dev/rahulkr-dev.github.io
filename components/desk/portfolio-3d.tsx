@@ -110,6 +110,7 @@ export function Portfolio3D() {
             >
               <DeskScene
                 view={stage === "monitor" ? "monitor" : "desk"}
+                started={stage !== "boot"}
                 reducedMotion={reducedMotion}
                 onReady={() => setReady(true)}
                 onZoomIn={() => setStage("monitor")}

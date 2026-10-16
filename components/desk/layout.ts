@@ -16,3 +16,9 @@ export const DESK_VIEW = {
   position: [2.3, 1.65, 2.95] as const,
   target: [0.25, 0.8, 0.0] as const,
 };
+
+/** Where the camera waits behind the boot screen, then dollies in from. */
+export const INTRO_VIEW = {
+  position: [4.4, 2.9, 5.6] as const,
+  target: [0.25, 0.85, 0.0] as const,
+};
