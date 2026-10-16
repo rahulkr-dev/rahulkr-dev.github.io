@@ -91,9 +91,9 @@ export const apps: AppDef[] = [
     icon: Mail,
     gradient: "linear-gradient(145deg,#6fd3ff,#2a8bf2)",
     width: 480,
-    height: 360,
+    height: 430,
     x: 300,
-    y: 84,
+    y: 70,
     render: () => <Contact />,
   },
 ];

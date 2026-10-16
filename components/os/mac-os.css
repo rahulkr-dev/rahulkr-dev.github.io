@@ -560,6 +560,7 @@
   font-weight: 600;
 }
 .mx-btn {
+  display: inline-block;
   padding: 4px 11px;
   border: 1px solid #d3d3d8;
   border-radius: 6px;
@@ -577,6 +578,14 @@
 }
 .mx-btn-primary:hover {
   background: #0066e0;
+}
+/* Buttons that are links: beat the generic ".mx-os a" blue text colour. */
+.mx-os a.mx-btn {
+  color: #1d1d1f;
+  text-decoration: none;
+}
+.mx-os a.mx-btn-primary {
+  color: #fff;
 }
 
 /* ---------- terminal ---------- */

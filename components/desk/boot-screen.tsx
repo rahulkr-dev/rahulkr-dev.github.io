@@ -42,7 +42,7 @@ export function BootScreen({ ready, instant, onStart }: BootScreenProps) {
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Rahul Kumar</h1>
         <p className="mt-1 text-sm text-white/60">
-          Full-Stack Engineer - Python, FastAPI, Google Cloud
+          Full-Stack AI Engineer - Python, TypeScript, Node.js, FastAPI, Google Cloud
         </p>
       </div>
       <div className="h-12">
