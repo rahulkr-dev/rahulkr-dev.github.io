@@ -17,7 +17,7 @@ Legend: `[ ]` to do · **(ask)** needs a decision from Rahul · **(data)** needs
 
 ## Open questions (blocking)
 
-- [ ] **(ask)** Package manager: pnpm (recommended, `mise.toml` already pins it) or npm?
+- [x] **(ask)** Package manager: went with pnpm (recommended). Easy to revert if you prefer npm.
 - [ ] **(ask)** Upgrade Tailwind 3 → 4, or stay on 3? (Optional, do last.)
 - [ ] **(ask)** What should the Omnichannel project link to if the repo is private: an honest "Private repository" label, or a different public link?
 - [ ] **(data)** Infinity Learn details:
@@ -37,19 +37,19 @@ Legend: `[ ]` to do · **(ask)** needs a decision from Rahul · **(data)** needs
 - [ ] Run `npm run build` and `npm run lint`, and record the output.
 - [ ] Capture the current site at 375 / 768 / 1440px in light and dark themes.
 - [ ] Record Lighthouse mobile scores (Performance, Accessibility, Best Practices, SEO).
-- [ ] Choose one package manager. Delete the other lockfile, update scripts and README.
-- [ ] Decide whether `mise.toml` and `pnpm-workspace.yaml` are committed or ignored.
-- [ ] Work on a new branch, not directly on `latest` or `gh-pages`.
+- [x] Chose pnpm, deleted `package-lock.json`, pinned via `packageManager` and `mise.toml`. README still to update (Phase 7).
+- [x] Committed `mise.toml` and `pnpm-workspace.yaml`.
+- [x] Working on branch `feat/portfolio-revamp`.
 
 ## Phase 1: Dependency upgrades (one commit per step)
 
 Run `lint` + `build` and check the page in the browser after each step.
 
-- [ ] **1a.** `lucide-react` (0.468 → 1.x), `react-github-calendar` (4.5 → 5.x), `tailwind-merge` (2.6 → 3.x).
-- [ ] **1b.** `next` 14 → 16, `react` and `react-dom` 18 → 19, `@types/react` and `@types/react-dom` → 19, `eslint-config-next` → 16. Check that `output: "export"`, `next-themes` and the Radix packages still work.
-- [ ] **1c.** `eslint` 8 → 10, and move `.eslintrc.json` to a flat `eslint.config.mjs`.
-- [ ] **1d.** `@types/node` to match the Node runtime (24), not the latest (26).
-- [ ] **1e. (optional, last)** Tailwind 3 → 4. Touches `tailwind.config.ts`, `postcss.config.mjs`, `globals.css` and the color variables. Compare screenshots before and after.
+- [x] **1a.** `lucide-react` → 1.x (brand icons removed, local `components/icons.tsx` added), `react-github-calendar` → 5.x. `tailwind-merge` moved to 1e: v3 only supports Tailwind 4.
+- [x] **1b.** `next` 14 → 16, `react` and `react-dom` 18 → 19, `@types/react` and `@types/react-dom` → 19, `eslint-config-next` → 16. Check that `output: "export"`, `next-themes` and the Radix packages still work.
+- [x] **1c.** `eslint` 8 → 10, and move `.eslintrc.json` to a flat `eslint.config.mjs`.
+- [x] **1d.** `@types/node` to match the Node runtime (24), not the latest (26).
+- [ ] **1e. (optional, last)** Tailwind 3 → 4, together with `tailwind-merge` 2 → 3. Touches `tailwind.config.ts`, `postcss.config.mjs`, `globals.css` and the color variables. Compare screenshots before and after.
 - [ ] **Hold:** TypeScript stays on 5.9 for now (7.0 is a large change).
 - [ ] Remove unused dependencies (audit `@radix-ui/*`) and unused `components/ui/*` files.
 
@@ -62,9 +62,7 @@ New page order: **Hero → Experience → Featured case studies → More project
   - The hero copy and stats currently describe only the Node/TypeScript work. Add live streaming, Python and FastAPI.
   - A "Currently: Infinity Learn" status chip.
   - Two CTAs: View projects, Contact / Résumé.
-- [ ] **Experience.** It currently lives inside `components/about.tsx` with two entries (Brainvibs, CNS Web Tech) and no Infinity Learn.
-  - Add Infinity Learn as the top entry (from August).
-  - Extract it into `components/experience.tsx` with data in `lib/experience.ts`.
+- [x] **Experience** extracted to `components/experience.tsx` + `lib/experience.ts`, with Infinity Learn on top. Still to do: confirm the role title and add real outcomes.
   - Role, company, dates, and 2–3 outcome-focused bullets per entry.
   - Check the Brainvibs end date (Feb 2026) against the actual timeline.
 - [ ] **Skills** (`components/skills.tsx`): replace the badge wall with groups such as "Streaming & cloud (GCP)", "Backend (Node.js, Python / FastAPI)", "Data & queues", "Frontend", "Tooling", each tied to what was built with it.
