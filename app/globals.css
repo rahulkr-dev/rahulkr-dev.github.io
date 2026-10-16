@@ -199,13 +199,77 @@ body {
   );
 }
 
-.boot-bar > span {
-  width: 0;
-  animation: boot-load 1.6s ease-out forwards;
+/* Start screen: "going live" */
+.boot-tally-live {
+  animation: boot-pulse 1.7s ease-out infinite;
+  box-shadow: 0 0 24px 4px rgb(255 59 48 / 0.5);
+}
+.boot-lower {
+  animation: boot-lower-in 0.7s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.boot-count {
+  animation: boot-count 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.boot-pop {
+  animation: boot-pop 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.boot-ticker {
+  animation: boot-ticker 26s linear infinite;
 }
 
-@keyframes boot-load {
+@keyframes boot-pulse {
+  0% {
+    box-shadow:
+      0 0 0 0 rgb(255 59 48 / 0.55),
+      0 0 24px 4px rgb(255 59 48 / 0.5);
+  }
+  70%,
+  100% {
+    box-shadow:
+      0 0 0 26px rgb(255 59 48 / 0),
+      0 0 24px 4px rgb(255 59 48 / 0.5);
+  }
+}
+@keyframes boot-lower-in {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
   to {
-    width: 100%;
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes boot-count {
+  from {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes boot-pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes boot-ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-anim *,
+  .boot-anim {
+    animation: none !important;
+    transition: none !important;
   }
 }

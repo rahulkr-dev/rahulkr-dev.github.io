@@ -52,6 +52,8 @@ export function Portfolio3D() {
   const [stage, setStage] = useState<Stage>("boot");
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
+  // The start screen stays mounted briefly so it can fade out over the scene.
+  const [bootGone, setBootGone] = useState(false);
 
   const supported = useSyncExternalStore(
     subscribeWide,
@@ -119,15 +121,18 @@ export function Portfolio3D() {
             </div>
           </SceneBoundary>
 
-          {stage === "boot" ? (
+          {bootGone ? null : (
             <BootScreen
               ready={ready}
               instant={reducedMotion}
-              onStart={() => setStage("desk")}
+              leaving={stage !== "boot"}
+              onStart={() => {
+                setStage("desk");
+                window.setTimeout(() => setBootGone(true), 900);
+              }}
             />
-          ) : (
-            <Overlay stage={stage} onBack={backToDesk} />
           )}
+          {stage === "boot" ? null : <Overlay stage={stage} onBack={backToDesk} />}
         </>
       )}
     </div>

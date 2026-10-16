@@ -154,6 +154,7 @@ New page order: **Hero → Experience → Featured case studies → More project
 The home page `/` is an interactive three.js desk; the regular site lives at `/classic/`.
 
 - **Scene** (`components/desk/`): modern standing desk, flat monitor, lamp, headphones, ergonomic chair, all built from code (no model files). Lazy-loaded while the boot screen plays.
+- **Start screen** (`components/desk/boot-screen.tsx`): a "going live" intro with a tally light, a lower-third name caption, a stack ticker, a 3-2-1 countdown and a "Go live" button that fades into the desk. Any key skips it; reduced motion and repeat visits (same session) skip the countdown.
 - **Screen** (`components/os/`): a macOS-style desktop projected onto the monitor with CSS 3D. Draggable windows, dock with magnification, menu bar, Spotlight (Ctrl/Cmd+K), and an interactive Terminal. Data comes from `lib/*` (experience, projects, skills, profile).
 - **Fallbacks:** phones, narrow screens, no WebGL and render errors redirect to `/classic/`. `/` still carries real text for crawlers and screen readers.
 - **The retro CRT version** is in git history (commit "feat: 3D desk portfolio with a retro computer OS on the monitor").
