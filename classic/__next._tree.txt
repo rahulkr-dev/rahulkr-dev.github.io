@@ -1,0 +1,6 @@
+:HL["/_next/static/chunks/083l69ej39iqr.css","style"]
+:HL["/_next/static/media/GeistMonoVF-s.p.1lv5tp2fpjxdz.woff","font",{"crossOrigin":"","type":"font/woff"}]
+:HL["/_next/static/media/GeistVF-s.p.0e569l9b0bre8.woff","font",{"crossOrigin":"","type":"font/woff"}]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"classic","h":96,"c":"$Q2"}]]
+0:{"b":"mCJ_WXOu7FGTjJtQhkDe0","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
