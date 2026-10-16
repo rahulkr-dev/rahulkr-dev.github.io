@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Rahul Kumar",
   },
   description:
-    "Full-stack engineer building scalable SaaS platforms, real-time messaging systems, and AI-powered support workflows with React, Node.js, AWS, Cloudflare, and PostgreSQL.",
+    "Full-stack engineer building scalable SaaS platforms, live-class streaming, real-time messaging systems, and AI-powered support workflows with Python, FastAPI, Node.js, React, Google Cloud, AWS, and PostgreSQL.",
   keywords: [
     "Rahul Kumar",
     "Full Stack Developer",
@@ -29,6 +29,10 @@ export const metadata: Metadata = {
     "React",
     "Next.js",
     "Node.js",
+    "Python",
+    "FastAPI",
+    "Google Cloud",
+    "Live Streaming",
     "AWS",
     "Cloudflare",
     "PostgreSQL",

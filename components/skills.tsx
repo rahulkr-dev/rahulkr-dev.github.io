@@ -27,6 +27,8 @@ const skillGroups = [
     title: "Backend & APIs",
     icon: ServerCog,
     skills: [
+      "Python",
+      "FastAPI",
       "Node.js",
       "Express.js",
       "Hono",
@@ -62,6 +64,8 @@ const skillGroups = [
     title: "Cloud & DevOps",
     icon: Cloud,
     skills: [
+      "Google Cloud",
+      "Live-class streaming",
       "AWS EC2",
       "AWS S3",
       "AWS IAM",

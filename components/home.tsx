@@ -19,14 +19,18 @@ export function Home() {
           <p className="motion-enter mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
             Full-Stack Engineer
           </p>
+          <p className="motion-enter mb-6 inline-flex items-center gap-2 rounded-full border bg-background/80 px-3 py-1.5 text-sm text-muted-foreground">
+            <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
+            Now at Infinity Learn: live-class streaming on Google Cloud
+          </p>
           <h1 className="motion-enter motion-delay-1 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
             Rahul Kumar
           </h1>
           <div className="accent-rule motion-enter motion-delay-1 mx-auto mt-5 h-1 w-24 rounded-full lg:mx-0" />
           <p className="motion-enter motion-delay-2 mt-5 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
-            I build scalable SaaS platforms, real-time messaging systems, and
-            AI-powered support workflows across React, Next.js, Node.js,
-            PostgreSQL, Redis, AWS, Docker, and Cloudflare.
+            I build scalable SaaS platforms, live-streaming and real-time
+            messaging systems, and AI-powered support workflows with Python,
+            FastAPI, Node.js, React, PostgreSQL, Redis, Google Cloud, and AWS.
           </p>
           <div className="motion-enter motion-delay-2 mt-8 grid gap-3 sm:grid-cols-3">
             {impactStats.map((stat) => (
@@ -78,7 +82,7 @@ export function Home() {
           </div>
         </div>
 
-        <div className="order-first mx-auto w-full max-w-52 sm:max-w-sm lg:order-none lg:max-w-md">
+        <div className="mx-auto w-full max-w-sm lg:max-w-md">
           <div className="motion-enter-slow motion-delay-2 motion-float rounded-lg border bg-background p-4 shadow-xl">
             <div className="flex aspect-square items-center justify-center overflow-hidden rounded-md bg-accent p-4">
               <HeroVisual />
@@ -93,7 +97,7 @@ export function Home() {
               <div className="rounded-md bg-accent p-3">
                 <div className="font-semibold">Current stack</div>
                 <div className="mt-1 text-muted-foreground">
-                  TypeScript, AWS, Cloudflare
+                  Python, FastAPI, Google Cloud, TypeScript
                 </div>
               </div>
             </div>

@@ -1,7 +1,5 @@
 import {
   Bot,
-  Briefcase,
-  Calendar,
   CheckCircle2,
   Cloud,
   Database,
@@ -14,36 +12,6 @@ const highlights = [
   "Built BullMQ and SQS messaging pipelines processing 50k+ daily broadcasts.",
   "Integrated OpenAI, Anthropic Claude, and Gemini for autonomous query triage.",
   "Optimized APIs with Redis caching and PostgreSQL indexing under load.",
-];
-
-const experience = [
-  {
-    role: "Full Stack Developer",
-    company: "Brainvibs Technologies Pvt Ltd (Veblika)",
-    period: "Aug 2023 - Feb 2026",
-    summary:
-      "Owned product architecture, backend services, cloud delivery, and automation workflows for production SaaS systems.",
-    bullets: [
-      "Architected a modular multi-tenant CRM platform with secure role-based access control.",
-      "Engineered a bulk broadcasting system using BullMQ and AWS SQS with 99.9% delivery reliability.",
-      "Shipped LLM-powered chatbot workflows using OpenAI, Anthropic, and Gemini APIs.",
-      "Managed AWS, Docker, Cloudflare, and GitHub Actions deployments for reliable releases.",
-    ],
-    stack: "TypeScript, React, Next.js, Node.js, PostgreSQL, Redis, AWS, Docker, Cloudflare",
-  },
-  {
-    role: "Full Stack Developer",
-    company: "CNS Web Tech",
-    period: "Mar 2023 - Aug 2023",
-    summary:
-      "Built REST APIs and reusable frontend systems for client-facing applications in a fast-paced engineering team.",
-    bullets: [
-      "Developed Node.js and Express APIs for authentication, data modeling, and application workflows.",
-      "Created React and Tailwind component patterns that reduced duplicate UI code.",
-      "Collaborated through sprint planning, code review, documentation, and production handoffs.",
-    ],
-    stack: "React, Tailwind CSS, Node.js, Express, MongoDB, REST APIs",
-  },
 ];
 
 const focusAreas = [
@@ -131,48 +99,6 @@ export function About() {
                   {item}
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold">Experience</h3>
-          <div className="mt-6 space-y-6">
-            {experience.map((item) => (
-              <article key={item.company} className="premium-card rounded-lg p-6">
-                <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <Briefcase className="h-5 w-5 text-primary" />
-                      <h4 className="text-xl font-semibold">{item.role}</h4>
-                    </div>
-                    <p className="mt-2 font-medium text-muted-foreground">
-                      {item.company}
-                    </p>
-                  </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Calendar className="mr-1.5 h-4 w-4" />
-                    <span>{item.period}</span>
-                  </div>
-                </div>
-                <p className="mt-4 leading-7 text-muted-foreground">
-                  {item.summary}
-                </p>
-                <ul className="mt-4 space-y-2">
-                  {item.bullets.map((bullet) => (
-                    <li
-                      key={bullet}
-                      className="flex gap-3 text-sm leading-6 text-muted-foreground"
-                    >
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-sm font-medium text-foreground">
-                  Stack: {item.stack}
-                </p>
-              </article>
             ))}
           </div>
         </div>
