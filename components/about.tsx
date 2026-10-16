@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Bot,
   Briefcase,
@@ -9,7 +8,6 @@ import {
   MapPin,
   ShieldCheck,
 } from "lucide-react";
-import profileImage from "@/public/profile-image.png";
 
 const highlights = [
   "Architected multi-tenant CRM modules with RBAC-enforced security.",
@@ -91,14 +89,12 @@ export function About() {
               need reliability behind the UI.
             </p>
             <div className="premium-card mt-8 flex items-center gap-5 rounded-lg bg-accent p-5">
-              <Image
-                className="h-20 w-20 rounded-full object-cover"
-                src={profileImage}
-                alt="Rahul Kumar"
-                width={80}
-                height={80}
-                sizes="80px"
-              />
+              <div
+                aria-hidden="true"
+                className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-primary text-2xl font-bold text-primary-foreground"
+              >
+                RK
+              </div>
               <div>
                 <h3 className="text-xl font-bold">Rahul Kumar</h3>
                 <p className="mt-1 text-muted-foreground">

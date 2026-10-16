@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, FileText, Github, Linkedin, Mail } from "lucide-react";
-import picture from "@/public/profile-image.png";
+import { HeroVisual } from "@/components/hero-visual";
 import { GITHUB_URL, LINKEDIN_URL, RESUME_DRIVE_URL } from "@/lib/constant";
 import { cn } from "@/lib/utils";
 
@@ -80,15 +79,8 @@ export function Home() {
 
         <div className="order-first mx-auto w-full max-w-52 sm:max-w-sm lg:order-none lg:max-w-md">
           <div className="motion-enter-slow motion-delay-2 motion-float rounded-lg border bg-background p-4 shadow-xl">
-            <div className="relative aspect-square overflow-hidden rounded-md bg-accent">
-              <Image
-                src={picture}
-                alt="Rahul Kumar"
-                fill
-                priority
-                sizes="(min-width: 1024px) 448px, 90vw"
-                className="object-cover"
-              />
+            <div className="flex aspect-square items-center justify-center overflow-hidden rounded-md bg-accent p-4">
+              <HeroVisual />
             </div>
             <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
               <div className="rounded-md bg-accent p-3">

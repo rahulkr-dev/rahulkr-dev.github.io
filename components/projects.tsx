@@ -1,16 +1,13 @@
-import Image, { StaticImageData } from "next/image";
 import { ExternalLink, Github, Mail } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import pizzaImage from "@/public/pizza.png";
-import whatsappImage from "@/public/whatsapp-broadcast.png";
 import { GITHUB_URL } from "@/lib/constant";
 
 type Project = {
   title: string;
   eyebrow: string;
   description: string;
-  image?: StaticImageData;
+  flow: string[];
   technologies: string[];
   impact: string[];
   sourceLink?: string;
@@ -23,6 +20,7 @@ const projects: Project[] = [
     eyebrow: "Production-grade SaaS architecture",
     description:
       "A type-safe customer support platform for unified conversations across channels, built around serverless APIs, multi-tenant authentication, event-driven workflows, and globally stored assets.",
+    flow: ["Channel intake", "Type-safe API", "Workflow engine", "Tenant data"],
     technologies: [
       "TypeScript",
       "Turborepo",
@@ -48,7 +46,7 @@ const projects: Project[] = [
     eyebrow: "High-throughput messaging",
     description:
       "A backend service for programmatic WhatsApp broadcasts using Meta's Cloud API, queue-backed workers, Redis state, Dockerized deployment, and AWS storage.",
-    image: whatsappImage,
+    flow: ["Broadcast API", "BullMQ queue", "Workers + retries", "Meta Cloud API"],
     technologies: [
       "Node.js",
       "Express",
@@ -70,7 +68,7 @@ const projects: Project[] = [
     eyebrow: "Full-stack commerce workflow",
     description:
       "A full-stack ordering application with authentication, product catalog, order management, payment flow, real-time updates, and containerized services.",
-    image: pizzaImage,
+    flow: ["Catalog and cart", "Order service", "Kafka events", "Live order status"],
     technologies: [
       "React",
       "Next.js",
@@ -189,37 +187,21 @@ export function Projects() {
 }
 
 function ProjectVisual({ project }: { project: Project }) {
-  if (project.image) {
-    return (
-      <div className="relative min-h-72 bg-accent lg:min-h-full">
-        <Image
-          src={project.image}
-          alt={`${project.title} preview`}
-          fill
-          sizes="(min-width: 1024px) 45vw, 100vw"
-          className="object-cover"
-        />
-      </div>
-    );
-  }
-
   return (
     <div className="flex min-h-72 items-center bg-accent p-6 sm:p-8">
       <div className="premium-card w-full rounded-lg bg-background p-5 shadow-sm">
         <div className="grid gap-3">
-          {["Channel intake", "Type-safe API", "Workflow engine", "Tenant data"].map(
-            (item, index) => (
-              <div
-                key={item}
-                className="flex items-center justify-between rounded-md border p-3 transition-colors hover:border-primary/60"
-              >
-                <span className="text-sm font-medium">{item}</span>
-                <span className="font-mono text-xs text-muted-foreground">
-                  0{index + 1}
-                </span>
-              </div>
-            )
-          )}
+          {project.flow.map((item, index) => (
+            <div
+              key={item}
+              className="flex items-center justify-between rounded-md border p-3 transition-colors hover:border-primary/60"
+            >
+              <span className="text-sm font-medium">{item}</span>
+              <span className="font-mono text-xs text-muted-foreground">
+                0{index + 1}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
