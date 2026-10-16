@@ -4,6 +4,7 @@ import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import {
+  Box,
   Moon,
   Sun,
   Home,
@@ -62,11 +63,12 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
 
   const navLinks = [
-    { href: "/", icon: Home, label: "Home" },
+    { href: "/classic", icon: Home, label: "Home" },
     { href: "#about", icon: User, label: "About" },
     { href: "#skills", icon: Code, label: "Skills" },
     { href: "#projects", icon: Briefcase, label: "Projects" },
     { href: "#contact", icon: Mail, label: "Contact" },
+    { href: "/", icon: Box, label: "3D desk" },
   ];
 
   return (
@@ -76,7 +78,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <Link
-              href="/"
+              href="/classic"
               className="group flex flex-shrink-0 items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-label="Rahul Kumar home"
             >

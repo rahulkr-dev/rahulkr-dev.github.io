@@ -8,79 +8,18 @@ import {
   Layers,
   ServerCog,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { skillGroups } from "@/lib/skills";
 
-const skillGroups = [
-  {
-    title: "Frontend",
-    icon: Code2,
-    skills: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "shadcn/ui",
-      "TanStack Query",
-    ],
-  },
-  {
-    title: "Backend & APIs",
-    icon: ServerCog,
-    skills: [
-      "Python",
-      "FastAPI",
-      "Node.js",
-      "Express.js",
-      "Hono",
-      "REST APIs",
-      "WebSockets",
-      "oRPC",
-    ],
-  },
-  {
-    title: "Architecture",
-    icon: Layers,
-    skills: [
-      "Distributed Systems",
-      "Multi-Tenant SaaS",
-      "RBAC",
-      "Turborepo",
-      "Event-Driven Workflows",
-    ],
-  },
-  {
-    title: "Data & Queues",
-    icon: Database,
-    skills: [
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "BullMQ",
-      "AWS SQS",
-      "Drizzle ORM",
-    ],
-  },
-  {
-    title: "Cloud & DevOps",
-    icon: Cloud,
-    skills: [
-      "Google Cloud",
-      "Live-class streaming",
-      "AWS EC2",
-      "AWS S3",
-      "AWS IAM",
-      "AWS Lambda",
-      "Docker",
-      "Cloudflare",
-      "GitHub Actions",
-    ],
-  },
-  {
-    title: "AI Integrations",
-    icon: Bot,
-    skills: ["OpenAI", "Anthropic Claude", "Google Gemini", "LLM Workflows"],
-  },
-];
+const groupIcons: Record<string, LucideIcon> = {
+  "Frontend": Code2,
+  "Backend & APIs": ServerCog,
+  "Architecture": Layers,
+  "Data & Queues": Database,
+  "Cloud & DevOps": Cloud,
+  "AI Integrations": Bot,
+};
 
 const coreStrengths = [
   {
@@ -119,7 +58,9 @@ export function Skills() {
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {skillGroups.map(({ title, icon: Icon, skills }) => (
+          {skillGroups.map(({ title, skills }) => {
+            const Icon = groupIcons[title];
+            return (
             <div key={title} className="premium-card rounded-lg bg-background p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
@@ -135,7 +76,8 @@ export function Skills() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">

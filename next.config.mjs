@@ -10,6 +10,8 @@ const nextConfig = {
   assetPrefix: "",
   basePath: "",
   output: "export",
+  // Emits classic/index.html so the URL works on any static host.
+  trailingSlash: true,
 };
 
 export default nextConfig;
