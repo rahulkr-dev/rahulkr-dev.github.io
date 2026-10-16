@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import {
@@ -50,11 +50,16 @@ const NavLink = ({
   </Link>
 );
 
-export default function Navbar() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+// Hydration-safe "mounted" flag: false on the server, true on the client.
+const subscribeNoop = () => () => {};
 
-  useEffect(() => setMounted(true), []);
+export default function Navbar() {
+  const mounted = useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false
+  );
+  const { theme, setTheme } = useTheme();
 
   const navLinks = [
     { href: "/", icon: Home, label: "Home" },
