@@ -9,7 +9,7 @@ import {
   Lightformer,
 } from "@react-three/drei";
 import * as THREE from "three";
-import { RetroOS } from "@/components/os/retro-os";
+import { MacOS } from "@/components/os/mac-os";
 import { DeskSet } from "./desk-set";
 import { DESK_VIEW, FOV, OS_PX, SCREEN } from "./layout";
 
@@ -88,7 +88,7 @@ export default function DeskScene({
         zIndexRange={[20, 0]}
         pointerEvents={view === "monitor" ? "auto" : "none"}
       >
-        <RetroOS onShutDown={onShutDown} />
+        <MacOS active={view === "monitor"} onExit={onShutDown} />
       </Html>
 
       <mesh rotation-x={-Math.PI / 2} receiveShadow>
@@ -96,7 +96,7 @@ export default function DeskScene({
         <shadowMaterial opacity={0.22} />
       </mesh>
       <ContactShadows
-        position={[0, 0.002, 0]}
+        position={[0, 0.0135, 0]}
         scale={9}
         far={2.2}
         blur={2.6}

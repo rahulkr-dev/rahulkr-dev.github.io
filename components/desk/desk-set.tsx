@@ -6,13 +6,19 @@ import { RoundedBox } from "@react-three/drei";
 import * as THREE from "three";
 import { SCREEN } from "./layout";
 
-const BEIGE = "#d8d4c7";
-const BEIGE_DARK = "#bdb9ab";
-const DESK_TOP = "#3b3836";
-const METAL = "#9da1a5";
-const DARK = "#2a2b2d";
-
+const ALUMINUM = "#c9ccd1";
+const GRAPHITE = "#2b2d31";
+const FRAME = "#24262a";
 const DESK_Y = 0.75; // top surface height
+
+function seeded(seed: number) {
+  return () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
 export function DeskSet() {
   const group = useRef<THREE.Group>(null);
@@ -29,113 +35,150 @@ export function DeskSet() {
 
   return (
     <group ref={group}>
+      <Rug position={[0.2, 0, 0.35]} />
       <Desk />
-      <Computer />
-      <Keyboard position={[0, DESK_Y + 0.014, 0.3]} />
-      <Mouse position={[0.34, DESK_Y + 0.012, 0.3]} />
-      <Papers />
-      <Binders position={[0.62, DESK_Y, -0.3]} />
-      <Mug position={[0.5, DESK_Y, 0.02]} />
-      <OnAirSign position={[0.8, DESK_Y, -0.05]} />
-      <Chair position={[-0.05, 0, 1.05]} rotation={[0, Math.PI + 0.4, 0]} />
-      <Plant position={[1.5, 0, -0.15]} />
+      <Monitor />
+      <DeskMat position={[0, DESK_Y, 0.14]} />
+      <Keyboard position={[-0.06, DESK_Y + 0.0085, 0.16]} />
+      <Trackpad position={[0.24, DESK_Y + 0.0035, 0.16]} />
+      <Notebook position={[-0.55, DESK_Y, 0.2]} rotation={[0, 0.25, 0]} />
+      <Mug position={[-0.5, DESK_Y, -0.02]} />
+      <Lamp position={[-0.82, DESK_Y, -0.24]} />
+      <HeadphoneStand position={[0.72, DESK_Y, -0.22]} />
+      <OnAirSign position={[0.52, DESK_Y, -0.04]} rotation={[0, 0.5, 0]} />
+      <Succulent position={[0.86, DESK_Y, 0.2]} />
+      <Chair position={[-0.5, 0, 0.7]} rotation={[0, Math.PI + 0.3, 0]} />
+      <Plant position={[1.55, 0, -0.25]} />
+    </group>
+  );
+}
+
+function useWoodTexture() {
+  return useMemo(() => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1024;
+    canvas.height = 512;
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      const rand = seeded(7);
+      ctx.fillStyle = "#dcbd90";
+      ctx.fillRect(0, 0, 1024, 512);
+      for (let i = 0; i < 140; i++) {
+        const y = rand() * 512;
+        const phase = rand() * 6;
+        ctx.strokeStyle = `rgba(150,102,56,${0.05 + rand() * 0.12})`;
+        ctx.lineWidth = 0.6 + rand() * 2;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        for (let x = 0; x <= 1024; x += 32) {
+          ctx.lineTo(x, y + Math.sin(x * 0.012 + phase) * 3 + (rand() - 0.5) * 1.4);
+        }
+        ctx.stroke();
+      }
+    }
+    const map = new THREE.CanvasTexture(canvas);
+    map.colorSpace = THREE.SRGBColorSpace;
+    map.anisotropy = 8;
+    return map;
+  }, []);
+}
+
+function Rug(props: ThreeElements["group"]) {
+  return (
+    <group {...props}>
+      <mesh position={[0, 0.006, 0]}>
+        <cylinderGeometry args={[1.9, 1.9, 0.012, 72]} />
+        <meshStandardMaterial color="#d8d3c9" roughness={1} />
+      </mesh>
+      <mesh position={[0, 0.0125, 0]}>
+        <cylinderGeometry args={[1.62, 1.62, 0.002, 72]} />
+        <meshStandardMaterial color="#cbc6bb" roughness={1} />
+      </mesh>
     </group>
   );
 }
 
 function Desk() {
+  const wood = useWoodTexture();
+
   return (
     <group>
-      <RoundedBox args={[2.1, 0.05, 0.95]} radius={0.01} position={[0, DESK_Y - 0.025, 0]}>
-        <meshStandardMaterial color={DESK_TOP} roughness={0.55} />
+      <RoundedBox args={[2.0, 0.04, 0.85]} radius={0.012} smoothness={3} position={[0, DESK_Y - 0.02, 0]}>
+        <meshStandardMaterial map={wood} roughness={0.6} />
       </RoundedBox>
 
-      {/* Drawer pedestal */}
-      <mesh position={[-0.7, 0.355, 0]}>
-        <boxGeometry args={[0.5, 0.71, 0.85]} />
-        <meshStandardMaterial color={METAL} metalness={0.35} roughness={0.5} />
-      </mesh>
-      {[0.55, 0.25].map((y) => (
-        <group key={y} position={[-0.7, y, 0.43]}>
-          <mesh>
-            <boxGeometry args={[0.44, 0.27, 0.012]} />
-            <meshStandardMaterial color="#aeb2b6" metalness={0.35} roughness={0.45} />
+      {/* Standing-desk style frame: two T-legs and a cross rail */}
+      {[-0.86, 0.86].map((x) => (
+        <group key={x} position={[x, 0, 0]}>
+          <mesh position={[0, 0.36, 0]}>
+            <boxGeometry args={[0.06, 0.68, 0.07]} />
+            <meshStandardMaterial color={FRAME} roughness={0.5} metalness={0.3} />
           </mesh>
-          <mesh position={[0, 0.07, 0.012]}>
-            <boxGeometry args={[0.14, 0.014, 0.014]} />
-            <meshStandardMaterial color={DARK} roughness={0.4} />
-          </mesh>
+          <RoundedBox args={[0.07, 0.035, 0.7]} radius={0.01} position={[0, 0.0175, 0]}>
+            <meshStandardMaterial color={FRAME} roughness={0.5} metalness={0.3} />
+          </RoundedBox>
         </group>
       ))}
-
-      {/* Right-hand legs */}
-      {[-0.4, 0.4].map((z) => (
-        <mesh key={z} position={[0.98, 0.355, z]}>
-          <boxGeometry args={[0.05, 0.71, 0.05]} />
-          <meshStandardMaterial color={METAL} metalness={0.4} roughness={0.45} />
-        </mesh>
-      ))}
+      <mesh position={[0, 0.69, -0.2]}>
+        <boxGeometry args={[1.72, 0.05, 0.05]} />
+        <meshStandardMaterial color={FRAME} roughness={0.5} metalness={0.3} />
+      </mesh>
+      {/* Cable tray */}
+      <mesh position={[0, 0.64, -0.3]}>
+        <boxGeometry args={[1.2, 0.03, 0.12]} />
+        <meshStandardMaterial color="#17181b" roughness={0.7} />
+      </mesh>
     </group>
   );
 }
 
-function Computer() {
-  const caseY = DESK_Y + 0.065;
-  const baseY = DESK_Y + 0.13 + 0.0125;
-  const bodyY = baseY + 0.0125 + 0.215;
+function Monitor() {
+  const panelH = SCREEN.height + 0.024;
+  const panelY = SCREEN.center[1];
+  const z = -0.2;
 
   return (
     <group>
-      {/* Desktop case */}
-      <RoundedBox args={[0.5, 0.13, 0.42]} radius={0.012} position={[0, caseY, -0.12]}>
-        <meshStandardMaterial color={BEIGE} roughness={0.55} />
+      {/* Stand */}
+      <RoundedBox args={[0.24, 0.012, 0.18]} radius={0.006} position={[0, DESK_Y + 0.006, z]}>
+        <meshStandardMaterial color={ALUMINUM} metalness={0.7} roughness={0.35} />
       </RoundedBox>
-      <mesh position={[0.1, caseY + 0.005, 0.0905]}>
-        <boxGeometry args={[0.22, 0.03, 0.002]} />
-        <meshStandardMaterial color={DARK} roughness={0.6} />
+      <mesh position={[0, DESK_Y + 0.11, z - 0.03]}>
+        <boxGeometry args={[0.05, 0.2, 0.014]} />
+        <meshStandardMaterial color={ALUMINUM} metalness={0.7} roughness={0.35} />
       </mesh>
-      <mesh position={[-0.19, caseY - 0.02, 0.0905]}>
-        <boxGeometry args={[0.035, 0.035, 0.004]} />
-        <meshStandardMaterial color={BEIGE_DARK} roughness={0.6} />
-      </mesh>
-      <mesh position={[-0.12, caseY + 0.035, 0.091]}>
-        <boxGeometry args={[0.012, 0.006, 0.003]} />
-        <meshStandardMaterial color="#35d36b" emissive="#35d36b" emissiveIntensity={1.6} />
-      </mesh>
-
-      {/* Monitor stand */}
-      <RoundedBox args={[0.3, 0.025, 0.26]} radius={0.008} position={[0, baseY, -0.08]}>
-        <meshStandardMaterial color={BEIGE_DARK} roughness={0.6} />
+      {/* Panel: black bezel + aluminium back */}
+      <RoundedBox args={[0.62, panelH, 0.014]} radius={0.007} smoothness={3} position={[0, panelY, z]}>
+        <meshStandardMaterial color="#0c0d0f" roughness={0.35} metalness={0.2} />
       </RoundedBox>
-
-      {/* Bezel and CRT tube */}
-      <RoundedBox args={[0.5, 0.43, 0.12]} radius={0.025} smoothness={4} position={[0, bodyY, 0.01]}>
-        <meshStandardMaterial color={BEIGE} roughness={0.5} />
+      <RoundedBox args={[0.6, panelH - 0.02, 0.012]} radius={0.007} smoothness={3} position={[0, panelY, z - 0.012]}>
+        <meshStandardMaterial color={ALUMINUM} metalness={0.7} roughness={0.4} />
       </RoundedBox>
-      <RoundedBox args={[0.4, 0.34, 0.3]} radius={0.03} smoothness={4} position={[0, bodyY - 0.01, -0.2]}>
-        <meshStandardMaterial color={BEIGE} roughness={0.55} />
+      <RoundedBox args={[0.3, 0.2, 0.026]} radius={0.01} position={[0, panelY, z - 0.03]}>
+        <meshStandardMaterial color={ALUMINUM} metalness={0.7} roughness={0.4} />
       </RoundedBox>
-      {/* Recessed black frame, then the glass */}
-      <mesh position={[0, SCREEN.center[1], 0.0702]}>
-        <boxGeometry args={[0.42, 0.325, 0.003]} />
-        <meshStandardMaterial color="#141516" roughness={0.7} />
-      </mesh>
-      <mesh position={[SCREEN.center[0], SCREEN.center[1], SCREEN.center[2] - 0.004]}>
+      {/* Glass behind the projected OS */}
+      <mesh position={[SCREEN.center[0], panelY, SCREEN.center[2] - 0.001]}>
         <planeGeometry args={[SCREEN.width, SCREEN.height]} />
-        <meshStandardMaterial color="#0b1213" roughness={0.2} metalness={0.1} />
+        <meshStandardMaterial color="#05060a" roughness={0.12} metalness={0.1} />
       </mesh>
-      {/* Power LED */}
-      <mesh position={[0.2, bodyY - 0.2, 0.0712]}>
-        <boxGeometry args={[0.012, 0.006, 0.002]} />
-        <meshStandardMaterial color="#ff9a1f" emissive="#ff9a1f" emissiveIntensity={1.5} />
-      </mesh>
+    </group>
+  );
+}
+
+function DeskMat(props: ThreeElements["group"]) {
+  return (
+    <group {...props}>
+      <RoundedBox args={[0.98, 0.005, 0.42]} radius={0.002} position={[0, 0.0025, 0]}>
+        <meshStandardMaterial color="#30333a" roughness={0.95} />
+      </RoundedBox>
     </group>
   );
 }
 
 function Keyboard(props: ThreeElements["group"]) {
   const keys = useRef<THREE.InstancedMesh>(null);
-  const cols = 14;
+  const cols = 13;
   const rows = 5;
 
   useLayoutEffect(() => {
@@ -145,9 +188,9 @@ function Keyboard(props: ThreeElements["group"]) {
     let index = 0;
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
-        const x = (col - (cols - 1) / 2) * 0.0285;
-        const z = (row - (rows - 1) / 2) * 0.026;
-        matrix.makeTranslation(x, 0.016, z);
+        const x = (col - (cols - 1) / 2) * 0.0262;
+        const z = (row - (rows - 1) / 2) * 0.0215;
+        matrix.makeTranslation(x, 0.0085, z);
         mesh.setMatrixAt(index++, matrix);
       }
     }
@@ -156,109 +199,43 @@ function Keyboard(props: ThreeElements["group"]) {
 
   return (
     <group {...props}>
-      <group rotation={[-0.06, 0, 0]}>
-        <RoundedBox args={[0.46, 0.022, 0.16]} radius={0.006}>
-          <meshStandardMaterial color={BEIGE} roughness={0.55} />
+      <group rotation={[-0.05, 0, 0]}>
+        <RoundedBox args={[0.37, 0.012, 0.13]} radius={0.004}>
+          <meshStandardMaterial color={ALUMINUM} metalness={0.6} roughness={0.4} />
         </RoundedBox>
         <instancedMesh ref={keys} args={[undefined, undefined, cols * rows]}>
-          <boxGeometry args={[0.024, 0.012, 0.022]} />
-          <meshStandardMaterial color="#ebe8dd" roughness={0.6} />
+          <boxGeometry args={[0.022, 0.006, 0.018]} />
+          <meshStandardMaterial color={GRAPHITE} roughness={0.55} />
         </instancedMesh>
       </group>
     </group>
   );
 }
 
-function Mouse(props: ThreeElements["group"]) {
+function Trackpad(props: ThreeElements["group"]) {
   return (
     <group {...props}>
-      <mesh scale={[1, 0.5, 1.6]}>
-        <sphereGeometry args={[0.03, 24, 16]} />
-        <meshStandardMaterial color={BEIGE} roughness={0.5} />
+      <RoundedBox args={[0.14, 0.006, 0.1]} radius={0.004}>
+        <meshStandardMaterial color={ALUMINUM} metalness={0.6} roughness={0.4} />
+      </RoundedBox>
+    </group>
+  );
+}
+
+function Notebook(props: ThreeElements["group"]) {
+  return (
+    <group {...props}>
+      <RoundedBox args={[0.15, 0.016, 0.21]} radius={0.003} position={[0, 0.008, 0]}>
+        <meshStandardMaterial color="#e9674a" roughness={0.7} />
+      </RoundedBox>
+      <mesh position={[0, 0.0165, 0]}>
+        <boxGeometry args={[0.14, 0.001, 0.2]} />
+        <meshStandardMaterial color="#f6f2ea" roughness={0.9} />
       </mesh>
-    </group>
-  );
-}
-
-function Papers() {
-  const sheets = useMemo(
-    () => [
-      { y: 0.0, rot: 0.02, x: 0 },
-      { y: 0.012, rot: -0.04, x: 0.004 },
-      { y: 0.024, rot: 0.03, x: -0.003 },
-      { y: 0.036, rot: -0.02, x: 0.002 },
-    ],
-    []
-  );
-
-  return (
-    <group>
-      {/* Inbox trays */}
-      {[0, 1].map((level) => (
-        <group key={level} position={[-0.78, DESK_Y + 0.02 + level * 0.075, -0.25]}>
-          <mesh position={[0, 0, 0]}>
-            <boxGeometry args={[0.3, 0.012, 0.23]} />
-            <meshStandardMaterial color="#a89c88" roughness={0.7} />
-          </mesh>
-          <mesh position={[0, 0.03, 0.115]}>
-            <boxGeometry args={[0.3, 0.06, 0.012]} />
-            <meshStandardMaterial color="#a89c88" roughness={0.7} />
-          </mesh>
-          {[-0.15, 0.15].map((x) => (
-            <mesh key={x} position={[x, 0.03, 0]}>
-              <boxGeometry args={[0.012, 0.06, 0.23]} />
-              <meshStandardMaterial color="#a89c88" roughness={0.7} />
-            </mesh>
-          ))}
-          <mesh position={[0, 0.03, 0]} rotation={[0, level ? 0.08 : -0.05, 0]}>
-            <boxGeometry args={[0.26, 0.04, 0.19]} />
-            <meshStandardMaterial color="#f4f3ee" roughness={0.9} />
-          </mesh>
-        </group>
-      ))}
-
-      {/* Loose stack */}
-      <group position={[-0.4, DESK_Y, -0.02]}>
-        {sheets.map((sheet, index) => (
-          <mesh key={index} position={[sheet.x, 0.006 + sheet.y, 0]} rotation={[0, sheet.rot, 0]}>
-            <boxGeometry args={[0.21, 0.011, 0.297]} />
-            <meshStandardMaterial color="#f6f5f0" roughness={0.9} />
-          </mesh>
-        ))}
-      </group>
-
-      {/* Single sheet with "text" lines */}
-      <group position={[-0.5, DESK_Y + 0.002, 0.28]} rotation={[0, 0.35, 0]}>
-        <mesh>
-          <boxGeometry args={[0.21, 0.003, 0.297]} />
-          <meshStandardMaterial color="#fbfaf6" roughness={0.9} />
-        </mesh>
-        {[-0.09, -0.06, -0.03, 0, 0.03, 0.06].map((z, index) => (
-          <mesh key={z} position={[-0.012, 0.0025, z]}>
-            <boxGeometry args={[0.15 - index * 0.012, 0.0005, 0.004]} />
-            <meshStandardMaterial color="#9a9a95" roughness={0.9} />
-          </mesh>
-        ))}
-      </group>
-    </group>
-  );
-}
-
-function Binders(props: ThreeElements["group"]) {
-  return (
-    <group {...props}>
-      {[0, 0.075].map((x, index) => (
-        <group key={x} position={[x, 0.15, 0]} rotation={[0, index ? 0.08 : 0, 0]}>
-          <mesh>
-            <boxGeometry args={[0.06, 0.3, 0.24]} />
-            <meshStandardMaterial color="#4a342f" roughness={0.65} />
-          </mesh>
-          <mesh position={[0, 0.07, 0.121]}>
-            <cylinderGeometry args={[0.014, 0.014, 0.004, 20]} />
-            <meshStandardMaterial color="#d8d1c6" roughness={0.5} />
-          </mesh>
-        </group>
-      ))}
+      <mesh position={[0.045, 0.021, 0.02]} rotation={[0, 0.6, Math.PI / 2]}>
+        <cylinderGeometry args={[0.004, 0.004, 0.14, 12]} />
+        <meshStandardMaterial color={GRAPHITE} roughness={0.4} metalness={0.4} />
+      </mesh>
     </group>
   );
 }
@@ -267,21 +244,96 @@ function Mug(props: ThreeElements["group"]) {
   return (
     <group {...props}>
       <mesh position={[0, 0.045, 0]}>
-        <cylinderGeometry args={[0.04, 0.036, 0.09, 28, 1, true]} />
-        <meshStandardMaterial color="#f1f0ec" roughness={0.35} side={THREE.DoubleSide} />
+        <cylinderGeometry args={[0.04, 0.036, 0.09, 32, 1, true]} />
+        <meshStandardMaterial color="#2f3238" roughness={0.45} side={THREE.DoubleSide} />
       </mesh>
       <mesh position={[0, 0.002, 0]}>
-        <cylinderGeometry args={[0.036, 0.036, 0.004, 28]} />
-        <meshStandardMaterial color="#f1f0ec" roughness={0.35} />
+        <cylinderGeometry args={[0.036, 0.036, 0.004, 32]} />
+        <meshStandardMaterial color="#2f3238" roughness={0.45} />
       </mesh>
       <mesh position={[0, 0.08, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <circleGeometry args={[0.037, 28]} />
+        <circleGeometry args={[0.037, 32]} />
         <meshStandardMaterial color="#3a2418" roughness={0.3} />
       </mesh>
-      <mesh position={[0.04, 0.047, 0]} rotation={[0, 0, 0]}>
+      <mesh position={[0.04, 0.047, 0]}>
         <torusGeometry args={[0.025, 0.006, 10, 24]} />
-        <meshStandardMaterial color="#f1f0ec" roughness={0.35} />
+        <meshStandardMaterial color="#2f3238" roughness={0.45} />
       </mesh>
+    </group>
+  );
+}
+
+function Lamp(props: ThreeElements["group"]) {
+  return (
+    <group {...props}>
+      <mesh position={[0, 0.008, 0]}>
+        <cylinderGeometry args={[0.085, 0.09, 0.016, 40]} />
+        <meshStandardMaterial color={FRAME} roughness={0.5} metalness={0.4} />
+      </mesh>
+      {/* Lower arm */}
+      <group position={[0, 0.02, 0]} rotation={[0, 0, -0.45]}>
+        <mesh position={[0, 0.16, 0]}>
+          <cylinderGeometry args={[0.007, 0.007, 0.32, 10]} />
+          <meshStandardMaterial color="#d3d6da" metalness={0.7} roughness={0.35} />
+        </mesh>
+        {/* Upper arm */}
+        <group position={[0, 0.32, 0]} rotation={[0, 0, 1.15]}>
+          <mesh>
+            <sphereGeometry args={[0.012, 14, 10]} />
+            <meshStandardMaterial color={FRAME} roughness={0.5} />
+          </mesh>
+          <mesh position={[0, 0.14, 0]}>
+            <cylinderGeometry args={[0.006, 0.006, 0.28, 10]} />
+            <meshStandardMaterial color="#d3d6da" metalness={0.7} roughness={0.35} />
+          </mesh>
+          {/* Shade */}
+          <group position={[0, 0.29, 0]} rotation={[0, 0, -0.55]}>
+            <mesh position={[0, -0.03, 0]}>
+              <cylinderGeometry args={[0.02, 0.07, 0.1, 32, 1, true]} />
+              <meshStandardMaterial color="#e6e8ea" roughness={0.4} metalness={0.3} side={THREE.DoubleSide} />
+            </mesh>
+            <mesh position={[0, -0.079, 0]} rotation={[Math.PI / 2, 0, 0]}>
+              <circleGeometry args={[0.066, 32]} />
+              <meshStandardMaterial color="#fff1d6" emissive="#ffc980" emissiveIntensity={2} />
+            </mesh>
+            <pointLight position={[0, -0.12, 0]} color="#ffc986" intensity={1.6} distance={1.6} decay={2} />
+          </group>
+        </group>
+      </group>
+    </group>
+  );
+}
+
+function HeadphoneStand(props: ThreeElements["group"]) {
+  return (
+    <group {...props}>
+      <mesh position={[0, 0.006, 0]}>
+        <cylinderGeometry args={[0.06, 0.065, 0.012, 32]} />
+        <meshStandardMaterial color={ALUMINUM} metalness={0.7} roughness={0.35} />
+      </mesh>
+      <mesh position={[0, 0.13, 0]}>
+        <cylinderGeometry args={[0.008, 0.008, 0.25, 12]} />
+        <meshStandardMaterial color={ALUMINUM} metalness={0.7} roughness={0.35} />
+      </mesh>
+      {/* Headphones */}
+      <group position={[0, 0.27, 0]}>
+        <mesh rotation={[0, 0, 0]}>
+          <torusGeometry args={[0.085, 0.009, 12, 40, Math.PI]} />
+          <meshStandardMaterial color="#e9674a" roughness={0.55} />
+        </mesh>
+        {[-0.085, 0.085].map((x) => (
+          <group key={x} position={[x, -0.01, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <mesh>
+              <cylinderGeometry args={[0.045, 0.045, 0.03, 32]} />
+              <meshStandardMaterial color="#1f2126" roughness={0.5} />
+            </mesh>
+            <mesh position={[0, x < 0 ? 0.019 : -0.019, 0]}>
+              <cylinderGeometry args={[0.04, 0.04, 0.012, 32]} />
+              <meshStandardMaterial color="#5b5f68" roughness={0.9} />
+            </mesh>
+          </group>
+        ))}
+      </group>
     </group>
   );
 }
@@ -294,16 +346,17 @@ function OnAirSign(props: ThreeElements["group"]) {
     canvas.height = 96;
     const ctx = canvas.getContext("2d");
     if (ctx) {
-      ctx.fillStyle = "#b3141c";
+      ctx.fillStyle = "#0e0f12";
       ctx.fillRect(0, 0, 256, 96);
-      ctx.strokeStyle = "#ffd9d6";
-      ctx.lineWidth = 6;
-      ctx.strokeRect(8, 8, 240, 80);
-      ctx.fillStyle = "#fff4f2";
-      ctx.font = "bold 52px monospace";
-      ctx.textAlign = "center";
+      ctx.fillStyle = "#ff3b30";
+      ctx.beginPath();
+      ctx.arc(46, 48, 11, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.font = "600 44px sans-serif";
+      ctx.textAlign = "left";
       ctx.textBaseline = "middle";
-      ctx.fillText("ON AIR", 128, 52);
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText("ON AIR", 74, 51);
     }
     const map = new THREE.CanvasTexture(canvas);
     map.colorSpace = THREE.SRGBColorSpace;
@@ -312,27 +365,55 @@ function OnAirSign(props: ThreeElements["group"]) {
 
   useFrame((state) => {
     if (glow.current) {
-      glow.current.emissiveIntensity = 0.7 + Math.sin(state.clock.elapsedTime * 2.2) * 0.25;
+      glow.current.emissiveIntensity = 0.45 + Math.sin(state.clock.elapsedTime * 2.2) * 0.2;
     }
   });
 
   return (
     <group {...props}>
-      <mesh position={[0, 0.012, 0]}>
-        <boxGeometry args={[0.2, 0.024, 0.07]} />
-        <meshStandardMaterial color={DARK} roughness={0.6} />
-      </mesh>
-      <mesh position={[0, 0.085, 0]} rotation={[-0.15, 0, 0]}>
-        <boxGeometry args={[0.18, 0.07, 0.025]} />
+      <RoundedBox args={[0.11, 0.008, 0.06]} radius={0.003} position={[0, 0.004, 0]}>
+        <meshStandardMaterial color={FRAME} roughness={0.5} />
+      </RoundedBox>
+      <mesh position={[0, 0.045, 0]} rotation={[-0.12, 0, 0]}>
+        <boxGeometry args={[0.17, 0.065, 0.012]} />
         <meshStandardMaterial
           ref={glow}
           map={texture}
           emissiveMap={texture}
-          emissive="#ff3b30"
-          emissiveIntensity={0.8}
+          emissive="#ffffff"
+          emissiveIntensity={0.5}
           roughness={0.4}
         />
       </mesh>
+    </group>
+  );
+}
+
+function Succulent(props: ThreeElements["group"]) {
+  const leaves = useMemo(
+    () =>
+      Array.from({ length: 9 }, (_, index) => ({
+        angle: index * 2.399963,
+        tilt: 0.45 + (index % 3) * 0.2,
+        height: 0.07 + (index % 4) * 0.015,
+      })),
+    []
+  );
+
+  return (
+    <group {...props}>
+      <mesh position={[0, 0.03, 0]}>
+        <cylinderGeometry args={[0.048, 0.038, 0.06, 28]} />
+        <meshStandardMaterial color="#efeee9" roughness={0.6} />
+      </mesh>
+      {leaves.map((leaf, index) => (
+        <group key={index} position={[0, 0.06, 0]} rotation={[0, leaf.angle, 0]}>
+          <mesh position={[0, leaf.height / 2, 0.012]} rotation={[leaf.tilt, 0, 0]}>
+            <coneGeometry args={[0.012, leaf.height, 8]} />
+            <meshStandardMaterial color="#4fa467" roughness={0.6} />
+          </mesh>
+        </group>
+      ))}
     </group>
   );
 }
@@ -345,30 +426,51 @@ function Chair(props: ThreeElements["group"]) {
       {legs.map((leg) => (
         <group key={leg} rotation={[0, (leg / 5) * Math.PI * 2, 0]}>
           <mesh position={[0.14, 0.075, 0]} rotation={[0, 0, Math.PI / 2 - 0.12]}>
-            <cylinderGeometry args={[0.014, 0.014, 0.3, 10]} />
-            <meshStandardMaterial color="#2f3033" roughness={0.5} />
+            <cylinderGeometry args={[0.014, 0.012, 0.3, 10]} />
+            <meshStandardMaterial color="#9ca0a6" metalness={0.7} roughness={0.35} />
           </mesh>
           <mesh position={[0.28, 0.03, 0]}>
             <sphereGeometry args={[0.03, 14, 10]} />
-            <meshStandardMaterial color="#1b1c1e" roughness={0.6} />
+            <meshStandardMaterial color="#17181a" roughness={0.6} />
           </mesh>
         </group>
       ))}
       <mesh position={[0, 0.26, 0]}>
-        <cylinderGeometry args={[0.025, 0.03, 0.4, 14]} />
-        <meshStandardMaterial color="#8d9094" metalness={0.5} roughness={0.35} />
+        <cylinderGeometry args={[0.028, 0.034, 0.4, 16]} />
+        <meshStandardMaterial color="#17181a" roughness={0.45} metalness={0.3} />
       </mesh>
-      {/* Seat and back */}
-      <RoundedBox args={[0.46, 0.07, 0.44]} radius={0.03} smoothness={4} position={[0, 0.48, 0]}>
-        <meshStandardMaterial color="#b5722f" roughness={0.65} />
+      {/* Seat */}
+      <RoundedBox args={[0.5, 0.08, 0.48]} radius={0.035} smoothness={4} position={[0, 0.48, 0]}>
+        <meshStandardMaterial color="#33373d" roughness={0.85} />
       </RoundedBox>
-      <mesh position={[0, 0.58, -0.25]} rotation={[-0.12, 0, 0]}>
-        <boxGeometry args={[0.03, 0.2, 0.03]} />
-        <meshStandardMaterial color="#2f3033" roughness={0.5} />
+      {/* Back: frame, mesh and an orange lumbar accent */}
+      <group position={[0, 0.8, -0.27]} rotation={[-0.1, 0, 0]}>
+        <RoundedBox args={[0.5, 0.58, 0.03]} radius={0.02} smoothness={4}>
+          <meshStandardMaterial color="#1d1f22" roughness={0.6} />
+        </RoundedBox>
+        <RoundedBox args={[0.43, 0.5, 0.034]} radius={0.015} smoothness={4}>
+          <meshStandardMaterial color="#3a3e45" roughness={0.95} />
+        </RoundedBox>
+        <RoundedBox args={[0.32, 0.03, 0.04]} radius={0.01} position={[0, -0.13, 0]}>
+          <meshStandardMaterial color="#ff7a2f" roughness={0.6} />
+        </RoundedBox>
+      </group>
+      <mesh position={[0, 0.58, -0.24]} rotation={[-0.1, 0, 0]}>
+        <boxGeometry args={[0.04, 0.2, 0.03]} />
+        <meshStandardMaterial color="#1d1f22" roughness={0.5} />
       </mesh>
-      <RoundedBox args={[0.44, 0.24, 0.06]} radius={0.028} smoothness={4} position={[0, 0.78, -0.27]} rotation={[-0.12, 0, 0]}>
-        <meshStandardMaterial color="#b5722f" roughness={0.65} />
-      </RoundedBox>
+      {/* Armrests */}
+      {[-0.28, 0.28].map((x) => (
+        <group key={x} position={[x, 0, 0]}>
+          <mesh position={[0, 0.58, -0.04]}>
+            <boxGeometry args={[0.02, 0.2, 0.025]} />
+            <meshStandardMaterial color="#1d1f22" roughness={0.5} />
+          </mesh>
+          <RoundedBox args={[0.055, 0.025, 0.26]} radius={0.01} position={[0, 0.69, 0]}>
+            <meshStandardMaterial color="#1d1f22" roughness={0.7} />
+          </RoundedBox>
+        </group>
+      ))}
     </group>
   );
 }

@@ -146,3 +146,20 @@ New page order: **Hero → Experience → Featured case studies → More project
 2. Phase 0 → Phase 1 (upgrade the foundation before changing the design).
 3. Phase 2 (hero, Experience, Contact) next. It gives the biggest visible improvement. Phase 5 is already partly done.
 4. Phase 3 (case studies), then Phase 4 (polish), then Phase 6 and Phase 7.
+
+---
+
+## 3D desk (branch `feat/3d-portfolio`)
+
+The home page `/` is an interactive three.js desk; the regular site lives at `/classic/`.
+
+- **Scene** (`components/desk/`): modern standing desk, flat monitor, lamp, headphones, ergonomic chair, all built from code (no model files). Lazy-loaded while the boot screen plays.
+- **Screen** (`components/os/`): a macOS-style desktop projected onto the monitor with CSS 3D. Draggable windows, dock with magnification, menu bar, Spotlight (Ctrl/Cmd+K), and an interactive Terminal. Data comes from `lib/*` (experience, projects, skills, profile).
+- **Fallbacks:** phones, narrow screens, no WebGL and render errors redirect to `/classic/`. `/` still carries real text for crawlers and screen readers.
+- **The retro CRT version** is in git history (commit "feat: 3D desk portfolio with a retro computer OS on the monitor").
+
+Open items:
+- [ ] **(data)** "Live" app showing the streaming pipeline. Needs the real stages, GCP services and what Rahul is allowed to publish. Not built, to avoid inventing architecture.
+- [ ] Sound (keyboard clicks, boot chime) and a night mode for the scene.
+- [ ] Touch-friendly 3D for tablets (currently redirects below 768px).
+- [ ] Share the profile text between the classic site and the OS (`lib/profile.ts` is only used by the OS so far).

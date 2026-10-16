@@ -192,9 +192,20 @@ body {
 /* 3D desk page */
 .desk-backdrop {
   background: radial-gradient(
-    ellipse at 50% 38%,
-    #e4e4e8 0%,
-    #c7c8ce 55%,
-    #a8aab2 100%
+    ellipse at 50% 36%,
+    #f1efeb 0%,
+    #dcd9d3 55%,
+    #bfbcb6 100%
   );
+}
+
+.boot-bar > span {
+  width: 0;
+  animation: boot-load 1.6s ease-out forwards;
+}
+
+@keyframes boot-load {
+  to {
+    width: 100%;
+  }
 }

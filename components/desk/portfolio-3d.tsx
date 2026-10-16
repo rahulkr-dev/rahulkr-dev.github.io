@@ -141,26 +141,26 @@ function Overlay({ stage, onBack }: { stage: DeskView; onBack: () => void }) {
           <button
             type="button"
             onClick={onBack}
-            className="pointer-events-auto bg-black px-3 py-1.5 font-mono text-xs text-white hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="pointer-events-auto rounded-full bg-black/80 px-4 py-2 text-xs font-medium text-white backdrop-blur hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             &larr; Back to desk (Esc)
           </button>
         ) : (
-          <span className="bg-black px-3 py-1.5 font-mono text-xs text-white">
+          <span className="rounded-full bg-black/80 px-4 py-2 text-xs font-semibold text-white">
             RK
           </span>
         )}
         <Link
           href="/classic"
-          className="pointer-events-auto bg-black px-3 py-1.5 font-mono text-xs text-white hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="pointer-events-auto rounded-full bg-black/80 px-4 py-2 text-xs font-medium text-white backdrop-blur hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           Classic site &rarr;
         </Link>
       </div>
       {stage === "desk" ? (
         <p className="pointer-events-none absolute inset-x-0 bottom-8 z-30 flex justify-center">
-          <span className="bg-black px-3 py-1.5 font-mono text-xs text-white">
-            Click anywhere to sit down <span className="animate-pulse">_</span>
+          <span className="rounded-full bg-black/80 px-4 py-2 text-xs font-medium text-white backdrop-blur">
+            Click anywhere to sit down
           </span>
         </p>
       ) : null}
