@@ -188,3 +188,13 @@ body {
 .dark .react-github-calendar .react-activity-calendar__calendar {
   border-color: #374151;
 }
+
+/* 3D desk page */
+.desk-backdrop {
+  background: radial-gradient(
+    ellipse at 50% 38%,
+    #e4e4e8 0%,
+    #c7c8ce 55%,
+    #a8aab2 100%
+  );
+}
