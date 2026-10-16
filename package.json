@@ -3,12 +3,13 @@
   "name": "rahul-kumar-portfolio",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@12.4.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build",
+    "predeploy": "pnpm build",
     "deploy": "touch ./out/.nojekyll && gh-pages -d out -t true"
   },
   "dependencies": {
