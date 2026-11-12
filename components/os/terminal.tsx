@@ -28,6 +28,7 @@ const COMMANDS = [
   "contact",
   "resume",
   "open",
+  "lights",
   "ls",
   "date",
   "clear",
@@ -48,6 +49,7 @@ function complete(value: string): { value: string; options: string[] } {
   if (head.length === 0) pool = COMMANDS;
   else if (head.length === 1 && head[0].toLowerCase() === "open") pool = OPENABLE;
   else if (head.length === 1 && head[0].toLowerCase() === "sudo") pool = ["hire-me"];
+  else if (head.length === 1 && head[0].toLowerCase() === "lights") pool = ["on", "off"];
 
   const options = pool.filter((item) => item.startsWith(last));
   if (options.length === 0) return { value, options: [] };
@@ -83,6 +85,7 @@ function run(raw: string, context: AppContext): string[] | "clear" {
         "  resume       link to my resume",
         "  open <app>   open an app: " + OPENABLE.join(", "),
         "               'open projects 2' jumps to the second project",
+        "  lights       switch the room lights: lights off, lights on",
         "  ls           list apps",
         "  date         current date and time",
         "  clear        clear the screen",
@@ -101,7 +104,9 @@ function run(raw: string, context: AppContext): string[] | "clear" {
     case "projects":
       return [
         ...projects.flatMap((project, index) => [
-          `${index + 1}. ${project.title}`,
+          `${index + 1}. ${project.title}${
+            project.status ? ` (${project.status.toLowerCase()})` : ""
+          }`,
           `   ${project.eyebrow}`,
           "",
         ]),
@@ -141,6 +146,15 @@ function run(raw: string, context: AppContext): string[] | "clear" {
         return [`Opening ${target}...`];
       }
       return [`usage: open <${OPENABLE.join("|")}>`];
+    }
+    case "lights": {
+      const want = args[0]?.toLowerCase();
+      if (want !== undefined && want !== "on" && want !== "off") {
+        return ["usage: lights [on|off]"];
+      }
+      const night = want ? want === "off" : !context.night;
+      context.setNight(night);
+      return [night ? "Lights off. Good night." : "Lights on."];
     }
     case "sudo":
       if (args[0] === "hire-me") {

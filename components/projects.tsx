@@ -1,9 +1,11 @@
+import Image from "next/image";
 import { ExternalLink, Mail } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { EMAIL_HREF } from "@/lib/constant";
-import { projects, type Project } from "@/lib/projects";
+import { projects, type Project, type ProjectShots } from "@/lib/projects";
+import { cn } from "@/lib/utils";
 
 export function Projects() {
   return (
@@ -14,11 +16,12 @@ export function Projects() {
             Projects
           </p>
           <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-            Case studies that show architecture, not just screens.
+            Products you can try, and the systems behind them.
           </h2>
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
-            These projects emphasize systems thinking: queues, auth, cloud
-            deployment, data modeling, and reliable user-facing workflows.
+            Live products first, then case studies in systems thinking: queues,
+            auth, cloud deployment, data modeling, and reliable user-facing
+            workflows.
           </p>
         </div>
 
@@ -34,7 +37,12 @@ export function Projects() {
                   <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">
                     {project.eyebrow}
                   </p>
-                  <h3 className="mt-3 text-2xl font-bold">{project.title}</h3>
+                  <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <h3 className="text-2xl font-bold">{project.title}</h3>
+                    {project.status ? (
+                      <Badge variant="outline">{project.status}</Badge>
+                    ) : null}
+                  </div>
                   <p className="mt-4 leading-7 text-muted-foreground">
                     {project.description}
                   </p>
@@ -80,7 +88,7 @@ export function Projects() {
                           rel="noopener noreferrer"
                         >
                           <ExternalLink className="h-4 w-4" />
-                          Live demo
+                          Live site
                         </a>
                       </Button>
                     ) : null}
@@ -106,6 +114,19 @@ export function Projects() {
 }
 
 function ProjectVisual({ project }: { project: Project }) {
+  if (project.shots) {
+    return (
+      <div className="flex min-h-72 flex-col justify-center bg-accent p-6 sm:p-8">
+        <ProjectShotsView shots={project.shots} />
+        {project.shots.note ? (
+          <p className="mt-4 text-center font-mono text-xs text-muted-foreground">
+            {project.shots.note}
+          </p>
+        ) : null}
+      </div>
+    );
+  }
+
   return (
     <div className="flex min-h-72 items-center bg-accent p-6 sm:p-8">
       <div className="premium-card w-full rounded-lg bg-background p-5 shadow-sm">
@@ -122,6 +143,55 @@ function ProjectVisual({ project }: { project: Project }) {
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectShotsView({ shots }: { shots: ProjectShots }) {
+  if (shots.frame === "phone") {
+    return (
+      <div className="flex justify-center gap-3 sm:gap-4">
+        {shots.images.slice(0, 3).map((image, index) => (
+          <div
+            key={image.src}
+            className={cn(
+              "relative aspect-[9/20] w-full max-w-40 overflow-hidden rounded-2xl border-4 border-neutral-900 bg-neutral-900 shadow-lg dark:border-neutral-700",
+              index === 2 && "hidden sm:block"
+            )}
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="160px"
+              className="object-cover object-top"
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  const image = shots.images[0];
+  return (
+    <div className="overflow-hidden rounded-lg border bg-background shadow-sm">
+      <div
+        className="flex items-center gap-1.5 border-b bg-muted px-3 py-2"
+        aria-hidden="true"
+      >
+        <span className="h-2.5 w-2.5 rounded-full bg-foreground/20" />
+        <span className="h-2.5 w-2.5 rounded-full bg-foreground/20" />
+        <span className="h-2.5 w-2.5 rounded-full bg-foreground/20" />
+      </div>
+      <div className="relative aspect-[4/3]">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="(min-width: 1024px) 520px, 100vw"
+          className="object-cover object-top"
+        />
       </div>
     </div>
   );

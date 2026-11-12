@@ -8,6 +8,7 @@ import { MacOS } from "@/components/os/mac-os";
 import { DeskSet } from "./desk-set";
 import { Effects } from "./effects";
 import { DESK_VIEW, FOV, INTRO_VIEW, OS_PX, SCREEN } from "./layout";
+import { useFadingLight } from "./night";
 import { Room } from "./room";
 
 export type DeskView = "desk" | "monitor";
@@ -17,23 +18,50 @@ type DeskSceneProps = {
   /** False while the boot screen covers the scene. */
   started: boolean;
   reducedMotion: boolean;
+  /** Room lights off: the lamp and the screen light the desk. */
+  night: boolean;
+  onNightChange: (night: boolean) => void;
   onReady: () => void;
   onZoomIn: () => void;
   onShutDown: () => void;
 };
 
-const BACKGROUND = "#e6e2da";
+/** Ambient light for each time of day. Night keeps a faint moonlit fill. */
+const MOODS = {
+  day: {
+    background: new THREE.Color("#e6e2da"),
+    sky: new THREE.Color("#fff6ea"),
+    ground: new THREE.Color("#b9aea0"),
+    hemisphere: 0.95,
+    sun: new THREE.Color("#fff1dc"),
+    sunIntensity: 2.1,
+    environment: 0.7,
+  },
+  night: {
+    background: new THREE.Color("#0a0c13"),
+    sky: new THREE.Color("#2a3352"),
+    ground: new THREE.Color("#0b0c11"),
+    hemisphere: 0.24,
+    sun: new THREE.Color("#8ea6ff"),
+    sunIntensity: 0.2,
+    environment: 0.05,
+  },
+};
 
 export default function DeskScene({
   view,
   started,
   reducedMotion,
+  night,
+  onNightChange,
   onReady,
   onZoomIn,
   onShutDown,
 }: DeskSceneProps) {
   // Drops post-processing and pixel ratio if the GPU cannot keep up.
   const [lowPower, setLowPower] = useState(false);
+  // Values in JSX stay as they were at mount; <Lighting> eases every change.
+  const [initialMood] = useState(() => MOODS[night ? "night" : "day"]);
 
   const zoomIn = () => {
     if (view === "desk") onZoomIn();
@@ -55,28 +83,11 @@ export default function DeskScene({
       style={{ cursor: view === "desk" ? "pointer" : "default" }}
       data-quality={lowPower ? "low" : "high"}
     >
-      <color attach="background" args={[BACKGROUND]} />
+      <color attach="background" args={[initialMood.background]} />
       <PerformanceMonitor flipflops={3} onFallback={() => setLowPower(true)} />
 
-      <hemisphereLight args={["#fff6ea", "#b9aea0", 0.95]} />
-      <directionalLight
-        castShadow
-        position={[3.2, 5.5, 3.6]}
-        intensity={2.1}
-        color="#fff1dc"
-        shadow-mapSize={[2048, 2048]}
-        shadow-camera-left={-3.5}
-        shadow-camera-right={3.5}
-        shadow-camera-top={3.5}
-        shadow-camera-bottom={-3.5}
-        shadow-camera-near={1}
-        shadow-camera-far={16}
-        shadow-bias={-0.0002}
-        shadow-normalBias={0.02}
-        shadow-radius={7}
-        shadow-blurSamples={16}
-      />
-      <Environment resolution={128} environmentIntensity={0.7}>
+      <Lighting night={night} initial={initialMood} instant={reducedMotion} />
+      <Environment resolution={128} environmentIntensity={initialMood.environment}>
         <Lightformer form="rect" intensity={2.4} position={[0, 5, 4]} scale={[10, 4, 1]} />
         <Lightformer form="rect" intensity={1.6} color="#fff0dd" position={[-5, 2.5, 1]} rotation-y={Math.PI / 2} scale={[6, 3.5, 1]} />
         <Lightformer form="rect" intensity={0.8} color="#cfe0ff" position={[5, 2, -2]} rotation-y={-Math.PI / 2} scale={[6, 3, 1]} />
@@ -88,7 +99,7 @@ export default function DeskScene({
           zoomIn();
         }}
       >
-        <DeskSet />
+        <DeskSet night={night} />
         <Room />
       </group>
 
@@ -102,12 +113,91 @@ export default function DeskScene({
         zIndexRange={[20, 0]}
         pointerEvents={view === "monitor" ? "auto" : "none"}
       >
-        <MacOS active={view === "monitor"} onExit={onShutDown} />
+        <MacOS
+          active={view === "monitor"}
+          night={night}
+          onNightChange={onNightChange}
+          onExit={onShutDown}
+        />
       </Html>
 
       <CameraRig view={view} started={started} reducedMotion={reducedMotion} />
-      {lowPower ? null : <Effects />}
+      {lowPower ? null : <Effects night={night} />}
     </Canvas>
+  );
+}
+
+type Mood = (typeof MOODS)["day"];
+
+/** Sun, sky and room fill, eased between the day and night moods. */
+function Lighting({
+  night,
+  initial,
+  instant,
+}: {
+  night: boolean;
+  initial: Mood;
+  instant: boolean;
+}) {
+  const hemisphere = useRef<THREE.HemisphereLight>(null);
+  const sun = useRef<THREE.DirectionalLight>(null);
+  const mood = MOODS[night ? "night" : "day"];
+  // A soft violet wash on the wall behind the monitor, like bias lighting.
+  const wash = useFadingLight<THREE.PointLight>(night ? 0.36 : 0);
+
+  useFrame((state, delta) => {
+    const ease = instant ? 1 : 1 - Math.exp(-4 * delta);
+    const { scene } = state;
+    const sky = hemisphere.current;
+    const key = sun.current;
+    if (sky) {
+      sky.color.lerp(mood.sky, ease);
+      sky.groundColor.lerp(mood.ground, ease);
+      sky.intensity += (mood.hemisphere - sky.intensity) * ease;
+    }
+    if (key) {
+      key.color.lerp(mood.sun, ease);
+      key.intensity += (mood.sunIntensity - key.intensity) * ease;
+    }
+    if (scene.background instanceof THREE.Color) {
+      scene.background.lerp(mood.background, ease);
+    }
+    scene.environmentIntensity +=
+      (mood.environment - scene.environmentIntensity) * ease;
+  });
+
+  return (
+    <>
+      <hemisphereLight
+        ref={hemisphere}
+        args={[initial.sky, initial.ground, initial.hemisphere]}
+      />
+      <directionalLight
+        ref={sun}
+        castShadow
+        position={[3.2, 5.5, 3.6]}
+        intensity={initial.sunIntensity}
+        color={initial.sun}
+        shadow-mapSize={[2048, 2048]}
+        shadow-camera-left={-3.5}
+        shadow-camera-right={3.5}
+        shadow-camera-top={3.5}
+        shadow-camera-bottom={-3.5}
+        shadow-camera-near={1}
+        shadow-camera-far={16}
+        shadow-bias={-0.0002}
+        shadow-normalBias={0.02}
+        shadow-radius={7}
+        shadow-blurSamples={16}
+      />
+      <pointLight
+        {...wash}
+        position={[0, 1.02, -0.62]}
+        color="#8f6dff"
+        distance={2.6}
+        decay={2}
+      />
+    </>
   );
 }
 

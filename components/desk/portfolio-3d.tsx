@@ -11,10 +11,12 @@ import {
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Moon, Sun } from "lucide-react";
 import { experience } from "@/lib/experience";
 import { NAME, ROLE, SUMMARY } from "@/lib/profile";
 import { projects } from "@/lib/projects";
 import { BootScreen } from "./boot-screen";
+import { useNight } from "./night";
 import type { DeskView } from "./scene";
 
 // three.js is only fetched on this route, and while the boot log is playing.
@@ -57,6 +59,7 @@ export function Portfolio3D() {
   const [failed, setFailed] = useState(false);
   // The start screen stays mounted briefly so it can fade out over the scene.
   const [bootGone, setBootGone] = useState(false);
+  const [night, setNight] = useNight();
 
   const supported = useSyncExternalStore(
     subscribeWide,
@@ -87,20 +90,27 @@ export function Portfolio3D() {
         if (event.key === "Escape") backToDesk();
         return;
       }
+      if (event.repeat || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (event.key.toLowerCase() === "n") {
+        setNight(!night);
+        return;
+      }
       if (event.key !== "Enter" && event.key !== " ") return;
       const target = event.target;
       // Enter on a focused link or button belongs to that control.
-      if (event.repeat) return;
       if (target instanceof Element && target.closest("a, button")) return;
       event.preventDefault();
       setStage("monitor");
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [stage, backToDesk]);
+  }, [stage, backToDesk, night, setNight]);
 
   return (
-    <div className="desk-backdrop fixed inset-0 isolate overflow-hidden">
+    <div
+      className="desk-backdrop fixed inset-0 isolate overflow-hidden"
+      data-night={night}
+    >
       {/* Real content for crawlers and screen readers. */}
       <div className="sr-only">
         <h1>
@@ -146,6 +156,8 @@ export function Portfolio3D() {
                 view={stage === "monitor" ? "monitor" : "desk"}
                 started={stage !== "boot"}
                 reducedMotion={reducedMotion}
+                night={night}
+                onNightChange={setNight}
                 onReady={() => setReady(true)}
                 onZoomIn={() => setStage("monitor")}
                 onShutDown={backToDesk}
@@ -164,42 +176,69 @@ export function Portfolio3D() {
               }}
             />
           )}
-          {stage === "boot" ? null : <Overlay stage={stage} onBack={backToDesk} />}
+          {stage === "boot" ? null : (
+            <Overlay
+              stage={stage}
+              night={night}
+              onBack={backToDesk}
+              onNightChange={setNight}
+            />
+          )}
         </>
       )}
     </div>
   );
 }
 
-function Overlay({ stage, onBack }: { stage: DeskView; onBack: () => void }) {
+function Overlay({
+  stage,
+  night,
+  onBack,
+  onNightChange,
+}: {
+  stage: DeskView;
+  night: boolean;
+  onBack: () => void;
+  onNightChange: (night: boolean) => void;
+}) {
+  // Dark pills need an edge and a light focus ring once the room is dark too.
+  const pill = `rounded-full bg-black/80 px-4 py-2 text-xs font-medium text-white backdrop-blur ${
+    night ? "ring-1 ring-white/20" : ""
+  }`;
+  const control = `pointer-events-auto ${pill} hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
+    night ? "focus-visible:outline-white" : "focus-visible:outline-black"
+  }`;
+  const Icon = night ? Sun : Moon;
+
   return (
     <>
       <div className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-start justify-between p-4 sm:p-6">
         {stage === "monitor" ? (
-          <button
-            type="button"
-            onClick={onBack}
-            className="pointer-events-auto rounded-full bg-black/80 px-4 py-2 text-xs font-medium text-white backdrop-blur hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
+          <button type="button" onClick={onBack} className={control}>
             &larr; Back to desk (Esc)
           </button>
         ) : (
-          <span className="rounded-full bg-black/80 px-4 py-2 text-xs font-semibold text-white">
-            RK
-          </span>
+          <span className={`${pill} font-semibold`}>RK</span>
         )}
-        <Link
-          href="/classic"
-          className="pointer-events-auto rounded-full bg-black/80 px-4 py-2 text-xs font-medium text-white backdrop-blur hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-        >
-          Classic site &rarr;
-        </Link>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => onNightChange(!night)}
+            aria-pressed={night}
+            title={stage === "desk" ? "Night mode (N)" : "Night mode"}
+            className={`${control} inline-flex items-center gap-1.5`}
+          >
+            <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+            {night ? "Lights on" : "Lights off"}
+          </button>
+          <Link href="/classic" className={control}>
+            Classic site &rarr;
+          </Link>
+        </div>
       </div>
       {stage === "desk" ? (
         <p className="pointer-events-none absolute inset-x-0 bottom-8 z-30 flex justify-center">
-          <span className="rounded-full bg-black/80 px-4 py-2 text-xs font-medium text-white backdrop-blur">
-            Click anywhere or press Enter to sit down
-          </span>
+          <span className={pill}>Click anywhere or press Enter to sit down</span>
         </p>
       ) : null}
     </>

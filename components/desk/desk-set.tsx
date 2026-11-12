@@ -5,6 +5,7 @@ import { useFrame, type ThreeElements } from "@react-three/fiber";
 import { RoundedBox } from "@react-three/drei";
 import * as THREE from "three";
 import { SCREEN } from "./layout";
+import { useFadingLight } from "./night";
 import { useLeafGeometry, useMeshTexture, useWoodTexture } from "./utils";
 
 const ALUMINUM = "#c9ccd1";
@@ -12,7 +13,7 @@ const GRAPHITE = "#2b2d31";
 const FRAME = "#24262a";
 const DESK_Y = 0.75; // top surface height
 
-export function DeskSet() {
+export function DeskSet({ night }: { night: boolean }) {
   const group = useRef<THREE.Group>(null);
 
   // Every part casts and receives shadows; set once instead of per mesh.
@@ -29,13 +30,13 @@ export function DeskSet() {
     <group ref={group}>
       <Rug position={[0.2, 0, 0.35]} />
       <Desk />
-      <Monitor />
+      <Monitor night={night} />
       <DeskMat position={[0, DESK_Y, 0.14]} />
       <Keyboard position={[-0.06, DESK_Y + 0.0085, 0.16]} />
       <Trackpad position={[0.24, DESK_Y + 0.0035, 0.16]} />
       <Notebook position={[-0.55, DESK_Y, 0.2]} rotation={[0, 0.25, 0]} />
       <Mug position={[-0.5, DESK_Y, -0.02]} />
-      <Lamp position={[-0.82, DESK_Y, -0.24]} />
+      <Lamp night={night} position={[-0.82, DESK_Y, -0.24]} />
       <HeadphoneStand position={[0.72, DESK_Y, -0.22]} />
       <OnAirSign position={[0.52, DESK_Y, -0.04]} rotation={[0, 0.5, 0]} />
       <Succulent position={[0.86, DESK_Y, 0.2]} />
@@ -200,10 +201,12 @@ function Desk() {
   );
 }
 
-function Monitor() {
+function Monitor({ night }: { night: boolean }) {
   const panelH = SCREEN.height + 0.024;
   const panelY = SCREEN.center[1];
   const z = -0.2;
+  // With the room dark, the screen throws its light much further.
+  const glow = useFadingLight<THREE.PointLight>(night ? 0.7 : 0);
 
   return (
     <group>
@@ -231,6 +234,13 @@ function Monitor() {
         color="#9a8cff"
         intensity={0.32}
         distance={1.3}
+        decay={2}
+      />
+      <pointLight
+        {...glow}
+        position={[0, panelY, 0.35]}
+        color="#a99bff"
+        distance={3.2}
         decay={2}
       />
       {/* Glass behind the projected OS */}
@@ -339,7 +349,9 @@ function Mug(props: ThreeElements["group"]) {
   );
 }
 
-function Lamp(props: ThreeElements["group"]) {
+function Lamp({ night, ...props }: ThreeElements["group"] & { night: boolean }) {
+  // At night the lamp is the key light, so it also reaches the wall and chair.
+  const spill = useFadingLight<THREE.PointLight>(night ? 1.5 : 0);
   return (
     <group {...props}>
       <mesh position={[0, 0.008, 0]}>
@@ -373,6 +385,7 @@ function Lamp(props: ThreeElements["group"]) {
               <meshStandardMaterial color="#fff1d6" emissive="#ffc980" emissiveIntensity={2} />
             </mesh>
             <pointLight position={[0, -0.12, 0]} color="#ffc986" intensity={1.6} distance={1.6} decay={2} />
+            <pointLight {...spill} position={[0, -0.14, 0]} color="#ffb870" distance={4.5} decay={2} />
           </group>
         </group>
       </group>

@@ -199,6 +199,10 @@ body {
   );
 }
 
+.desk-backdrop[data-night="true"] {
+  background: radial-gradient(ellipse at 50% 36%, #16182a 0%, #0a0c13 70%);
+}
+
 /* Start screen: "going live" */
 .boot-tally-live {
   animation: boot-pulse 1.7s ease-out infinite;

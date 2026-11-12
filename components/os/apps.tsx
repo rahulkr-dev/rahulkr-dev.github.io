@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   Briefcase,
   Check,
@@ -197,8 +198,31 @@ function Projects({ context }: { context: AppContext }) {
       </nav>
       <div className="mx-detail">
         <div className="mx-sub">{project.eyebrow}</div>
-        <h2 style={{ marginTop: 2 }}>{project.title}</h2>
+        <h2 style={{ marginTop: 2 }}>
+          {project.title}
+          {project.status ? (
+            <span className="mx-chip mx-status">{project.status}</span>
+          ) : null}
+        </h2>
         <p>{project.description}</p>
+        {project.shots ? (
+          <figure className="mx-shots" data-frame={project.shots.frame}>
+            <div>
+              {project.shots.images.map((image) => (
+                <Image
+                  key={image.src}
+                  src={image.src}
+                  alt={image.alt}
+                  width={project.shots?.frame === "phone" ? 540 : 1040}
+                  height={project.shots?.frame === "phone" ? 1200 : 780}
+                />
+              ))}
+            </div>
+            {project.shots.note ? (
+              <figcaption className="mx-sub">{project.shots.note}</figcaption>
+            ) : null}
+          </figure>
+        ) : null}
         <h3>Highlights</h3>
         <ul>
           {project.impact.map((item) => (
@@ -231,7 +255,7 @@ function Projects({ context }: { context: AppContext }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Live demo
+              Live site
             </a>
           ) : null}
           <a

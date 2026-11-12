@@ -15,6 +15,9 @@ export type AppContext = {
   project: number;
   /** Opens the Projects app on a given project. */
   openProject: (index: number) => void;
+  /** Room lights off in the 3D scene around the monitor. */
+  night: boolean;
+  setNight: (night: boolean) => void;
 };
 
 export type AppDef = {

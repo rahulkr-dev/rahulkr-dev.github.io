@@ -14,6 +14,7 @@ A portfolio built as an interactive 3D desk. Visitors go "live" from a broadcast
   - **Spotlight** search with `Ctrl/Cmd + K`: finds apps, links, projects, employers and skills (try `redis`)
   - a working **Terminal** with Tab completion (try `help`, `whoami`, `projects`, `open projects 2`, `sudo hire-me`)
   - apps for About, Experience, Projects, Skills and Contact
+- **Night mode**: the "Lights off" button (or `N` at the desk, `lights off` in the Terminal, or the system menu) dims the room so the lamp and the screen light the desk. The choice is remembered.
 - `Esc` closes Spotlight first, then goes back to the desk.
 
 **The classic site (`/classic/`)**
@@ -53,7 +54,7 @@ Most content lives in `lib/`. Experience, projects, skills and the links are sha
 | File | Controls |
 |---|---|
 | `lib/experience.ts` | Work history (the entry with `current: true` is shown as the current role) |
-| `lib/projects.ts` | Projects, including the step list shown on each classic project card. Set `sourceLink` (and `liveLink`) to show the GitHub and demo buttons |
+| `lib/projects.ts` | Projects, in the order they are shown. Set `sourceLink` and `liveLink` to show the GitHub and live-site buttons, `status` for a badge such as "In development", and `shots` to show screenshots from `public/projects/` (a project without them shows its `flow` steps instead) |
 | `lib/skills.ts` | Skill groups |
 | `lib/profile.ts` | Name, role, summary and the "right now" line. `ROLE` is the job title used on every page and in the page title |
 | `lib/constant.ts` | Site URL, email, phone, GitHub, LinkedIn and resume links |
@@ -82,6 +83,7 @@ Useful places when tuning the scene:
 - `components/desk/desk-set.tsx`: desk, monitor, lamp, chair and plants.
 - `components/desk/room.tsx`: floor, wall, shelf and art.
 - `components/desk/effects.tsx`: post-processing.
+- `components/desk/scene.tsx`: the day and night moods (`MOODS`) for sun, sky and background. The night-only lamp, screen and wall lights use `useFadingLight` from `components/desk/night.ts`.
 
 ## How the 3D page works
 
@@ -112,4 +114,4 @@ Pages can take a few minutes to update. To roll back, push an earlier `gh-pages`
 ## Ideas for later
 
 - A "Live" app on the desktop that shows how the live-class streaming pipeline works.
-- A night mode for the scene, and optional sound.
+- Optional sound.

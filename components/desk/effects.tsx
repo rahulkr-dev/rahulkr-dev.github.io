@@ -11,7 +11,7 @@ import {
 import { ToneMappingMode } from "postprocessing";
 
 /** Ambient occlusion, a touch of bloom, tone mapping and a soft vignette. */
-export function Effects() {
+export function Effects({ night }: { night: boolean }) {
   return (
     <EffectComposer multisampling={0} enableNormalPass={false}>
       <N8AO
@@ -23,12 +23,12 @@ export function Effects() {
       />
       <Bloom
         mipmapBlur
-        luminanceThreshold={0.9}
+        luminanceThreshold={night ? 0.7 : 0.9}
         luminanceSmoothing={0.15}
-        intensity={0.45}
+        intensity={night ? 0.8 : 0.45}
       />
       <ToneMapping mode={ToneMappingMode.ACES_FILMIC} />
-      <Vignette offset={0.25} darkness={0.5} />
+      <Vignette offset={0.25} darkness={night ? 0.68 : 0.5} />
       <SMAA />
     </EffectComposer>
   );

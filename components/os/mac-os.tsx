@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { BatteryFull, Globe, Power, Search, Wifi } from "lucide-react";
+import { BatteryFull, Globe, Moon, Power, Search, Sun, Wifi } from "lucide-react";
 import { apps, appById } from "./apps";
 import { Dock } from "./dock";
 import { Spotlight } from "./spotlight";
@@ -21,10 +21,13 @@ const initialWins = Object.fromEntries(
 type MacOSProps = {
   /** True while the camera is on the monitor and the UI is interactive. */
   active: boolean;
+  /** Room lights off in the scene around the monitor. */
+  night: boolean;
+  onNightChange: (night: boolean) => void;
   onExit: () => void;
 };
 
-export function MacOS({ active, onExit }: MacOSProps) {
+export function MacOS({ active, night, onNightChange, onExit }: MacOSProps) {
   const root = useRef<HTMLDivElement>(null);
   const [booted, setBooted] = useState(false);
   const [wins, setWins] = useState<WinMap>(initialWins);
@@ -114,8 +117,14 @@ export function MacOS({ active, onExit }: MacOSProps) {
   );
 
   const context: AppContext = useMemo(
-    () => ({ open: openApp, project, openProject }),
-    [openApp, project, openProject]
+    () => ({
+      open: openApp,
+      project,
+      openProject,
+      night,
+      setNight: onNightChange,
+    }),
+    [openApp, project, openProject, night, onNightChange]
   );
   const focused = order[order.length - 1];
   const running = useMemo(
@@ -196,6 +205,21 @@ export function MacOS({ active, onExit }: MacOSProps) {
           <div className="mx-dropdown" role="menu">
             <button type="button" role="menuitem" onClick={() => openApp("about")}>
               About Rahul
+            </button>
+            <button
+              type="button"
+              role="menuitem"
+              onClick={() => {
+                onNightChange(!night);
+                setMenu(false);
+              }}
+            >
+              {night ? (
+                <Sun size={14} aria-hidden="true" />
+              ) : (
+                <Moon size={14} aria-hidden="true" />
+              )}
+              {night ? "Turn the lights on" : "Turn the lights off"}
             </button>
             <hr />
             <a role="menuitem" href="/classic/">
