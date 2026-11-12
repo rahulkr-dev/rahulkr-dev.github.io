@@ -1,5 +1,3 @@
-import { GITHUB_URL } from "@/lib/constant";
-
 export type Project = {
   title: string;
   eyebrow: string;
@@ -7,6 +5,7 @@ export type Project = {
   flow: string[];
   technologies: string[];
   impact: string[];
+  /** URL of this project's own repository. Leave unset while it is private. */
   sourceLink?: string;
   liveLink?: string;
 };
@@ -36,7 +35,6 @@ export const projects: Project[] = [
       "Implemented secure multi-tenant authentication and event-driven workflow automation.",
       "Built for scalable support operations across multiple customer communication channels.",
     ],
-    sourceLink: GITHUB_URL,
   },
   {
     title: "WhatsApp Message Broadcast System",
@@ -58,7 +56,6 @@ export const projects: Project[] = [
       "Supported reliable delivery patterns for high-volume customer messaging.",
       "Separated API, worker, cache, and storage responsibilities for operational clarity.",
     ],
-    sourceLink: GITHUB_URL,
   },
   {
     title: "Online Pizza Delivery Platform",
@@ -83,6 +80,5 @@ export const projects: Project[] = [
       "Used real-time communication patterns for order status visibility.",
       "Practiced production-style service boundaries across frontend, API, data, and storage.",
     ],
-    sourceLink: GITHUB_URL,
   },
 ];

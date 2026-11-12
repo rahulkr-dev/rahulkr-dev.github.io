@@ -1,10 +1,18 @@
 "use client";
 
-import { useRef, useState, type KeyboardEvent } from "react";
-import { Globe, Mail, Search } from "lucide-react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { Briefcase, FolderGit2, Globe, Mail, Search, Wrench } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { GithubIcon } from "@/components/icons";
-import { EMAIL, GITHUB_URL, RESUME_DRIVE_URL } from "@/lib/constant";
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import {
+  EMAIL_HREF,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  RESUME_DRIVE_URL,
+} from "@/lib/constant";
+import { experience } from "@/lib/experience";
+import { projects } from "@/lib/projects";
+import { skillGroups } from "@/lib/skills";
 import type { AppDef, AppId } from "./types";
 
 type Entry = {
@@ -17,15 +25,57 @@ type Entry = {
   href?: string;
   external?: boolean;
   appId?: AppId;
+  /** Opens the Projects app on this project. */
+  projectIndex?: number;
 };
+
+/** Content results, found only by typing: projects, employers and skills. */
+const contentEntries: Entry[] = [
+  ...projects.map(
+    (project, index): Entry => ({
+      key: `project-${index}`,
+      label: project.title,
+      kind: "Project",
+      icon: FolderGit2,
+      keywords: `project ${project.eyebrow} ${project.technologies.join(" ")}`,
+      projectIndex: index,
+    })
+  ),
+  ...experience.map(
+    (item): Entry => ({
+      key: `experience-${item.company}`,
+      label: item.company,
+      kind: "Experience",
+      icon: Briefcase,
+      keywords: `work job ${item.role} ${item.period} ${item.stack}`,
+      appId: "experience",
+    })
+  ),
+  ...skillGroups.map(
+    (group): Entry => ({
+      key: `skills-${group.title}`,
+      label: `${group.title} skills`,
+      kind: "Skills",
+      icon: Wrench,
+      keywords: group.skills.join(" "),
+      appId: "skills",
+    })
+  ),
+];
 
 type SpotlightProps = {
   apps: AppDef[];
   onOpenApp: (id: AppId) => void;
+  onOpenProject: (index: number) => void;
   onClose: () => void;
 };
 
-export function Spotlight({ apps, onOpenApp, onClose }: SpotlightProps) {
+export function Spotlight({
+  apps,
+  onOpenApp,
+  onOpenProject,
+  onClose,
+}: SpotlightProps) {
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState(0);
   const list = useRef<HTMLUListElement>(null);
@@ -47,7 +97,7 @@ export function Spotlight({ apps, onOpenApp, onClose }: SpotlightProps) {
       kind: "Action",
       icon: Mail,
       keywords: "email mail contact hire",
-      href: `mailto:${EMAIL}`,
+      href: EMAIL_HREF,
       external: true,
     },
     {
@@ -69,6 +119,15 @@ export function Spotlight({ apps, onOpenApp, onClose }: SpotlightProps) {
       external: true,
     },
     {
+      key: "linkedin",
+      label: "LinkedIn profile",
+      kind: "Link",
+      icon: LinkedinIcon,
+      keywords: "linkedin connect network",
+      href: LINKEDIN_URL,
+      external: true,
+    },
+    {
       key: "classic",
       label: "Classic website",
       kind: "Link",
@@ -76,14 +135,32 @@ export function Spotlight({ apps, onOpenApp, onClose }: SpotlightProps) {
       keywords: "classic website regular 2d",
       href: "/classic/",
     },
+    ...contentEntries,
   ];
 
-  const term = query.trim().toLowerCase();
-  const results = term
-    ? entries.filter((entry) =>
-        `${entry.label} ${entry.keywords}`.toLowerCase().includes(term)
-      )
+  // Every typed word has to appear somewhere in the entry.
+  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+  const results = words.length
+    ? entries.filter((entry) => {
+        const haystack = `${entry.label} ${entry.keywords}`.toLowerCase();
+        return words.every((word) => haystack.includes(word));
+      })
     : entries.slice(0, apps.length);
+
+  // Keep the highlighted row in view while moving with the arrow keys.
+  useEffect(() => {
+    const box = list.current;
+    const row = box?.querySelector<HTMLElement>('[aria-selected="true"]')
+      ?.parentElement;
+    if (!box || !row) return;
+    const top = row.offsetTop;
+    const bottom = top + row.offsetHeight;
+    if (top < box.scrollTop) {
+      box.scrollTop = top - 6;
+    } else if (bottom > box.scrollTop + box.clientHeight) {
+      box.scrollTop = bottom - box.clientHeight + 6;
+    }
+  }, [index]);
 
   const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "ArrowDown") {
@@ -116,7 +193,7 @@ export function Spotlight({ apps, onOpenApp, onClose }: SpotlightProps) {
               setIndex(0);
             }}
             onKeyDown={onKeyDown}
-            placeholder="Search apps, projects, links"
+            placeholder="Search apps, projects, skills, links"
             aria-label="Search"
             autoFocus
             spellCheck={false}
@@ -129,7 +206,7 @@ export function Spotlight({ apps, onOpenApp, onClose }: SpotlightProps) {
               const content = (
                 <>
                   <Icon />
-                  <span>{entry.label}</span>
+                  <span className="mx-spot-label">{entry.label}</span>
                   <span className="mx-sub mx-spot-kind">{entry.kind}</span>
                 </>
               );
@@ -154,7 +231,13 @@ export function Spotlight({ apps, onOpenApp, onClose }: SpotlightProps) {
                     <button
                       {...shared}
                       type="button"
-                      onClick={() => entry.appId && onOpenApp(entry.appId)}
+                      onClick={() => {
+                        if (entry.projectIndex !== undefined) {
+                          onOpenProject(entry.projectIndex);
+                        } else if (entry.appId) {
+                          onOpenApp(entry.appId);
+                        }
+                      }}
                     >
                       {content}
                     </button>

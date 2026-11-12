@@ -7,12 +7,12 @@ A portfolio built as an interactive 3D desk. Visitors go "live" from a broadcast
 ## What's inside
 
 **The 3D desk (`/`)**
-- A start screen styled like a live stream: tally light, lower-third caption, stack ticker, a 3-2-1 countdown and a "Go live" button. Any key skips it, and repeat visits in the same session skip the countdown.
+- A start screen styled like a live stream: tally light, lower-third caption, stack ticker, a 3-2-1 countdown and a "Go live" button. Any key skips it, and repeat visits in the same session skip the countdown. A "Skip to the classic site" link is there for visitors in a hurry.
 - A modern desk scene built entirely from code (no model files): standing desk, flat monitor, lamp, headphones, chair, plants, shelf and wall art, with soft shadows, ambient occlusion and bloom.
-- Click the scene and the camera moves to the monitor, where a macOS-style desktop runs:
+- Click the scene (or press `Enter`) and the camera moves to the monitor, where a macOS-style desktop runs:
   - menu bar, dock with magnification, and draggable windows with close, minimize and zoom
-  - **Spotlight** search with `Ctrl/Cmd + K`
-  - a working **Terminal** (try `help`, `whoami`, `projects`, `open contact`, `sudo hire-me`)
+  - **Spotlight** search with `Ctrl/Cmd + K`: finds apps, links, projects, employers and skills (try `redis`)
+  - a working **Terminal** with Tab completion (try `help`, `whoami`, `projects`, `open projects 2`, `sudo hire-me`)
   - apps for About, Experience, Projects, Skills and Contact
 - `Esc` closes Spotlight first, then goes back to the desk.
 
@@ -53,12 +53,14 @@ Most content lives in `lib/`. Experience, projects, skills and the links are sha
 | File | Controls |
 |---|---|
 | `lib/experience.ts` | Work history (the entry with `current: true` is shown as the current role) |
-| `lib/projects.ts` | Projects, including the step list shown on each classic project card |
+| `lib/projects.ts` | Projects, including the step list shown on each classic project card. Set `sourceLink` (and `liveLink`) to show the GitHub and demo buttons |
 | `lib/skills.ts` | Skill groups |
-| `lib/profile.ts` | Name, role, summary and the "right now" line for the 3D desktop only |
-| `lib/constant.ts` | Email, phone, GitHub, LinkedIn and resume links |
+| `lib/profile.ts` | Name, role, summary and the "right now" line. `ROLE` is the job title used on every page and in the page title |
+| `lib/constant.ts` | Site URL, email, phone, GitHub, LinkedIn and resume links |
 
-The classic hero and About text live in `components/home.tsx` and `components/about.tsx`. The start screen copy (name, role, stack ticker) is in `components/desk/boot-screen.tsx`.
+The classic hero and About text live in `components/home.tsx` and `components/about.tsx`. The start screen's stack ticker is in `components/desk/boot-screen.tsx`.
+
+The link preview image, `app/opengraph-image.jpg` (1200x630), is a screenshot of the desk with the name and role drawn on it. Replace the file if either changes; its alt text is in `app/opengraph-image.alt.txt`.
 
 ## Project structure
 
@@ -66,6 +68,8 @@ The classic hero and About text live in `components/home.tsx` and `components/ab
 app/
   page.tsx            3D desk home page
   classic/            the regular site (own layout with the navbar)
+  not-found.tsx       404 page
+  sitemap.ts, robots.ts, opengraph-image.jpg    search and link-preview files
 components/
   desk/               3D scene, room, effects, start screen
   os/                 the macOS-style desktop (window manager, dock, Terminal, Spotlight)
@@ -84,7 +88,8 @@ Useful places when tuning the scene:
 - three.js is loaded lazily on `/` only, while the start screen plays, so `/classic/` does not pay for it.
 - The desktop is regular React rendered into the 3D scene with CSS 3D, so its text stays crisp, selectable and keyboard-accessible.
 - If the GPU struggles, post-processing is switched off and the pixel ratio drops to 1.
-- Reduced-motion users skip the countdown and camera sway. `/` also carries real text for crawlers and screen readers.
+- Reduced-motion users skip the countdown and camera sway. `/` also carries real text (summary, experience, projects) for crawlers and screen readers, and the layout adds `Person` structured data.
+- The desktop is inert until the camera is on the monitor, so Tab never lands on a screen too small to read.
 - Developed and tested in Chromium. Safari and Firefox have not been tested.
 
 ## Deployment
@@ -108,4 +113,3 @@ Pages can take a few minutes to update. To roll back, push an earlier `gh-pages`
 
 - A "Live" app on the desktop that shows how the live-class streaming pipeline works.
 - A night mode for the scene, and optional sound.
-- Social share image, sitemap and `robots.txt`.

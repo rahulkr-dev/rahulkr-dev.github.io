@@ -1,20 +1,28 @@
 import Link from "next/link";
 import { FileText, Mail, Phone } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
-import { GITHUB_URL, LINKEDIN_URL, RESUME_DRIVE_URL } from "@/lib/constant";
+import {
+  EMAIL,
+  EMAIL_HREF,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  RESUME_DRIVE_URL,
+} from "@/lib/constant";
 import { cn } from "@/lib/utils";
 
 const contactLinks = [
   {
-    href: "mailto:rkrahul8181@gmail.com",
+    href: EMAIL_HREF,
     label: "Email",
-    value: "rkrahul8181@gmail.com",
+    value: EMAIL,
     icon: Mail,
   },
   {
-    href: "tel:+918745983389",
+    href: PHONE_HREF,
     label: "Phone",
-    value: "+91 87459 83389",
+    value: PHONE_DISPLAY,
     icon: Phone,
   },
   {

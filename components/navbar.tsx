@@ -11,6 +11,7 @@ import {
   User,
   Code,
   Briefcase,
+  FolderGit2,
   Mail,
   Menu,
 } from "lucide-react";
@@ -65,8 +66,9 @@ export default function Navbar() {
   const navLinks = [
     { href: "/classic", icon: Home, label: "Home" },
     { href: "#about", icon: User, label: "About" },
+    { href: "#experience", icon: Briefcase, label: "Experience" },
     { href: "#skills", icon: Code, label: "Skills" },
-    { href: "#projects", icon: Briefcase, label: "Projects" },
+    { href: "#projects", icon: FolderGit2, label: "Projects" },
     { href: "#contact", icon: Mail, label: "Contact" },
     { href: "/", icon: Box, label: "3D desk" },
   ];
@@ -93,7 +95,8 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:block">
-            <div className="ml-10 flex items-baseline gap-1">
+            {/* Icons only from xl up: eight links do not fit beside them at lg. */}
+            <div className="ml-6 flex items-baseline gap-1 whitespace-nowrap [&_svg]:hidden xl:ml-10 xl:[&_svg]:block">
               {navLinks.map((link) => (
                 <NavLink key={link.href} href={link.href} icon={link.icon}>
                   {link.label}

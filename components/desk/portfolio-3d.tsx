@@ -11,6 +11,9 @@ import {
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { experience } from "@/lib/experience";
+import { NAME, ROLE, SUMMARY } from "@/lib/profile";
+import { projects } from "@/lib/projects";
 import { BootScreen } from "./boot-screen";
 import type { DeskView } from "./scene";
 
@@ -75,10 +78,22 @@ export function Portfolio3D() {
 
   const backToDesk = useCallback(() => setStage("desk"), []);
 
+  // Esc stands up from the monitor; Enter or Space sits down at the desk,
+  // so the scene does not need a mouse.
   useEffect(() => {
-    if (stage !== "monitor") return;
+    if (stage === "boot") return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") backToDesk();
+      if (stage === "monitor") {
+        if (event.key === "Escape") backToDesk();
+        return;
+      }
+      if (event.key !== "Enter" && event.key !== " ") return;
+      const target = event.target;
+      // Enter on a focused link or button belongs to that control.
+      if (event.repeat) return;
+      if (target instanceof Element && target.closest("a, button")) return;
+      event.preventDefault();
+      setStage("monitor");
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -88,14 +103,31 @@ export function Portfolio3D() {
     <div className="desk-backdrop fixed inset-0 isolate overflow-hidden">
       {/* Real content for crawlers and screen readers. */}
       <div className="sr-only">
-        <h1>Rahul Kumar - Full-Stack Engineer</h1>
+        <h1>
+          {NAME} - {ROLE}
+        </h1>
+        <p>{SUMMARY}</p>
         <p>
-          I build scalable SaaS platforms, live-class streaming, real-time
-          messaging systems and AI-powered support workflows with Python,
-          FastAPI, Node.js, React, Google Cloud and AWS. This page is an
-          interactive 3D desk.
+          This page is an interactive 3D desk.{" "}
+          <Link href="/classic">Open the regular portfolio</Link> for the same
+          content as a normal page.
         </p>
-        <Link href="/classic">Open the regular portfolio</Link>
+        <h2>Experience</h2>
+        <ul>
+          {experience.map((item) => (
+            <li key={`${item.company}-${item.period}`}>
+              {item.role}, {item.company} ({item.period}). {item.summary}
+            </li>
+          ))}
+        </ul>
+        <h2>Projects</h2>
+        <ul>
+          {projects.map((project) => (
+            <li key={project.title}>
+              {project.title}: {project.description}
+            </li>
+          ))}
+        </ul>
       </div>
 
       {useClassic ? (
@@ -166,7 +198,7 @@ function Overlay({ stage, onBack }: { stage: DeskView; onBack: () => void }) {
       {stage === "desk" ? (
         <p className="pointer-events-none absolute inset-x-0 bottom-8 z-30 flex justify-center">
           <span className="rounded-full bg-black/80 px-4 py-2 text-xs font-medium text-white backdrop-blur">
-            Click anywhere to sit down
+            Click anywhere or press Enter to sit down
           </span>
         </p>
       ) : null}

@@ -1,5 +1,6 @@
 export const NAME = "Rahul Kumar";
-export const ROLE = "Full-Stack Engineer";
+/** The one place the job title is written; every page and title reads it. */
+export const ROLE = "Full-Stack AI Engineer";
 export const LOCATION = "Delhi, India";
 
 export const SUMMARY =

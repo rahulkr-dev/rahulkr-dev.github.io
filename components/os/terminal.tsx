@@ -18,10 +18,51 @@ type Line = { kind: "cmd" | "out"; text: string };
 
 const OPENABLE: AppId[] = ["about", "experience", "projects", "skills", "contact"];
 
+const COMMANDS = [
+  "help",
+  "whoami",
+  "about",
+  "experience",
+  "projects",
+  "skills",
+  "contact",
+  "resume",
+  "open",
+  "ls",
+  "date",
+  "clear",
+  "sudo",
+];
+
 const BANNER = [
   `${NAME} - interactive terminal`,
-  "Type 'help' to see what you can do.",
+  "Type 'help' to see what you can do. Tab completes commands.",
 ];
+
+/** Tab completion: command names first, then arguments of `open` and `sudo`. */
+function complete(value: string): { value: string; options: string[] } {
+  const parts = value.trimStart().split(/\s+/);
+  const last = parts[parts.length - 1].toLowerCase();
+  const head = parts.slice(0, -1);
+  let pool: string[] = [];
+  if (head.length === 0) pool = COMMANDS;
+  else if (head.length === 1 && head[0].toLowerCase() === "open") pool = OPENABLE;
+  else if (head.length === 1 && head[0].toLowerCase() === "sudo") pool = ["hire-me"];
+
+  const options = pool.filter((item) => item.startsWith(last));
+  if (options.length === 0) return { value, options: [] };
+
+  // Extend to the longest prefix every candidate shares.
+  let prefix = options[0];
+  for (const option of options) {
+    while (!option.startsWith(prefix)) prefix = prefix.slice(0, -1);
+  }
+  const done = options.length === 1;
+  return {
+    value: [...head, prefix].join(" ") + (done ? " " : ""),
+    options: done ? [] : options,
+  };
+}
 
 function run(raw: string, context: AppContext): string[] | "clear" {
   const [command = "", ...args] = raw.trim().split(/\s+/);
@@ -41,6 +82,7 @@ function run(raw: string, context: AppContext): string[] | "clear" {
         "  contact      how to reach me",
         "  resume       link to my resume",
         "  open <app>   open an app: " + OPENABLE.join(", "),
+        "               'open projects 2' jumps to the second project",
         "  ls           list apps",
         "  date         current date and time",
         "  clear        clear the screen",
@@ -58,12 +100,12 @@ function run(raw: string, context: AppContext): string[] | "clear" {
       ]);
     case "projects":
       return [
-        ...projects.flatMap((project) => [
-          project.title,
-          `  ${project.eyebrow}`,
+        ...projects.flatMap((project, index) => [
+          `${index + 1}. ${project.title}`,
+          `   ${project.eyebrow}`,
           "",
         ]),
-        "Tip: 'open projects' shows the details.",
+        "Tip: 'open projects 1' shows the details.",
       ];
     case "skills":
       return skillGroups.map(
@@ -86,6 +128,14 @@ function run(raw: string, context: AppContext): string[] | "clear" {
       return "clear";
     case "open": {
       const target = args[0]?.toLowerCase() as AppId | undefined;
+      const number = Number(args[1]);
+      if (target === "projects" && args[1] !== undefined) {
+        if (Number.isInteger(number) && projects[number - 1]) {
+          context.openProject(number - 1);
+          return [`Opening ${projects[number - 1].title}...`];
+        }
+        return [`No such project. Pick a number from 1 to ${projects.length}.`];
+      }
       if (target && OPENABLE.includes(target)) {
         context.open(target);
         return [`Opening ${target}...`];
@@ -142,7 +192,10 @@ export function Terminal({ context }: { context: AppContext }) {
   const submit = () => {
     const raw = value;
     const result = run(raw, context);
-    history.current.push(raw);
+    const entry = raw.trim();
+    if (entry && history.current[history.current.length - 1] !== entry) {
+      history.current.push(entry);
+    }
     cursor.current = history.current.length;
     setValue("");
     if (result === "clear") {
@@ -159,6 +212,22 @@ export function Terminal({ context }: { context: AppContext }) {
   const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       submit();
+    } else if (event.key === "Tab" && value.trim() && !event.shiftKey) {
+      // Tab completes like a real shell. On an empty prompt it still moves
+      // focus, so the keyboard is never trapped in here.
+      event.preventDefault();
+      const result = complete(value);
+      setValue(result.value);
+      if (result.options.length) {
+        setLines((current) => [
+          ...current,
+          { kind: "cmd", text: value },
+          { kind: "out", text: result.options.join("  ") },
+        ]);
+      }
+    } else if (event.key.toLowerCase() === "l" && event.ctrlKey) {
+      event.preventDefault();
+      setLines([]);
     } else if (event.key === "ArrowUp" || event.key === "ArrowDown") {
       event.preventDefault();
       const next = cursor.current + (event.key === "ArrowUp" ? -1 : 1);

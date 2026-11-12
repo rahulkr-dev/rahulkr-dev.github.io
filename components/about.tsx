@@ -6,6 +6,7 @@ import {
   MapPin,
   ShieldCheck,
 } from "lucide-react";
+import { LOCATION, NAME, ROLE } from "@/lib/profile";
 
 const highlights = [
   "Architected multi-tenant CRM modules with RBAC-enforced security.",
@@ -64,13 +65,13 @@ export function About() {
                 RK
               </div>
               <div>
-                <h3 className="text-xl font-bold">Rahul Kumar</h3>
+                <h3 className="text-xl font-bold">{NAME}</h3>
                 <p className="mt-1 text-muted-foreground">
-                  Full-Stack Engineer
+                  {ROLE}
                 </p>
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
                   <MapPin className="mr-1.5 h-4 w-4" />
-                  <span>Delhi, India</span>
+                  <span>{LOCATION}</span>
                 </div>
               </div>
             </div>

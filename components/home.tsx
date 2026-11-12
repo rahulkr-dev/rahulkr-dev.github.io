@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ArrowDown, FileText, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { HeroVisual } from "@/components/hero-visual";
-import { GITHUB_URL, LINKEDIN_URL, RESUME_DRIVE_URL } from "@/lib/constant";
+import {
+  EMAIL_HREF,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  RESUME_DRIVE_URL,
+} from "@/lib/constant";
+import { NAME, ROLE } from "@/lib/profile";
 import { cn } from "@/lib/utils";
 
 const impactStats = [
@@ -17,14 +23,14 @@ export function Home() {
       <div className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="text-center lg:text-left">
           <p className="motion-enter mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            Full-Stack Engineer
+            {ROLE}
           </p>
           <p className="motion-enter mb-6 inline-flex items-center gap-2 rounded-full border bg-background/80 px-3 py-1.5 text-sm text-muted-foreground">
             <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
             Now at Infinity Learn: live-class streaming on Google Cloud
           </p>
           <h1 className="motion-enter motion-delay-1 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-            Rahul Kumar
+            {NAME}
           </h1>
           <div className="accent-rule motion-enter motion-delay-1 mx-auto mt-5 h-1 w-24 rounded-full lg:mx-0" />
           <p className="motion-enter motion-delay-2 mt-5 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
@@ -65,7 +71,7 @@ export function Home() {
               Resume
             </Link>
             <Link
-              href="mailto:rkrahul8181@gmail.com"
+              href={EMAIL_HREF}
               className="inline-flex items-center justify-center gap-2 rounded-md border bg-background px-5 py-3 text-sm font-semibold transition duration-300 hover:-translate-y-0.5 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <Mail className="h-4 w-4" />

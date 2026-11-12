@@ -11,6 +11,10 @@ export type AppId =
 
 export type AppContext = {
   open: (id: AppId) => void;
+  /** Index into `projects` of the one shown in the Projects app. */
+  project: number;
+  /** Opens the Projects app on a given project. */
+  openProject: (index: number) => void;
 };
 
 export type AppDef = {

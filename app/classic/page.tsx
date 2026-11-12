@@ -3,9 +3,13 @@ import { Home } from "@/components/home";
 import { Experience } from "@/components/experience";
 import { Skills } from "@/components/skills";
 import { GitHubContributionCalendar } from "@/components/github-calendar";
-import React from "react";
+import type { Metadata } from "next";
 import { Projects } from "@/components/projects";
 import { Footer } from "@/components/footer";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/classic/" },
+};
 
 const RootPage = () => {
   return (

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import Link from "next/link";
+import { NAME, ROLE } from "@/lib/profile";
 
 const STEP_MS = 700;
 const SEEN_KEY = "rk-boot-seen";
@@ -59,6 +61,8 @@ export function BootScreen({ ready, instant, leaving, onStart }: BootScreenProps
     } catch {
       // Private mode: the countdown simply plays again next time.
     }
+    // Hand the keyboard back to the page, so Enter can sit down at the desk.
+    button.current?.blur();
     onStart();
   };
 
@@ -80,6 +84,15 @@ export function BootScreen({ ready, instant, leaving, onStart }: BootScreenProps
         />
         {live ? "LIVE" : "STANDBY"}
       </div>
+
+      {/* For visitors in a hurry: the same content as a normal page. */}
+      <Link
+        href="/classic"
+        onClick={(event) => event.stopPropagation()}
+        className="absolute right-6 top-5 z-10 rounded-full border border-white/15 px-4 py-2 text-xs font-medium text-white/70 transition hover:border-white/40 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-12 sm:top-7"
+      >
+        Skip to the classic site &rarr;
+      </Link>
 
       {/* Tally light, countdown and the button */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -126,8 +139,8 @@ export function BootScreen({ ready, instant, leaving, onStart }: BootScreenProps
       <div className="boot-lower absolute bottom-20 left-6 flex items-stretch sm:left-12">
         <div className="w-1 bg-[#ff3b30]" />
         <div className="bg-white/[0.07] px-5 py-3.5 backdrop-blur-sm">
-          <p className="text-2xl font-semibold tracking-tight sm:text-3xl">Rahul Kumar</p>
-          <p className="mt-0.5 text-sm text-white/70 sm:text-base">Full-Stack AI Engineer</p>
+          <p className="text-2xl font-semibold tracking-tight sm:text-3xl">{NAME}</p>
+          <p className="mt-0.5 text-sm text-white/70 sm:text-base">{ROLE}</p>
         </div>
       </div>
 
@@ -153,7 +166,7 @@ export function BootScreen({ ready, instant, leaving, onStart }: BootScreenProps
       </div>
 
       <p className="sr-only">
-        Full-Stack AI Engineer. Python, TypeScript, Node.js, FastAPI, Google Cloud.
+        {ROLE}. {STACK.join(", ")}.
         {live ? " Press Go live to enter." : ""}
       </p>
     </div>

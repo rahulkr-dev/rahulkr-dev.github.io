@@ -2,6 +2,7 @@ import { ExternalLink, Mail } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { EMAIL_HREF } from "@/lib/constant";
 import { projects, type Project } from "@/lib/projects";
 
 export function Projects() {
@@ -84,7 +85,11 @@ export function Projects() {
                       </Button>
                     ) : null}
                     <Button asChild>
-                      <a href="mailto:rkrahul8181@gmail.com?subject=Portfolio%20project%20walkthrough">
+                      <a
+                        href={`${EMAIL_HREF}?subject=${encodeURIComponent(
+                          `Walkthrough: ${project.title}`
+                        )}`}
+                      >
                         <Mail className="h-4 w-4" />
                         Request walkthrough
                       </a>

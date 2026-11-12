@@ -31,6 +31,7 @@ export function MacOS({ active, onExit }: MacOSProps) {
   const [order, setOrder] = useState<AppId[]>([]);
   const [spotlight, setSpotlight] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [project, setProject] = useState(0);
   const [clock, setClock] = useState(() => formatClock());
 
   const patch = useCallback((id: AppId, change: Partial<WinState>) => {
@@ -104,7 +105,18 @@ export function MacOS({ active, onExit }: MacOSProps) {
     return el ? el.getBoundingClientRect().width / el.offsetWidth : 1;
   }, []);
 
-  const context: AppContext = useMemo(() => ({ open: openApp }), [openApp]);
+  const openProject = useCallback(
+    (index: number) => {
+      setProject(index);
+      openApp("projects");
+    },
+    [openApp]
+  );
+
+  const context: AppContext = useMemo(
+    () => ({ open: openApp, project, openProject }),
+    [openApp, project, openProject]
+  );
   const focused = order[order.length - 1];
   const running = useMemo(
     () => new Set(apps.filter((app) => wins[app.id].open).map((app) => app.id)),
@@ -125,7 +137,7 @@ export function MacOS({ active, onExit }: MacOSProps) {
 
   if (!booted) {
     return (
-      <div className="mx-os">
+      <div className="mx-os" inert={!active}>
         <div className="mx-splash">
           <div className="mx-splash-mark">RK</div>
           <div className="mx-splash-bar" aria-hidden="true">
@@ -137,7 +149,14 @@ export function MacOS({ active, onExit }: MacOSProps) {
   }
 
   return (
-    <div ref={root} className="mx-os" onPointerDown={() => setMenu(false)}>
+    // Inert from the desk view, so Tab cannot wander into a screen that is
+    // too small to read.
+    <div
+      ref={root}
+      className="mx-os"
+      inert={!active}
+      onPointerDown={() => setMenu(false)}
+    >
       <div className="mx-wallpaper" />
 
       <div
@@ -220,6 +239,7 @@ export function MacOS({ active, onExit }: MacOSProps) {
         <Spotlight
           apps={apps}
           onOpenApp={openApp}
+          onOpenProject={openProject}
           onClose={() => setSpotlight(false)}
         />
       ) : null}

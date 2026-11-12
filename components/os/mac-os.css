@@ -665,16 +665,26 @@
   font-size: 19px;
   user-select: text;
 }
-.mx-spot-list {
+/* ".mx-os" prefix: beat the generic list styles for app content. */
+.mx-os .mx-spot-list {
+  position: relative;
   max-height: 260px;
   margin: 0;
   padding: 6px;
   overflow: auto;
   border-top: 1px solid #e3e3e8;
   list-style: none;
+  scrollbar-color: #c6c6cc transparent;
+  scrollbar-width: thin;
 }
-.mx-spot-list li {
+.mx-os .mx-spot-list li {
   margin: 0;
+}
+.mx-spot-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .mx-spot-list button,
 .mx-spot-list a {
@@ -703,6 +713,7 @@
   flex: none;
 }
 .mx-spot-kind {
+  flex: none;
   margin-left: auto;
   font-size: 11.5px;
 }

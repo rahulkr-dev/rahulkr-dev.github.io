@@ -18,6 +18,7 @@ import { projects } from "@/lib/projects";
 import { skillGroups } from "@/lib/skills";
 import {
   EMAIL,
+  EMAIL_HREF,
   GITHUB_URL,
   LINKEDIN_URL,
   PHONE_DISPLAY,
@@ -60,7 +61,7 @@ export const apps: AppDef[] = [
     height: 450,
     x: 150,
     y: 50,
-    render: () => <Projects />,
+    render: (context) => <Projects context={context} />,
   },
   {
     id: "skills",
@@ -175,8 +176,8 @@ function Experience() {
   );
 }
 
-function Projects() {
-  const [selected, setSelected] = useState(0);
+function Projects({ context }: { context: AppContext }) {
+  const selected = context.project;
   const project = projects[selected];
 
   return (
@@ -188,7 +189,7 @@ function Projects() {
             key={item.title}
             type="button"
             aria-current={index === selected}
-            onClick={() => setSelected(index)}
+            onClick={() => context.openProject(index)}
           >
             {item.title}
           </button>
@@ -212,8 +213,8 @@ function Projects() {
             </span>
           ))}
         </div>
-        {project.sourceLink ? (
-          <p style={{ marginTop: 16 }}>
+        <p style={{ display: "flex", gap: 8, marginTop: 16 }}>
+          {project.sourceLink ? (
             <a
               className="mx-btn"
               href={project.sourceLink}
@@ -222,8 +223,26 @@ function Projects() {
             >
               View on GitHub
             </a>
-          </p>
-        ) : null}
+          ) : null}
+          {project.liveLink ? (
+            <a
+              className="mx-btn"
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live demo
+            </a>
+          ) : null}
+          <a
+            className="mx-btn mx-btn-primary"
+            href={`${EMAIL_HREF}?subject=${encodeURIComponent(
+              `Walkthrough: ${project.title}`
+            )}`}
+          >
+            Request a walkthrough
+          </a>
+        </p>
       </div>
     </div>
   );
