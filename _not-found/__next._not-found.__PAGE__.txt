@@ -1,28 +1,54 @@
 1:"$Sreact.fragment"
-2:"/_next/static/chunks/2b8rh_jxjzuzd.js"
+2:"/_next/static/chunks/1hc_z7tp8wdsg.js"
 3:I[89554,["$2"],"ThemeProvider"]
-4:I[26213,["$2"],"default"]
-5:I[9141,["$2"],"default"]
-c:I[93403,["$2"],"OutletBoundary"]
-d:"$Sreact.suspense"
-10:"ViewportBoundary"
-11:I[93403,["$2"],"$10"]
-12:"MetadataBoundary"
-13:I[93403,["$2"],"$12"]
-14:I[2545,["$2"],"IconMark"]
-:HL["/_next/static/chunks/083l69ej39iqr.css","style"]
-7:X
+4:"/_next/static/chunks/25g019l6gz-yy.js"
+5:I[26213,["$4"],"default"]
+6:I[9141,["$4"],"default"]
+7:"/_next/static/chunks/3f49q3rsfnxb3.js"
+8:I[84647,["$2","$7"],""]
+12:"ViewportBoundary"
+13:I[93403,["$4"],"$12"]
+14:"MetadataBoundary"
+15:I[93403,["$4"],"$14"]
+16:"$Sreact.suspense"
+:HL["/_next/static/chunks/35nqfvcx7e52-.css","style"]
 a:X
+d:X
+d:C
+e:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"className":"fixed inset-0 flex flex-col items-center justify-center px-6 text-center text-white","style":{"background":"radial-gradient(ellipse at 50% 44%, #17181d 0%, #08080a 62%, #040405 100%)"},"children":[["$","p",null,{"className":"flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] text-white/55","children":[["$","span",null,{"className":"h-1.5 w-1.5 rounded-full bg-white/30","aria-hidden":"true"}],"OFF AIR"]}],["$","h1",null,{"className":"mt-6 text-7xl font-semibold tabular-nums sm:text-8xl","children":"404"}],["$","p",null,{"className":"mt-4 max-w-sm text-white/70","children":"Signal lost. This page does not exist, or it moved."}],["$","div",null,{"className":"mt-9 flex flex-col gap-3 sm:flex-row","children":[["$","$L8",null,{"href":"/","className":"rounded-full border px-6 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white border-[#ff3b30]/70 bg-[#ff3b30]/10 hover:bg-[#ff3b30]","children":"Back to the desk"}],["$","$L8",null,{"href":"/classic","className":"rounded-full border px-6 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white border-white/25 hover:bg-white/10","children":"Classic site"}]]}]]}],["$Lf"],"$L10"]}],"p":"$@11","v":null,"s":"$a"}}]]
+b:[["children",{"s":"/_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@c","v":"$d","s":"$a"},"c":"$Qe"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/35nqfvcx7e52-.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/1hc_z7tp8wdsg.js","async":true}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"TDcEIq_variable ZaOecW_variable","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Person\",\"name\":\"Rahul Kumar\",\"jobTitle\":\"Full-Stack AI Engineer\",\"description\":\"I build production systems: APIs, queues, databases, cloud deployments and the interfaces on top of them. My strongest work is in products that need reliability behind the UI.\",\"url\":\"https://rahulkr-dev.github.io\",\"email\":\"mailto:rkrahul8181@gmail.com\",\"sameAs\":[\"https://github.com/rahulkr-dev\",\"https://www.linkedin.com/in/rahul-kumar-850b39232/\"],\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Delhi\",\"addressCountry\":\"IN\"},\"worksFor\":{\"@type\":\"Organization\",\"name\":\"Infinity Learn\"}}"}}],["$","$L3",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"children":["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}],"notFound":[["$","main",null,{"className":"fixed inset-0 flex flex-col items-center justify-center px-6 text-center text-white","style":{"background":"radial-gradient(ellipse at 50% 44%, #17181d 0%, #08080a 62%, #040405 100%)"},"children":[["$","p",null,{"className":"flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] text-white/55","children":[["$","span",null,{"className":"h-1.5 w-1.5 rounded-full bg-white/30","aria-hidden":"true"}],"OFF AIR"]}],["$","h1",null,{"className":"mt-6 text-7xl font-semibold tabular-nums sm:text-8xl","children":"404"}],["$","p",null,{"className":"mt-4 max-w-sm text-white/70","children":"Signal lost. This page does not exist, or it moved."}],["$","div",null,{"className":"mt-9 flex flex-col gap-3 sm:flex-row","children":[["$","$L8",null,{"href":"/","className":"rounded-full border px-6 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white border-[#ff3b30]/70 bg-[#ff3b30]/10 hover:bg-[#ff3b30]","children":"Back to the desk"}],["$","$L8",null,{"href":"/classic","className":"rounded-full border px-6 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white border-white/25 hover:bg-white/10","children":"Classic site"}]]}]]}],[]]}]}]]}]}]]}],"p":"$@9","v":null,"s":"$a"},"c":"$Qb"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L13",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#ffffff","media":"(prefers-color-scheme: light)"}],["$","meta","3",{"name":"theme-color","content":"#0d0e12","media":"(prefers-color-scheme: dark)"}]]}],["$","$L15",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Signal lost | Rahul Kumar"}],["$","meta","1",{"name":"description","content":"Full-stack engineer building scalable SaaS platforms, live-class streaming, real-time messaging systems, and AI-powered support workflows with Python, FastAPI, Node.js, React, Google Cloud, AWS, and PostgreSQL."}],["$","link","2",{"rel":"author","href":"https://rahulkr-dev.github.io"}],["$","meta","3",{"name":"author","content":"Rahul Kumar"}],["$","meta","4",{"name":"keywords","content":"Rahul Kumar,Full Stack Developer,Full Stack Engineer,AI Engineer,React,Next.js,Node.js,Python,FastAPI,Google Cloud,Live Streaming,AWS,Cloudflare,PostgreSQL,Distributed Systems"}],["$","meta","5",{"name":"creator","content":"Rahul Kumar"}],["$","meta","6",{"name":"robots","content":"noindex"}],["$","meta","7",{"property":"og:title","content":"Rahul Kumar | Full-Stack AI Engineer"}],"$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20","$L21","$L22","$L23","$L24","$L25","$L26","$L27","$L28","$L29","$L2a"]}]}],null]}],"$L2b"]}],"p":"$@2c","v":null,"s":"$a"}},"a":"$@2d","u":"$@2e","b":"eezAVzIplGArfVTjQGgVz"}
+2f:I[93403,["$4"],"OutletBoundary"]
+31:I[2545,["$4"],"IconMark"]
+f:["$","script","script-0",{"src":"/_next/static/chunks/3f49q3rsfnxb3.js","async":true}]
+10:["$","$L2f",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@30"}]}]
+17:["$","meta","8",{"property":"og:description","content":"Scalable SaaS, real-time messaging systems, cloud architecture, and AI-powered support workflows."}]
+18:["$","meta","9",{"property":"og:url","content":"https://rahulkr-dev.github.io/"}]
+19:["$","meta","10",{"property":"og:site_name","content":"Rahul Kumar"}]
+1a:["$","meta","11",{"property":"og:locale","content":"en_IN"}]
+1b:["$","meta","12",{"property":"og:image","content":"https://rahulkr-dev.github.io/opengraph-image.jpg?opengraph-image.2e3kzjog-8x0k.jpg"}]
+1c:["$","meta","13",{"property":"og:image:type","content":"image/jpeg"}]
+1d:["$","meta","14",{"property":"og:image:width","content":"1200"}]
+1e:["$","meta","15",{"property":"og:image:height","content":"630"}]
+1f:["$","meta","16",{"property":"og:image:alt","content":"Rahul Kumar, Full-Stack AI Engineer: a 3D desk with a monitor, chair, lamp and plant"}]
+20:["$","meta","17",{"property":"og:type","content":"website"}]
+21:["$","meta","18",{"name":"twitter:card","content":"summary_large_image"}]
+22:["$","meta","19",{"name":"twitter:title","content":"Rahul Kumar | Full-Stack AI Engineer"}]
+23:["$","meta","20",{"name":"twitter:description","content":"Full-stack engineer building scalable SaaS platforms, messaging systems, and AI support workflows."}]
+24:["$","meta","21",{"name":"twitter:image","content":"https://rahulkr-dev.github.io/opengraph-image.jpg?opengraph-image.2e3kzjog-8x0k.jpg"}]
+25:["$","meta","22",{"name":"twitter:image:alt","content":"Rahul Kumar, Full-Stack AI Engineer: a 3D desk with a monitor, chair, lamp and plant"}]
+26:["$","meta","23",{"name":"twitter:image:type","content":"image/jpeg"}]
+27:["$","meta","24",{"name":"twitter:image:width","content":"1200"}]
+28:["$","meta","25",{"name":"twitter:image:height","content":"630"}]
+29:["$","link","26",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}]
+2a:["$","$L31","27",{}]
+2b:["$","meta",null,{"name":"next-size-adjust","content":""}]
+a:300
+30:null
+2e:true
 a:C
-b:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:t:t:d:r:props:children:1:props:children:props:children:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:t:t:d:r:props:children:1:props:children:props:children:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$0:t:t:d:r:props:children:1:props:children:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$0:t:t:d:r:props:children:1:props:children:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],null,["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]]}],"p":"$@f","v":null,"s":"$7"}}]]
-8:[["children",{"s":"/_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@9","v":"$a","s":"$7"},"c":"$Qb"}]]
-0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/083l69ej39iqr.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/2b8rh_jxjzuzd.js","async":true}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"TDcEIq_variable ZaOecW_variable","children":["$","$L3",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"children":["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]}]}]}]]}],"p":"$@6","v":null,"s":"$7"},"c":"$Q8"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L11",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L13",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$d",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Rahul Kumar | Full-Stack Engineer"}],["$","meta","1",{"name":"description","content":"Full-stack engineer building scalable SaaS platforms, live-class streaming, real-time messaging systems, and AI-powered support workflows with Python, FastAPI, Node.js, React, Google Cloud, AWS, and PostgreSQL."}],["$","link","2",{"rel":"author","href":"https://rahulkr-dev.github.io"}],["$","meta","3",{"name":"author","content":"Rahul Kumar"}],["$","meta","4",{"name":"keywords","content":"Rahul Kumar,Full Stack Developer,Full Stack Engineer,React,Next.js,Node.js,Python,FastAPI,Google Cloud,Live Streaming,AWS,Cloudflare,PostgreSQL,Distributed Systems"}],["$","meta","5",{"name":"creator","content":"Rahul Kumar"}],["$","meta","6",{"property":"og:title","content":"Rahul Kumar | Full-Stack Engineer"}],["$","meta","7",{"property":"og:description","content":"Scalable SaaS, real-time messaging systems, cloud architecture, and AI-powered support workflows."}],["$","meta","8",{"property":"og:url","content":"https://rahulkr-dev.github.io/"}],["$","meta","9",{"property":"og:site_name","content":"Rahul Kumar"}],["$","meta","10",{"property":"og:locale","content":"en_IN"}],["$","meta","11",{"property":"og:type","content":"website"}],["$","meta","12",{"name":"twitter:card","content":"summary"}],["$","meta","13",{"name":"twitter:title","content":"Rahul Kumar | Full-Stack Engineer"}],["$","meta","14",{"name":"twitter:description","content":"Full-stack engineer building scalable SaaS platforms, messaging systems, and AI support workflows."}],["$","link","15",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","16",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@15","v":null,"s":"$7"}},"a":"$@16","u":"$@17","b":"mCJ_WXOu7FGTjJtQhkDe0"}
-e:null
-7:300
-17:true
-7:C
-16:0
+2d:0
+c:"$undefined"
 9:"$undefined"
-6:"$undefined"
-15:"$undefined"
-f:"$undefined"
+2c:"$undefined"
+11:"$undefined"
